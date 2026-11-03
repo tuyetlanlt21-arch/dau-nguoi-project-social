@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600&family=Manrope:wght@500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&family=Manrope:wght@500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <style>
@@ -22,7 +22,7 @@
         --terra: #a96d56;
         --beige: #eae2d5;
         --line: #d7d0c4;
-        --sans: "Albert Sans", sans-serif;
+        --sans: "Be Vietnam Pro", sans-serif;
         --display: Manrope, sans-serif;
         --max: 1220px;
       }
@@ -75,7 +75,9 @@
         border-bottom: 1px solid transparent;
         background: #f7f4eddf;
         backdrop-filter: blur(14px);
-        transition: background-color 0.25s ease-out, border-color 0.25s ease-out;
+        transition:
+          background-color 0.25s ease-out,
+          border-color 0.25s ease-out;
       }
       .nav.scrolled {
         border-color: var(--line);
@@ -684,7 +686,11 @@
   <body>
     <a class="skip" href="#story">Bỏ qua phần đầu trang</a>
     <header class="nav" id="nav">
-      <a href="#top" class="brand">Dấu Người · 2026</a>
+      <div class="brand-lockup">
+        <img src="assets/fpt-university-logo.webp" alt="FPT University" />
+        <span class="brand-divider" aria-hidden="true"></span>
+        <a href="#top" class="brand" aria-label="Dấu Người">Dấu Người.</a>
+      </div>
       <button class="menu" aria-label="Mở điều hướng" aria-expanded="false">
         ☰
       </button>
@@ -744,10 +750,6 @@
             </p>
             <p class="pull">
               Sự tri ân đôi khi bắt đầu từ những điều giản dị nhất.
-            </p>
-            <p class="note">
-              Thông tin lịch sử và số liệu về Trung tâm Long Đất đang chờ đối
-              chiếu nguồn chính thức.
             </p>
           </div>
           <div class="legacy-copy">
@@ -826,66 +828,121 @@
         <div class="inner reveal">
           <p class="eyebrow">03 / The journey</p>
           <h2 class="title">Một hành trình, nhiều dấu ấn.</h2>
-          <p class="journey-support">Từ những cuộc gặp gỡ đầu tiên đến hành trình tri ân được tiếp nối.</p>
-          <div class="timeline" aria-label="10 cột mốc chính thức của dự án Dấu Người">
+          <p class="journey-support">
+            Từ những cuộc gặp gỡ đầu tiên đến hành trình tri ân được tiếp nối.
+          </p>
+          <div
+            class="timeline"
+            aria-label="10 cột mốc chính thức của dự án Dấu Người"
+          >
             <article class="milestone">
               <time class="date" datetime="2026-09-15">15.09.2026</time>
-              <div class="milestone-copy"><div class="milestone-heading"><span class="milestone-index" aria-hidden="true">01</span><h3>Những mảnh ghép đầu tiên</h3></div>
-                <p>Sáu thành viên gặp gỡ, kết nối và bắt đầu hành trình chung.</p>
+              <div class="milestone-copy">
+                <div class="milestone-heading">
+                  <span class="milestone-index" aria-hidden="true">01</span>
+                  <h3>Những mảnh ghép đầu tiên</h3>
+                </div>
+                <p>
+                  Sáu thành viên gặp gỡ, kết nối và bắt đầu hành trình chung.
+                </p>
               </div>
             </article>
             <article class="milestone milestone-highlight">
               <time class="date" datetime="2026-09-25">25.09.2026</time>
-              <div class="milestone-copy"><div class="milestone-heading"><span class="milestone-index" aria-hidden="true">02</span><h3>Dấu Người ra đời</h3></div>
+              <div class="milestone-copy">
+                <div class="milestone-heading">
+                  <span class="milestone-index" aria-hidden="true">02</span>
+                  <h3>Dấu Người ra đời</h3>
+                </div>
                 <p>Định hình ý tưởng và thông điệp lan tỏa lòng biết ơn.</p>
               </div>
             </article>
             <article class="milestone">
               <time class="date" datetime="2026-10-03">03.10.2026</time>
-              <div class="milestone-copy"><div class="milestone-heading"><span class="milestone-index" aria-hidden="true">03</span><h3>Chuẩn bị nguồn lực</h3></div>
+              <div class="milestone-copy">
+                <div class="milestone-heading">
+                  <span class="milestone-index" aria-hidden="true">03</span>
+                  <h3>Chuẩn bị nguồn lực</h3>
+                </div>
                 <p>Góp vốn, tìm nhà cung cấp và chuẩn bị vật tư.</p>
               </div>
             </article>
             <article class="milestone">
               <time class="date" datetime="2026-10-06">06.10.2026</time>
-              <div class="milestone-copy"><div class="milestone-heading"><span class="milestone-index" aria-hidden="true">04</span><h3>Bắt đầu bán hàng</h3></div>
-                <p>Mở bán bánh tráng online và offline xuyên suốt chiến dịch.</p>
+              <div class="milestone-copy">
+                <div class="milestone-heading">
+                  <span class="milestone-index" aria-hidden="true">04</span>
+                  <h3>Bắt đầu bán hàng</h3>
+                </div>
+                <p>
+                  Mở bán bánh tráng online và offline xuyên suốt chiến dịch.
+                </p>
               </div>
             </article>
             <article class="milestone">
               <time class="date" datetime="2026-10-10">10.10.2026</time>
-              <div class="milestone-copy"><div class="milestone-heading"><span class="milestone-index" aria-hidden="true">05</span><h3>Sẵn sàng triển khai</h3></div>
-                <p>Phân công nhiệm vụ, kiểm kê và hoàn thiện công tác chuẩn bị.</p>
+              <div class="milestone-copy">
+                <div class="milestone-heading">
+                  <span class="milestone-index" aria-hidden="true">05</span>
+                  <h3>Sẵn sàng triển khai</h3>
+                </div>
+                <p>
+                  Phân công nhiệm vụ, kiểm kê và hoàn thiện công tác chuẩn bị.
+                </p>
               </div>
             </article>
             <article class="milestone">
               <time class="date" datetime="2026-10-12">12–13.10.2026</time>
-              <div class="milestone-copy"><div class="milestone-heading"><span class="milestone-index" aria-hidden="true">06</span><h3>Class Tour</h3></div>
+              <div class="milestone-copy">
+                <div class="milestone-heading">
+                  <span class="milestone-index" aria-hidden="true">06</span>
+                  <h3>Class Tour</h3>
+                </div>
                 <p>Giới thiệu dự án và lan tỏa thông điệp tại lớp học.</p>
               </div>
             </article>
             <article class="milestone milestone-highlight">
               <time class="date" datetime="2026-10-13">13.10.2026</time>
-              <div class="milestone-copy"><div class="milestone-heading"><span class="milestone-index" aria-hidden="true">07</span><h3>Workshop Dấu Người</h3></div>
+              <div class="milestone-copy">
+                <div class="milestone-heading">
+                  <span class="milestone-index" aria-hidden="true">07</span>
+                  <h3>Workshop Dấu Người</h3>
+                </div>
                 <p>Triển khai photobooth, bán trà tắc và kiểm kê doanh thu.</p>
               </div>
             </article>
             <article class="milestone">
               <time class="date" datetime="2026-10-22">22.10.2026</time>
-              <div class="milestone-copy"><div class="milestone-heading"><span class="milestone-index" aria-hidden="true">08</span><h3>Tổng kết chiến dịch</h3></div>
-                <p>Chốt doanh thu, chi phí, lợi nhuận và ngừng nhận tiền vào quỹ.</p>
+              <div class="milestone-copy">
+                <div class="milestone-heading">
+                  <span class="milestone-index" aria-hidden="true">08</span>
+                  <h3>Tổng kết chiến dịch</h3>
+                </div>
+                <p>
+                  Chốt doanh thu, chi phí, lợi nhuận và ngừng nhận tiền vào quỹ.
+                </p>
               </div>
             </article>
             <article class="milestone">
               <span class="date">SAU TỔNG KẾT</span>
-              <div class="milestone-copy"><div class="milestone-heading"><span class="milestone-index" aria-hidden="true">09</span><h3>Hoàn tất quỹ</h3></div>
+              <div class="milestone-copy">
+                <div class="milestone-heading">
+                  <span class="milestone-index" aria-hidden="true">09</span>
+                  <h3>Hoàn tất quỹ</h3>
+                </div>
                 <p>Chuyển khoản đóng góp, hoàn trả vốn và khóa quỹ.</p>
               </div>
             </article>
             <article class="milestone milestone-highlight">
               <time class="date" datetime="2026-11-01">01.11.2026</time>
-              <div class="milestone-copy"><div class="milestone-heading"><span class="milestone-index" aria-hidden="true">10</span><h3>Kindness Fieldtrip 9</h3></div>
-                <p>Theo dõi chuyến đi do SSC tổ chức mà nhóm đã góp quỹ hỗ trợ.</p>
+              <div class="milestone-copy">
+                <div class="milestone-heading">
+                  <span class="milestone-index" aria-hidden="true">10</span>
+                  <h3>Kindness Fieldtrip 9</h3>
+                </div>
+                <p>
+                  Theo dõi chuyến đi do SSC tổ chức mà nhóm đã góp quỹ hỗ trợ.
+                </p>
               </div>
             </article>
           </div>
@@ -899,13 +956,13 @@
             <article class="activity">
               <figure>
                 <img
-                  src="assets/fptu-photobooth-20261013-163310.png"
+                  src="assets/fptu-photobooth-20261013-163140.png"
                   alt="Một ảnh photobooth của người tham gia"
                   loading="lazy"
                 />
                 <img
                   class="strip"
-                  src="assets/fptu-photobooth-20261013-163140.png"
+                  src="assets/fptu-photobooth.png"
                   alt="Dải ảnh photobooth"
                   loading="lazy"
                 />
@@ -929,7 +986,7 @@
             <article class="activity reverse">
               <figure>
                 <img
-                  src="assets/IMG_3342.JPG"
+                  src="assets/banh_trang.jpg"
                   alt="Tư liệu ảnh trong ngày hoạt động gây quỹ"
                   loading="lazy"
                 />
@@ -952,7 +1009,7 @@
             <article class="activity">
               <figure>
                 <img
-                  src="assets/DSC09777.JPG"
+                  src="assets/tra_tac.jpg"
                   alt="Tư liệu hoạt động gây quỹ Dấu Người"
                   loading="lazy"
                 />
@@ -976,50 +1033,74 @@
       </section>
       <section class="section main-day">
         <div class="inner reveal">
-          <p class="eyebrow">05 / The main day · 13 October 2026</p>
-          <h2 class="title">Ngày những nỗ lực trở thành kỷ niệm.</h2>
-          <p class="copy">
-            Sau nhiều tuần chuẩn bị, 13/10 là thời điểm các hoạt động gây quỹ
-            được triển khai tập trung và khép lại. Đằng sau mỗi sản phẩm là quá
-            trình tìm nguồn hàng, tính toán chi phí, phối hợp công việc và chuẩn
-            bị phục vụ người tham gia.
-          </p>
-          <div class="gallery" aria-label="Thư viện ảnh ngày hoạt động">
-            <button data-full="assets/DSC09780.JPG">
-              <img
-                src="assets/DSC09780.JPG"
-                alt="Ảnh tư liệu ngày hoạt động"
-                loading="lazy"
-              />
-            </button>
-            <button data-full="assets/DSC09777.JPG">
+          <div class="main-day-feature">
+            <div class="main-day-primary">
+              <h2 class="title">Ngày những nỗ lực trở thành kỷ niệm.</h2>
+              <p class="copy">
+                Sau nhiều tuần chuẩn bị, 13/10 là thời điểm các hoạt động gây quỹ
+                được triển khai tập trung và khép lại. Đằng sau mỗi sản phẩm là quá
+                trình tìm nguồn hàng, tính toán chi phí, phối hợp công việc và chuẩn
+                bị phục vụ người tham gia.
+              </p>
+              <button data-full="assets/DSC09776.JPG">
+                <img
+                  src="assets/DSC09776.JPG"
+                  alt="Ảnh tư liệu ngày hoạt động"
+                  loading="lazy"
+                />
+              </button>
+            </div>
+            <button class="main-day-secondary" data-full="assets/DSC09777.JPG">
               <img
                 src="assets/DSC09777.JPG"
                 alt="Khoảnh khắc trong ngày hoạt động"
                 loading="lazy"
               />
             </button>
-            <button data-full="assets/IMG_3342.JPG">
+          </div>
+          <div class="main-day-photobooths" aria-label="Ảnh photobooth">
+            <button data-full="assets/fptu-photobooth-20261013-134744.png">
               <img
-                src="assets/IMG_3342.JPG"
-                alt="Tư liệu tại gian hàng"
+                src="assets/fptu-photobooth-20261013-134744.png"
+                alt="Ảnh photobooth của người tham gia"
+                loading="lazy"
+              />
+            </button>
+            <button data-full="assets/fptu-photobooth-20261013-131043.png">
+              <img
+                src="assets/fptu-photobooth-20261013-131043.png"
+                alt="Ảnh photobooth của người tham gia"
+                loading="lazy"
+              />
+            </button>
+            <button data-full="assets/fptu-photobooth-20261013-132013.png">
+              <img
+                src="assets/fptu-photobooth-20261013-161138 (1).png"
+                alt="Ảnh photobooth của người tham gia"
+                loading="lazy"
+              />
+            </button>
+            <button data-full="assets/fptu-photobooth-20261013-144744.png">
+              <img
+                src="assets/fptu-photobooth-20261013-144744.png"
+                alt="Ảnh photobooth của người tham gia"
                 loading="lazy"
               />
             </button>
             <button data-full="assets/fptu-photobooth-20261013-163140.png">
-              <img
-                src="assets/fptu-photobooth-20261013-163140.png"
-                alt="Ảnh photobooth"
-                loading="lazy"
-              />
-            </button>
-            <button data-full="assets/fptu-photobooth-20261013-163310.png">
               <img
                 src="assets/fptu-photobooth-20261013-163310.png"
                 alt="Ảnh photobooth của người tham gia"
                 loading="lazy"
               />
             </button>
+            <button data-full="assets/fptu-photobooth-20261013-163310.png">
+              <img
+                src="assets/fptu-photobooth-20261013-132013.png"
+                alt="Ảnh photobooth của người tham gia"
+                loading="lazy"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -1140,14 +1221,25 @@
         <div class="inner beyond reveal">
           <div class="beyond-story">
             <p class="eyebrow">07 / KINDNESS FIELDTRIP 9 · 01 NOVEMBER 2026</p>
-            <h2 class="title">Khi những đóng góp nhỏ tiếp nối một hành trình tri ân.</h2>
+            <h2 class="title">
+              Khi những đóng góp nhỏ tiếp nối một hành trình tri ân.
+            </h2>
             <p class="copy">
-              Dấu Người khép lại hành trình gây quỹ và đóng góp nguồn quỹ vào chương trình Kindness Fieldtrip 9, do câu lạc bộ SSC tổ chức ngày 01/11/2026 tại Trung tâm Điều dưỡng Thương binh và Người có công Long Đất.
+              Dấu Người khép lại hành trình gây quỹ và đóng góp nguồn quỹ vào
+              chương trình Kindness Fieldtrip 9, do câu lạc bộ SSC tổ chức ngày
+              01/11/2026 tại Trung tâm Điều dưỡng Thương binh và Người có công
+              Long Đất.
             </p>
             <p class="copy">
-              Chương trình hướng đến việc thăm hỏi, giao lưu và bày tỏ lòng biết ơn đối với các cô chú thương binh, bệnh binh và người có công. Dù không trực tiếp tham gia chuyến đi, nhóm Dấu Người vẫn góp một phần nhỏ vào hành trình ý nghĩa ấy.
+              Chương trình hướng đến việc thăm hỏi, giao lưu và bày tỏ lòng biết
+              ơn đối với các cô chú thương binh, bệnh binh và người có công. Dù
+              không trực tiếp tham gia chuyến đi, nhóm Dấu Người vẫn góp một
+              phần nhỏ vào hành trình ý nghĩa ấy.
             </p>
-            <div class="fieldtrip-gallery" aria-label="Tư liệu hình ảnh Kindness Fieldtrip 9">
+            <div
+              class="fieldtrip-gallery"
+              aria-label="Tư liệu hình ảnh Kindness Fieldtrip 9"
+            >
               <figure
                 class="tour-image fieldtrip-hall"
                 data-full="assets/class-tour-hall.jpg"
@@ -1179,7 +1271,9 @@
                 />
               </figure>
             </div>
-            <p class="fieldtrip-credit">Tư liệu hình ảnh: Kindness Fieldtrip 9 — CLB SSC, 01/11/2026.</p>
+            <p class="fieldtrip-credit">
+              Tư liệu hình ảnh: Kindness Fieldtrip 9 — CLB SSC, 01/11/2026.
+            </p>
           </div>
         </div>
       </section>
@@ -1209,33 +1303,67 @@
           <div class="team-cards">
             <article class="member">
               <span class="number">01</span>
-              <h3>Thành viên 01</h3>
-              <p>Chờ xác nhận tên & vai trò</p>
+              <h3>Lương Minh Khánh</h3>
+              <p>- Tổ chức họp, lên ý tưởng, thống nhất nội dung<br>
+                - Cập nhật thông tin, lên lịch, phân công nhiệm vụ cho từng thành viên, kiểm tra tiến độ<br>
+                - Mời khách, kêu gọi mọi người giới thiệu photobooth<br>
+                - Hỗ trợ quá trình chụp ảnh và trả ảnh<br>
+                - Tìm kiếm nguồn thuê máy in, các sản phẩm liên quan phục vụ cho photobooth<br>
+                - Tính toán, ghi nhận doanh số, thu chi, tổng kết tiền, gửi tiền<br>
+                - Tham gia class tour, là người trực tiếp viết mail xin phép, chịu trách nhiệm liên lạc, lên lịch cho các buổi giới thiệu cũng như thuyết trình tại các lớp học<br>
+                – Chuẩn bị tài liệu báo cáo tổng kết và thuyết trình<br>
+
+              </p>
             </article>
             <article class="member">
               <span class="number">02</span>
-              <h3>Thành viên 02</h3>
-              <p>Chờ xác nhận tên & vai trò</p>
+              <h3>Lê Thị Tuyết Lan</h3>
+              <p>- Chịu trách nhiệm lên ý tưởng, các sản phẩm nên bán cho nhóm<br>
+                - Xây dựng website chụp ảnh photobooth cho hoạt động chụp ảnh ngày 13/10<br>
+                - Chịu trách nhiệm, phụ trách chính và đứng giao tiếp, hướng dẫn khách hàng tại khu vực chụp photobooth của nhóm<br>
+                - Trực tiếp tìm kiếm nguồn thuê máy ảnh, chịu trách nhiệm về máy móc công nghệ cho dự án<br>
+                - Tham gia vào toàn bộ các buổi class tour (3/3)<br>
+                - Thủ quỹ <br>
+                - Làm báo cáo tổng kết cuối dự án cho nhóm<br>
+              </p>
             </article>
             <article class="member">
               <span class="number">03</span>
-              <h3>Thành viên 03</h3>
-              <p>Chờ xác nhận tên & vai trò</p>
+              <h3>Nguyễn Quốc Toàn</h3>
+              <p>- Tham gia đóng góp nội dung thuyết trình<br>
+                - Có mặt trong các cuộc họp để đưa ra các ý kiến cá nhân để hỗ trợ nhóm lựa chọn các mô hình phù hợp với dự án<br>
+                - Hỗ trợ việc vận chuyển các mặt hàng cho các thành viên khác<br>
+                - Phụ trách hỗ trợ các thành viên trong nhóm lấy bàn ghế setup khu vực buôn bán và bán hàng<br>
+                - Tham gia vào buổi class tour<br>
+                - Tham gia trực tiếp vào hoạt động bán hàng<br>
+              </p>
             </article>
             <article class="member">
               <span class="number">04</span>
-              <h3>Thành viên 04</h3>
-              <p>Chờ xác nhận tên & vai trò</p>
+              <h3>Nguyễn Khánh Trình</h3>
+              <p>- Góp công trong việc nghĩ ra ý tưởng cần thiết cho dự án như trà tắc<br>
+                  - Hỗ trợ cho nhóm công việc ký hợp đồng với đối tác quan trọng cho dự án<br>
+                  - Nhận và trả máy photobooth cho cả nhóm<br>
+                  - Đảm nhận 1 phần việc thuyết trình<br>
+                  - Hỗ trợ cả nhóm khi cần trong dự án gây quỹ<br>
+                  - Làm slide<br>
+              </p>
             </article>
             <article class="member">
               <span class="number">05</span>
-              <h3>Thành viên 05</h3>
-              <p>Chờ xác nhận tên & vai trò</p>
+              <h3>Nguyễn Minh Hoàng</h3>
+              <p>- Phụ trách lấy bàn ghế cho nhóm<br>
+                 - Tìm nguồn cung bánh tráng và trà tắc<br>
+                 - Bán hàng và kéo khách cho nhóm <br>
+                 - Vận chuyển và bảo quản trà tắc với bánh tráng<br>
+              </p>
             </article>
             <article class="member">
               <span class="number">06</span>
-              <h3>Thành viên 06</h3>
-              <p>Chờ xác nhận tên & vai trò</p>
+              <h3>Nguyễn Việt Quân</h3>
+              <p>- Hỗ trợ bán hàng<br>
+                - Truyền thông sản phẩm<br>
+              </p>
             </article>
           </div>
         </div>
@@ -1260,8 +1388,7 @@
             DẤU NGƯỜI<br />Hành trình khép lại. Những dấu ấn còn ở lại.
           </p>
           <footer class="footer-meta">
-            <span>Bắt đầu thành lập nhóm: 15.09.2026</span>
-            <span>Theo dõi tác động: 01.11.2026</span>
+            <span>15.09.2026 - 01.11.2026</span>
             <span>SSG105 · FPT University</span>
           </footer>
         </div>
@@ -1274,6 +1401,26 @@
       <button class="next" aria-label="Ảnh sau">›</button>
     </dialog>
     <script>
+      let lastScrollY = window.scrollY;
+      window.addEventListener(
+        "scroll",
+        () => {
+          const currentScrollY = window.scrollY;
+
+          if (currentScrollY <= 80) {
+            nav.classList.remove("nav-hidden");
+          } else if (currentScrollY > lastScrollY + 3) {
+            // Cuộn xuống: ẩn navbar
+            nav.classList.add("nav-hidden");
+          } else if (currentScrollY < lastScrollY - 3) {
+            // Cuộn lên: hiện navbar
+            nav.classList.remove("nav-hidden");
+          }
+
+          lastScrollY = currentScrollY;
+        },
+        { passive: true }
+      );
       const nav = document.querySelector(".nav"),
         menu = document.querySelector(".menu");
       menu.onclick = () => {
@@ -1291,7 +1438,9 @@
       const motionPreference = matchMedia("(prefers-reduced-motion: reduce)");
       const canObserve = "IntersectionObserver" in window;
       const timeline = document.querySelector(".journey .timeline");
-      const milestones = timeline ? [...timeline.querySelectorAll(".milestone")] : [];
+      const milestones = timeline
+        ? [...timeline.querySelectorAll(".milestone")]
+        : [];
       const sectionTargets = [];
       document.querySelectorAll(".section .reveal").forEach((container) => {
         const label = container.querySelector(".eyebrow");
@@ -1302,7 +1451,9 @@
         }
         if (heading) heading.classList.add("motion-heading");
         if (heading) {
-          const support = [...container.querySelectorAll(".copy, .journey-support")].find(
+          const support = [
+            ...container.querySelectorAll(".copy, .journey-support"),
+          ].find(
             (node) =>
               heading.compareDocumentPosition(node) &
               Node.DOCUMENT_POSITION_FOLLOWING,
@@ -1312,7 +1463,9 @@
       });
       sectionTargets.push(...milestones);
 
-      const metrics = [...document.querySelectorAll(".metric b[data-count-to]")];
+      const metrics = [
+        ...document.querySelectorAll(".metric b[data-count-to]"),
+      ];
       const metricFinalText = new Map(
         metrics.map((metric) => [metric, metric.textContent.trim()]),
       );
@@ -1344,10 +1497,10 @@
                 image.classList.add("image-revealed");
                 if (motionPreference.matches || !image.naturalWidth) return;
                 try {
-                  image.animate(
-                    [{ opacity: 0.92 }, { opacity: 1 }],
-                    { duration: 420, easing: "ease-out" },
-                  );
+                  image.animate([{ opacity: 0.92 }, { opacity: 1 }], {
+                    duration: 420,
+                    easing: "ease-out",
+                  });
                 } catch {
                   // The image remains visible when the optional fade is unavailable.
                 }
@@ -1398,13 +1551,12 @@
 
         document.body.classList.add("motion-ready");
         sectionTargets.forEach((target) => sectionObserver.observe(target));
-        document
-          .querySelectorAll("img")
-          .forEach((image) => {
-            if (image.closest(".lightbox") || image.classList.contains("strip")) return;
-            image.classList.add("image-motion");
-            imageObserver.observe(image);
-          });
+        document.querySelectorAll("img").forEach((image) => {
+          if (image.closest(".lightbox") || image.classList.contains("strip"))
+            return;
+          image.classList.add("image-motion");
+          imageObserver.observe(image);
+        });
         metrics.forEach((metric) => metricObserver.observe(metric));
       }
 
@@ -1427,7 +1579,11 @@
           if (top <= trigger) nextActive = index;
         });
         const nextStates = milestones.map((_, index) =>
-          index < nextActive ? "passed" : index === nextActive ? "active" : "upcoming",
+          index < nextActive
+            ? "passed"
+            : index === nextActive
+              ? "active"
+              : "upcoming",
         );
 
         timeline.style.setProperty("--timeline-progress", progress.toString());
