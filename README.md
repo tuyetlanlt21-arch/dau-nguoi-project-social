@@ -1,6 +1,7 @@
 # Dấu Người · SSG105
 
 Static, single-page portfolio for the Dấu Người student-led fundraising project at FPT University.
+https://dau-nguoi-project-social.vercel.app/
 
 ## Run locally
 
