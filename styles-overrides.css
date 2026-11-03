@@ -1,0 +1,453 @@
+/* Local refinements for the existing editorial system. */
+
+/* Our Story: concise copy and a balanced image column. */
+.story {
+  grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.8fr);
+  align-items: center;
+  gap: clamp(38px, 7vw, 92px);
+}
+.story-copy .title {
+  max-width: 670px;
+  font-size: clamp(32px, 4.2vw, 61px);
+  margin-bottom: 24px;
+}
+.story-copy .copy {
+  margin: 0 0 15px;
+  max-width: 640px;
+}
+.story-copy .pull {
+  max-width: 560px;
+  font-size: clamp(21px, 2.1vw, 29px);
+  line-height: 1.2;
+  margin: 24px 0 20px;
+}
+.story-copy .note {
+  margin: 0;
+  max-width: 560px;
+  padding: 8px 0 8px 12px;
+  border-left-color: var(--line);
+}
+.story .legacy-copy,
+#beyond .legacy-beyond-copy,
+#beyond .legacy-photo-essay {
+  display: none;
+}
+.story figure {
+  align-self: center;
+  max-width: 480px;
+  width: 100%;
+}
+.story img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+/* Kindness Fieldtrip: editorial image gallery. */
+#beyond .beyond {
+  display: block;
+}
+.beyond-story > .title {
+  max-width: 820px;
+  margin-bottom: 16px;
+}
+.beyond-story > .copy {
+  max-width: 760px;
+  margin: 0 0 14px;
+}
+.tour-image {
+  margin: 0;
+  overflow: hidden;
+  cursor: zoom-in;
+}
+.tour-image img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  transition: transform .22s ease-out;
+}
+.tour-image:hover img {
+  transform: scale(1.025);
+}
+.tour-image figcaption {
+  padding-top: 8px;
+  color: var(--muted, #77736c);
+  font-size: 12px;
+}
+.beyond-story > .copy + .copy {
+  margin-bottom: 0;
+}
+.fieldtrip-gallery {
+  display: grid;
+  width: 100%;
+  height: clamp(440px, 39vw, 520px);
+  grid-template-columns: minmax(0, 48fr) minmax(0, 52fr);
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 30px;
+}
+.fieldtrip-gallery .tour-image {
+  min-width: 0;
+  width: 100%;
+  height: 100%;
+}
+.fieldtrip-gallery .tour-image img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+  object-fit: cover;
+}
+.fieldtrip-hall {
+  grid-column: 1;
+  grid-row: 1;
+}
+.fieldtrip-hall img {
+  object-position: 50% 52%;
+}
+.fieldtrip-activity {
+  grid-column: 1;
+  grid-row: 2;
+}
+.fieldtrip-activity img {
+  object-position: 52% 48%;
+}
+.fieldtrip-visit {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+}
+.fieldtrip-visit img {
+  object-position: 52% 50%;
+}
+.fieldtrip-credit {
+  margin: 14px 0 0;
+  color: var(--muted, #77736c);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+@media (max-width: 800px) {
+  .story {
+    grid-template-columns: 1fr 1fr;
+    gap: 26px;
+  }
+  .story-copy .title {
+    font-size: clamp(29px, 5.2vw, 42px);
+  }
+}
+@media (max-width: 560px) {
+  .story {
+    grid-template-columns: 1fr;
+  }
+  .story figure {
+    max-width: none;
+  }
+  .story img {
+    aspect-ratio: 4 / 3;
+  }
+}
+/* Official text-only project timeline. */
+.journey .title {
+  max-width: 900px;
+  font-size: clamp(34px, 4vw, 52px);
+  line-height: 1.12;
+  margin-bottom: 0;
+}
+.journey-support {
+  max-width: 650px;
+  margin: 12px 0 0;
+  color: #c7c4bb;
+  font-size: 15px;
+  line-height: 1.7;
+}
+.journey .timeline {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  max-width: 1120px;
+  margin-top: 40px;
+  border-left: 0;
+}
+.journey .timeline::before,
+.journey .timeline::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  width: 1px;
+  pointer-events: none;
+}
+.journey .timeline::before {
+  height: 100%;
+  background: #6e7063;
+}
+.journey .timeline::after {
+  height: 100%;
+  background: var(--terra);
+  transform: scaleY(var(--timeline-progress, 0));
+  transform-origin: top;
+  will-change: transform;
+}
+.journey .milestone {
+  position: relative;
+  z-index: 1;
+  grid-template-columns: 165px minmax(0, 1fr);
+  align-items: start;
+  gap: 40px;
+  padding: 0 0 36px 32px;
+  margin: 0;
+}
+.journey .milestone::before {
+  left: -4px;
+  top: 6px;
+  width: 8px;
+  height: 8px;
+  background: #c6c9ae;
+  transition: background-color 0.2s ease-out;
+}
+.journey .milestone[data-state="active"]::before,
+.journey .milestone[data-state="passed"]::before {
+  background: var(--terra);
+}
+.journey .milestone[data-state="active"]:not(.milestone-highlight) h3 {
+  color: #fffdf8;
+}
+.journey .milestone .date {
+  display: block;
+  padding-top: 4px;
+  color: #c6c9ae;
+  font-size: 12px;
+  line-height: 1.5;
+  letter-spacing: .055em;
+  white-space: nowrap;
+}
+.milestone-heading {
+  margin-bottom: 9px;
+}
+.milestone-index {
+  display: none;
+}
+.journey .milestone h3 {
+  margin: 0;
+  color: #f7f4ed;
+  font: 700 clamp(21px, 2vw, 25px)/1.25 var(--display);
+  letter-spacing: -.045em;
+}
+.journey .milestone p {
+  max-width: 660px;
+  margin: 0;
+  color: #c7c4bb;
+  font-size: 14px;
+  line-height: 1.68;
+}
+.journey .milestone-highlight::before {
+  background: #d28d70;
+}
+.journey .milestone-highlight h3 {
+  color: #d28d70;
+}
+.journey .milestone-highlight.pulse-once::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 1px;
+  left: -9px;
+  width: 18px;
+  height: 18px;
+  border: 1px solid #d28d70;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: milestone-ring 600ms ease-out both;
+}
+@keyframes milestone-ring {
+  from { opacity: .75; transform: scale(.45); }
+  to { opacity: 0; transform: scale(1.65); }
+}
+.journey .milestone:last-child {
+  padding-bottom: 0;
+}
+@media (max-width: 800px) {
+  .journey .milestone {
+    grid-template-columns: 132px minmax(0, 1fr);
+    gap: 28px;
+    padding-bottom: 32px;
+  }
+}
+@media (max-width: 560px) {
+  .journey .title {
+    font-size: clamp(31px, 8vw, 39px);
+  }
+  .journey-support {
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  .journey .timeline {
+    margin-top: 32px;
+  }
+  .journey .milestone {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 4px;
+    padding: 0 0 30px 28px;
+  }
+  .journey .milestone::before {
+    top: 7px;
+    left: -4px;
+  }
+  .journey .milestone .date {
+    padding-top: 0;
+    white-space: normal;
+  }
+  .milestone-heading {
+    margin-bottom: 7px;
+  }
+  .journey .milestone h3 {
+    font-size: 21px;
+    line-height: 1.28;
+  }
+  .journey .milestone p {
+    font-size: 13px;
+    line-height: 1.68;
+  }
+}
+
+/* Progressive, one-time motion: no content is hidden until JS is ready. */
+body.motion-ready .reveal .motion-label,
+body.motion-ready .reveal .motion-heading,
+body.motion-ready .reveal .motion-support {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 600ms cubic-bezier(.22, 1, .36, 1),
+    transform 600ms cubic-bezier(.22, 1, .36, 1);
+}
+body.motion-ready .reveal .motion-heading {
+  transition-delay: 90ms;
+}
+body.motion-ready .reveal .motion-support {
+  transition-delay: 180ms;
+}
+body.motion-ready .reveal.motion-visible .motion-label,
+body.motion-ready .reveal.motion-visible .motion-heading,
+body.motion-ready .reveal.motion-visible .motion-support {
+  opacity: 1;
+  transform: none;
+}
+body.motion-ready .journey .milestone .date,
+body.motion-ready .journey .milestone .milestone-heading,
+body.motion-ready .journey .milestone p {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 560ms cubic-bezier(.22, 1, .36, 1),
+    transform 560ms cubic-bezier(.22, 1, .36, 1);
+}
+body.motion-ready .journey .milestone .milestone-heading {
+  transition-delay: 90ms;
+}
+body.motion-ready .journey .milestone p {
+  transition-delay: 180ms;
+}
+body.motion-ready .journey .milestone.motion-visible .date,
+body.motion-ready .journey .milestone.motion-visible .milestone-heading,
+body.motion-ready .journey .milestone.motion-visible p {
+  opacity: 1;
+  transform: none;
+}
+body.motion-ready img.image-motion {
+  transition:
+    transform 220ms ease-out;
+}
+body.motion-ready img.image-motion.image-revealed {
+  transform: none;
+}
+body.motion-ready .gallery button:hover img.image-motion.image-revealed {
+  transform: scale(1.04);
+}
+body.motion-ready .tour-image:hover img.image-motion.image-revealed {
+  transform: scale(1.025);
+}
+@media (max-width: 800px) {
+  body.motion-ready .reveal .motion-label,
+  body.motion-ready .reveal .motion-heading,
+  body.motion-ready .reveal .motion-support,
+  body.motion-ready .journey .milestone .date,
+  body.motion-ready .journey .milestone .milestone-heading,
+  body.motion-ready .journey .milestone p {
+    transform: translateY(9px);
+  }
+}
+@media (max-width: 560px) {
+  body.motion-ready .reveal .motion-label,
+  body.motion-ready .reveal .motion-heading,
+  body.motion-ready .reveal .motion-support,
+  body.motion-ready .journey .milestone .date,
+  body.motion-ready .journey .milestone .milestone-heading,
+  body.motion-ready .journey .milestone p {
+    transform: translateY(7px);
+    transition-duration: 500ms;
+  }
+  body.motion-ready img.image-motion {
+    transition-duration: 220ms;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .nav,
+  .links a::after,
+  .tour-image img,
+  .gallery img {
+    transition: none;
+  }
+  .tour-image:hover img,
+  .gallery button:hover img {
+    transform: none;
+  }
+  body.motion-ready .reveal .motion-label,
+  body.motion-ready .reveal .motion-heading,
+  body.motion-ready .reveal .motion-support,
+  body.motion-ready .journey .milestone .date,
+  body.motion-ready .journey .milestone .milestone-heading,
+  body.motion-ready .journey .milestone p,
+  body.motion-ready img.image-motion {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .journey .timeline::after { display: none; }
+  .journey .milestone-highlight.pulse-once::after { animation: none; }
+}
+
+@media (max-width: 1000px) {
+  .fieldtrip-gallery {
+    height: clamp(340px, 48vw, 460px);
+  }
+}
+@media (max-width: 560px) {
+  .fieldtrip-gallery {
+    height: clamp(350px, 100vw, 440px);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: minmax(0, 1.4fr) minmax(0, .85fr);
+    column-gap: 12px;
+    row-gap: 14px;
+  }
+  .fieldtrip-visit {
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+  .fieldtrip-hall {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .fieldtrip-activity {
+    grid-column: 2;
+    grid-row: 2;
+  }
+  .fieldtrip-visit img {
+    object-position: 52% 48%;
+  }
+  .fieldtrip-activity img {
+    object-position: 53% 50%;
+  }
+}

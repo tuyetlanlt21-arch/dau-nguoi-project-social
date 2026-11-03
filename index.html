@@ -1,0 +1,1510 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="Dấu Người — hồ sơ dự án gây quỹ cộng đồng SSG105, FPT University."
+    />
+    <title>Dấu Người · SSG105</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600&family=Manrope:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --ivory: #f7f4ed;
+        --ink: #24231f;
+        --olive: #72765c;
+        --terra: #a96d56;
+        --beige: #eae2d5;
+        --line: #d7d0c4;
+        --sans: "Albert Sans", sans-serif;
+        --display: Manrope, sans-serif;
+        --max: 1220px;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      .section[id] {
+        scroll-margin-top: 76px;
+      }
+      body {
+        margin: 0;
+        background: var(--ivory);
+        color: var(--ink);
+        font: 16px/1.65 var(--sans);
+      }
+      img {
+        display: block;
+        max-width: 100%;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      button {
+        font: inherit;
+      }
+      .skip {
+        position: fixed;
+        left: -100vw;
+        z-index: 100;
+        background: #fff;
+        padding: 12px;
+      }
+      .skip:focus {
+        left: 12px;
+        top: 12px;
+      }
+      .nav {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        height: 66px;
+        padding: 0 clamp(18px, 4vw, 56px);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid transparent;
+        background: #f7f4eddf;
+        backdrop-filter: blur(14px);
+        transition: background-color 0.25s ease-out, border-color 0.25s ease-out;
+      }
+      .nav.scrolled {
+        border-color: var(--line);
+        background: #f7f4edee;
+      }
+      .brand,
+      .eyebrow,
+      .number {
+        font: 800 10px/1 var(--display);
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+      }
+      .brand {
+        font-size: 12px;
+      }
+      .links {
+        display: flex;
+        gap: 24px;
+        font: 700 10px var(--display);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .links a {
+        position: relative;
+        padding: 8px 0;
+      }
+      .links a::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        bottom: 3px;
+        left: 0;
+        height: 1px;
+        background: var(--terra);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.2s ease-out;
+      }
+      .links a:hover::after,
+      .links a:focus-visible::after {
+        transform: scaleX(1);
+      }
+      .menu {
+        display: none;
+        border: 0;
+        background: transparent;
+        font-size: 22px;
+      }
+      .section {
+        padding: clamp(78px, 11vw, 150px) clamp(20px, 5vw, 72px);
+      }
+      .inner {
+        max-width: var(--max);
+        margin: auto;
+      }
+      .eyebrow {
+        color: var(--olive);
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
+      .eyebrow:before {
+        content: "";
+        width: 24px;
+        border-top: 1px solid currentColor;
+      }
+      .title {
+        font: 700 clamp(38px, 5.1vw, 74px)/0.98 var(--display);
+        letter-spacing: -0.065em;
+        max-width: 900px;
+        margin: 15px 0 36px;
+      }
+      .copy {
+        max-width: 650px;
+        color: #4e4b45;
+      }
+      .hero {
+        min-height: calc(100svh - 66px);
+        position: relative;
+        overflow: hidden;
+        background: #292820;
+        color: #fff;
+        display: grid;
+        align-items: end;
+      }
+      .hero > img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.72;
+      }
+      .hero:after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(90deg, #161612dd, #16161222 72%),
+          linear-gradient(0deg, #161612aa, transparent 55%);
+      }
+      .hero .inner {
+        width: 100%;
+        position: relative;
+        z-index: 1;
+        padding: clamp(70px, 12vw, 145px) clamp(20px, 5vw, 72px) 38px;
+      }
+      .hero h1 {
+        font: 800 clamp(64px, 14vw, 184px)/0.78 var(--display);
+        letter-spacing: -0.09em;
+        margin: 20px 0 42px;
+        max-width: 900px;
+      }
+      .hero h1 span {
+        display: block;
+        margin-left: clamp(28px, 9vw, 140px);
+      }
+      .hero-text {
+        display: grid;
+        grid-template-columns: minmax(260px, 560px) 1fr;
+        gap: 54px;
+        align-items: end;
+      }
+      .quote {
+        font: 500 clamp(20px, 2.15vw, 31px)/1.25 var(--display);
+        margin: 0;
+      }
+      .intro {
+        max-width: 440px;
+        margin: 0;
+        color: #f3eee4;
+      }
+      .hero-meta {
+        margin-top: 48px;
+        display: flex;
+        gap: 25px;
+        flex-wrap: wrap;
+        font: 700 10px var(--display);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+      .story {
+        display: grid;
+        grid-template-columns: 1fr 0.86fr;
+        gap: clamp(35px, 9vw, 130px);
+        align-items: center;
+      }
+      .story figure {
+        margin: 0;
+      }
+      .story img {
+        width: 100%;
+        aspect-ratio: 3/4;
+        object-fit: cover;
+      }
+      .pull {
+        font: 600 clamp(22px, 2.5vw, 34px)/1.18 var(--display);
+        margin: 36px 0;
+        color: var(--terra);
+      }
+      .note {
+        font-size: 12px;
+        color: #77736c;
+        border-left: 2px solid var(--terra);
+        padding-left: 13px;
+      }
+      .purpose,
+      .main-day,
+      .impact {
+        background: var(--beige);
+      }
+      .goals {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        border-top: 1px solid var(--line);
+        margin-top: 64px;
+      }
+      .goal {
+        padding: 25px 28px 18px 0;
+        margin-right: 28px;
+        border-right: 1px solid var(--line);
+      }
+      .goal:last-child {
+        border: 0;
+      }
+      .goal h3 {
+        font: 700 22px/1.15 var(--display);
+        letter-spacing: -0.04em;
+        margin: 26px 0 12px;
+      }
+      .number {
+        color: var(--terra);
+        font-size: 12px;
+      }
+      .journey,
+      .team,
+      .closing {
+        background: #282822;
+        color: #f7f4ed;
+      }
+      .journey .eyebrow,
+      .team .eyebrow {
+        color: #c6c9ae;
+      }
+      .timeline {
+        margin-top: 58px;
+        border-left: 1px solid #6e7063;
+      }
+      .milestone {
+        position: relative;
+        display: grid;
+        grid-template-columns: 190px 1fr 230px;
+        gap: 30px;
+        padding: 0 0 48px 33px;
+      }
+      .milestone:before {
+        content: "";
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #c6c9ae;
+        left: -5px;
+        top: 5px;
+      }
+      .date {
+        font: 700 11px var(--display);
+        letter-spacing: 0.1em;
+        color: #c6c9ae;
+      }
+      .milestone h3 {
+        font: 700 28px/1.1 var(--display);
+        letter-spacing: -0.05em;
+        margin: 0 0 10px;
+      }
+      .milestone p {
+        margin: 0;
+        color: #ddd9d0;
+      }
+      .created-grid {
+        display: grid;
+        gap: clamp(68px, 11vw, 150px);
+      }
+      .activity {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: clamp(30px, 7vw, 100px);
+        align-items: center;
+      }
+      .activity.reverse {
+        grid-template-columns: 0.85fr 1.15fr;
+      }
+      .activity.reverse figure {
+        order: 2;
+      }
+      .activity figure {
+        margin: 0;
+        position: relative;
+      }
+      .activity img {
+        width: 100%;
+        aspect-ratio: 4/3;
+        object-fit: cover;
+      }
+      .strip {
+        position: absolute;
+        width: 46%;
+        right: -7%;
+        bottom: -9%;
+        border: 8px solid var(--ivory);
+        box-shadow: 0 10px 26px #24231f25;
+      }
+      .activity h3 {
+        font: 700 clamp(30px, 3.7vw, 52px)/1 var(--display);
+        letter-spacing: -0.06em;
+        margin: 12px 0 20px;
+      }
+      .stats {
+        display: flex;
+        gap: 25px;
+        border-top: 1px solid var(--line);
+        padding-top: 14px;
+        margin-top: 26px;
+        font: 700 12px var(--display);
+        flex-wrap: wrap;
+      }
+      .gallery {
+        display: grid;
+        grid-template-columns: 1.3fr 0.7fr 0.7fr;
+        grid-template-rows: 220px 220px;
+        gap: 12px;
+        margin-top: 50px;
+      }
+      .gallery button {
+        border: 0;
+        padding: 0;
+        background: #332;
+        overflow: hidden;
+        cursor: zoom-in;
+      }
+      .gallery button:first-child {
+        grid-row: span 2;
+      }
+      .gallery img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.22s ease-out;
+      }
+      .gallery button:hover img {
+        transform: scale(1.04);
+      }
+      .metrics {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1px;
+        background: var(--line);
+        margin: 55px 0;
+      }
+      .metric {
+        background: var(--ivory);
+        padding: 24px;
+      }
+      .metric b {
+        display: block;
+        font: 700 clamp(28px, 3.4vw, 48px)/1 var(--display);
+        letter-spacing: -0.07em;
+        margin: 22px 0 8px;
+      }
+      .metric span {
+        font: 700 10px var(--display);
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #77736c;
+      }
+      .finance {
+        display: grid;
+        grid-template-columns: 1fr 0.9fr;
+        gap: 80px;
+      }
+      .table {
+        border-collapse: collapse;
+        width: 100%;
+        font-size: 14px;
+      }
+      .table th,
+      .table td {
+        border-bottom: 1px solid var(--line);
+        padding: 11px 4px;
+        text-align: left;
+      }
+      .table td:last-child,
+      .table th:last-child {
+        text-align: right;
+        font-family: var(--display);
+        font-weight: 700;
+      }
+      .bars h3 {
+        font: 700 22px var(--display);
+        letter-spacing: -0.04em;
+        margin-top: 0;
+      }
+      .bar {
+        display: grid;
+        grid-template-columns: 110px 1fr 72px;
+        gap: 12px;
+        align-items: center;
+        margin: 17px 0;
+        font-size: 13px;
+      }
+      .bar i {
+        height: 8px;
+        background: var(--terra);
+        display: block;
+      }
+      .bar b {
+        font: 700 12px var(--display);
+        text-align: right;
+      }
+      .caveat {
+        font-size: 12px;
+        color: #77736c;
+        margin-top: 25px;
+      }
+      .beyond {
+        display: grid;
+        grid-template-columns: 0.86fr 1.14fr;
+        gap: clamp(35px, 8vw, 110px);
+        align-items: start;
+      }
+      .photo-essay {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      .photo-essay img {
+        width: 100%;
+        aspect-ratio: 3/4;
+        object-fit: cover;
+      }
+      .photo-essay img:first-child {
+        grid-column: span 2;
+        aspect-ratio: 16/9;
+      }
+      .team-lead {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 70px;
+        align-items: center;
+      }
+      .team-lead img {
+        width: 100%;
+        aspect-ratio: 16/10;
+        object-fit: cover;
+      }
+      .team-cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        margin-top: 58px;
+        border-top: 1px solid #6e7063;
+        border-left: 1px solid #6e7063;
+      }
+      .member {
+        padding: 22px;
+        border-bottom: 1px solid #6e7063;
+        border-right: 1px solid #6e7063;
+        min-height: 130px;
+      }
+      .member h3 {
+        font: 700 19px var(--display);
+        margin: 15px 0 4px;
+      }
+      .member p {
+        font-size: 13px;
+        color: #d5d1c9;
+        margin: 0;
+      }
+      .closing {
+        min-height: 85vh;
+        display: grid;
+        align-items: end;
+        position: relative;
+        isolation: isolate;
+        overflow: hidden;
+      }
+      .closing > img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.32;
+        z-index: -1;
+      }
+      .closing:after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(0deg, #141411ee, #14141110);
+        z-index: -1;
+      }
+      .closing .inner {
+        width: 100%;
+        padding-bottom: 48px;
+      }
+      .closing h2 {
+        font: 700 clamp(55px, 8vw, 116px)/0.9 var(--display);
+        letter-spacing: -0.08em;
+        margin: 16px 0;
+      }
+      .footer-meta {
+        display: flex;
+        gap: 18px;
+        flex-wrap: wrap;
+        font: 700 10px var(--display);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      .lightbox {
+        position: fixed;
+        inset: 0;
+        z-index: 100;
+        background: #141411ee;
+        display: none;
+        place-items: center;
+        padding: 30px;
+      }
+      .lightbox[open] {
+        display: grid;
+      }
+      .lightbox img {
+        max-width: min(92vw, 1100px);
+        max-height: 82vh;
+        object-fit: contain;
+      }
+      .close,
+      .prev,
+      .next {
+        position: absolute;
+        background: none;
+        border: 0;
+        color: #fff;
+        cursor: pointer;
+        font: 400 38px var(--display);
+      }
+      .close {
+        top: 16px;
+        right: 24px;
+      }
+      .prev {
+        left: 18px;
+      }
+      .next {
+        right: 18px;
+      }
+      @media (max-width: 800px) {
+        .links {
+          display: none;
+        }
+        .menu {
+          display: block;
+        }
+        .nav.open .links {
+          display: flex;
+          position: absolute;
+          top: 65px;
+          left: 0;
+          right: 0;
+          padding: 20px;
+          background: var(--ivory);
+          border-bottom: 1px solid var(--line);
+          flex-direction: column;
+        }
+        .hero-text,
+        .story,
+        .activity,
+        .activity.reverse,
+        .finance,
+        .beyond,
+        .team-lead {
+          grid-template-columns: 1fr;
+        }
+        .activity.reverse figure {
+          order: 0;
+        }
+        .strip {
+          right: 4%;
+          bottom: -5%;
+          width: 45%;
+        }
+        .goals,
+        .metrics {
+          grid-template-columns: 1fr;
+        }
+        .goal {
+          border-right: 0;
+          border-bottom: 1px solid var(--line);
+          margin: 0;
+          padding: 24px 0;
+        }
+        .milestone {
+          grid-template-columns: 1fr;
+          padding-left: 24px;
+          gap: 14px;
+        }
+        .gallery {
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: 210px 150px 150px;
+        }
+        .gallery button:first-child {
+          grid-column: span 2;
+          grid-row: auto;
+        }
+        .team-cards {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (max-width: 440px) {
+        .team-cards {
+          grid-template-columns: 1fr;
+        }
+        .hero h1 {
+          font-size: 21vw;
+        }
+        .section {
+          padding-inline: 18px;
+        }
+        .gallery {
+          grid-template-rows: 190px 130px 130px;
+        }
+        .bar {
+          grid-template-columns: 85px 1fr 58px;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        .gallery img {
+          transition: none;
+        }
+      }
+    </style>
+    <link rel="stylesheet" href="styles-overrides.css" />
+  </head>
+  <body>
+    <a class="skip" href="#story">Bỏ qua phần đầu trang</a>
+    <header class="nav" id="nav">
+      <a href="#top" class="brand">Dấu Người · 2026</a>
+      <button class="menu" aria-label="Mở điều hướng" aria-expanded="false">
+        ☰
+      </button>
+      <nav class="links" aria-label="Điều hướng chính">
+        <a href="#story">Giới thiệu</a>
+        <a href="#journey">Hành trình</a>
+        <a href="#created">Hoạt động</a>
+        <a href="#impact">Kết quả</a>
+        <a href="#team">Đội ngũ</a>
+      </nav>
+    </header>
+    <main id="top">
+      <section class="hero">
+        <img
+          src="assets/DSC09780.JPG"
+          alt="Tư liệu ảnh hoạt động Dấu Người"
+          fetchpriority="high"
+        />
+        <div class="inner">
+          <p class="eyebrow">SSG105 · FPT University · 2026</p>
+          <h1>DẤU <span>NGƯỜI</span></h1>
+          <div class="hero-text">
+            <p class="quote">
+              “Có những điều được lưu giữ bằng một bức ảnh. Có những điều được
+              trao đi bằng cả tấm lòng.”
+            </p>
+            <p class="intro">
+              Dấu Người là dự án gây quỹ cộng đồng của sáu sinh viên FPT
+              University, biến những hoạt động gần gũi thành đóng góp thiết thực
+              cho hành trình tri ân.
+            </p>
+          </div>
+          <div class="hero-meta">
+            <span>15.09.2026 · Bắt đầu thành lập nhóm</span>
+            <span>13.10.2026 · Kết thúc bán hàng trực tiếp</span>
+            <span>06 thành viên</span>
+            <span>03 hoạt động gây quỹ</span>
+          </div>
+        </div>
+      </section>
+      <section class="section" id="story">
+        <div class="inner story reveal">
+          <div class="story-copy">
+            <p class="eyebrow">01 / Our story</p>
+            <h2 class="title">
+              Một hành trình tri ân bắt đầu từ những điều giản dị.
+            </h2>
+            <p class="copy">
+              Có những sự hy sinh không hiện diện trong cuộc sống thường ngày,
+              nhưng là một phần của bình yên chúng ta đang có. Từ lòng biết ơn
+              với những người đã cống hiến cho đất nước, Dấu Người được hình
+              thành trong bối cảnh Kindness Fieldtrip 9 của FPT University.
+            </p>
+            <p class="copy">
+              Dự án do sáu sinh viên tổ chức, kết hợp photobooth và bán sản phẩm
+              để gây quỹ cộng đồng, đồng hành cùng hành trình tri ân.
+            </p>
+            <p class="pull">
+              Sự tri ân đôi khi bắt đầu từ những điều giản dị nhất.
+            </p>
+            <p class="note">
+              Thông tin lịch sử và số liệu về Trung tâm Long Đất đang chờ đối
+              chiếu nguồn chính thức.
+            </p>
+          </div>
+          <div class="legacy-copy">
+            <p class="eyebrow">01 / Our story</p>
+            <h2 class="title">
+              Một hành trình tri ân bắt đầu từ những điều giản dị.
+            </h2>
+            <p class="copy">
+              Có những sự hy sinh không hiện diện trong cuộc sống thường ngày,
+              nhưng lại là một phần của những điều bình yên chúng ta đang có. Từ
+              mong muốn góp phần thể hiện lòng biết ơn với những người đã cống
+              hiến cho đất nước, Dấu Người được hình thành trong bối cảnh
+              Kindness Fieldtrip 9 của FPT University.
+            </p>
+            <p class="pull">
+              Sự tri ân đôi khi bắt đầu từ một món ăn được chuẩn bị cẩn thận,
+              một ly nước được trao tận tay, hay một tấm ảnh lưu giữ nụ cười.
+            </p>
+            <p class="copy">
+              Dự án gây quỹ do sinh viên tổ chức là một phần đồng hành cùng sáng
+              kiến Kindness Fieldtrip 9 — không phải là toàn bộ chương trình.
+            </p>
+            <p class="note">
+              Thông tin nền về Trung tâm Điều dưỡng Thương binh và Người có công
+              Long Đất cần được đối chiếu với hồ sơ nguồn trước khi xuất bản như
+              một dữ kiện lịch sử.
+            </p>
+          </div>
+          <figure>
+            <img
+              src="assets/IMG_3328.JPG"
+              alt="Tư liệu chuẩn bị cho hoạt động Dấu Người"
+              loading="lazy"
+            />
+          </figure>
+        </div>
+      </section>
+      <section class="section purpose">
+        <div class="inner reveal">
+          <p class="eyebrow">02 / Our purpose</p>
+          <h2 class="title">Gây quỹ bằng những trải nghiệm có giá trị.</h2>
+          <p class="copy">
+            Thay vì chỉ kêu gọi đóng góp trực tiếp, nhóm tự tổ chức các hoạt
+            động kinh doanh nhỏ. Mỗi sản phẩm được bán ra vừa tạo nguồn thu, vừa
+            mở ra một trải nghiệm thực tế cho người tham gia.
+          </p>
+          <div class="goals">
+            <article class="goal">
+              <span class="number">01</span>
+              <h3>Gây quỹ cộng đồng</h3>
+              <p>
+                Tạo nguồn kinh phí từ bán hàng và dịch vụ, hướng đến đóng góp
+                cho chương trình tri ân.
+              </p>
+            </article>
+            <article class="goal">
+              <span class="number">02</span>
+              <h3>Kết nối & lưu giữ kỷ niệm</h3>
+              <p>
+                Tạo không gian để mọi người chụp ảnh, giao lưu và cùng tham gia
+                một hoạt động có ý nghĩa.
+              </p>
+            </article>
+            <article class="goal">
+              <span class="number">03</span>
+              <h3>Học hỏi qua thực tế</h3>
+              <p>
+                Lập kế hoạch, làm việc với nhà cung cấp, quản lý chi phí và vận
+                hành bán hàng cùng nhau.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="section journey" id="journey">
+        <div class="inner reveal">
+          <p class="eyebrow">03 / The journey</p>
+          <h2 class="title">Một hành trình, nhiều dấu ấn.</h2>
+          <p class="journey-support">Từ những cuộc gặp gỡ đầu tiên đến hành trình tri ân được tiếp nối.</p>
+          <div class="timeline" aria-label="10 cột mốc chính thức của dự án Dấu Người">
+            <article class="milestone">
+              <time class="date" datetime="2026-09-15">15.09.2026</time>
+              <div class="milestone-copy"><div class="milestone-heading"><span class="milestone-index" aria-hidden="true">01</span><h3>Những mảnh ghép đầu tiên</h3></div>
+                <p>Sáu thành viên gặp gỡ, kết nối và bắt đầu hành trình chung.</p>
+              </div>
+            </article>
+            <article class="milestone milestone-highlight">
+              <time class="date" datetime="2026-09-25">25.09.2026</time>
+              <div class="milestone-copy"><div class="milestone-heading"><span class="milestone-index" aria-hidden="true">02</span><h3>Dấu Người ra đời</h3></div>
+                <p>Định hình ý tưởng và thông điệp lan tỏa lòng biết ơn.</p>
+              </div>
+            </article>
+            <article class="milestone">
+              <time class="date" datetime="2026-10-03">03.10.2026</time>
+              <div class="milestone-copy"><div class="milestone-heading"><span class="milestone-index" aria-hidden="true">03</span><h3>Chuẩn bị nguồn lực</h3></div>
+                <p>Góp vốn, tìm nhà cung cấp và chuẩn bị vật tư.</p>
+              </div>
+            </article>
+            <article class="milestone">
+              <time class="date" datetime="2026-10-06">06.10.2026</time>
+              <div class="milestone-copy"><div class="milestone-heading"><span class="milestone-index" aria-hidden="true">04</span><h3>Bắt đầu bán hàng</h3></div>
+                <p>Mở bán bánh tráng online và offline xuyên suốt chiến dịch.</p>
+              </div>
+            </article>
+            <article class="milestone">
+              <time class="date" datetime="2026-10-10">10.10.2026</time>
+              <div class="milestone-copy"><div class="milestone-heading"><span class="milestone-index" aria-hidden="true">05</span><h3>Sẵn sàng triển khai</h3></div>
+                <p>Phân công nhiệm vụ, kiểm kê và hoàn thiện công tác chuẩn bị.</p>
+              </div>
+            </article>
+            <article class="milestone">
+              <time class="date" datetime="2026-10-12">12–13.10.2026</time>
+              <div class="milestone-copy"><div class="milestone-heading"><span class="milestone-index" aria-hidden="true">06</span><h3>Class Tour</h3></div>
+                <p>Giới thiệu dự án và lan tỏa thông điệp tại lớp học.</p>
+              </div>
+            </article>
+            <article class="milestone milestone-highlight">
+              <time class="date" datetime="2026-10-13">13.10.2026</time>
+              <div class="milestone-copy"><div class="milestone-heading"><span class="milestone-index" aria-hidden="true">07</span><h3>Workshop Dấu Người</h3></div>
+                <p>Triển khai photobooth, bán trà tắc và kiểm kê doanh thu.</p>
+              </div>
+            </article>
+            <article class="milestone">
+              <time class="date" datetime="2026-10-22">22.10.2026</time>
+              <div class="milestone-copy"><div class="milestone-heading"><span class="milestone-index" aria-hidden="true">08</span><h3>Tổng kết chiến dịch</h3></div>
+                <p>Chốt doanh thu, chi phí, lợi nhuận và ngừng nhận tiền vào quỹ.</p>
+              </div>
+            </article>
+            <article class="milestone">
+              <span class="date">SAU TỔNG KẾT</span>
+              <div class="milestone-copy"><div class="milestone-heading"><span class="milestone-index" aria-hidden="true">09</span><h3>Hoàn tất quỹ</h3></div>
+                <p>Chuyển khoản đóng góp, hoàn trả vốn và khóa quỹ.</p>
+              </div>
+            </article>
+            <article class="milestone milestone-highlight">
+              <time class="date" datetime="2026-11-01">01.11.2026</time>
+              <div class="milestone-copy"><div class="milestone-heading"><span class="milestone-index" aria-hidden="true">10</span><h3>Kindness Fieldtrip 9</h3></div>
+                <p>Theo dõi chuyến đi do SSC tổ chức mà nhóm đã góp quỹ hỗ trợ.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="section" id="created">
+        <div class="inner reveal">
+          <p class="eyebrow">04 / What we created</p>
+          <h2 class="title">Ba hoạt động. Một mục tiêu chung.</h2>
+          <div class="created-grid">
+            <article class="activity">
+              <figure>
+                <img
+                  src="assets/fptu-photobooth-20261013-163310.png"
+                  alt="Một ảnh photobooth của người tham gia"
+                  loading="lazy"
+                />
+                <img
+                  class="strip"
+                  src="assets/fptu-photobooth-20261013-163140.png"
+                  alt="Dải ảnh photobooth"
+                  loading="lazy"
+                />
+              </figure>
+              <div>
+                <span class="number">01 / PHOTOBOOTH</span>
+                <h3>Một tấm ảnh. Một kỷ niệm.</h3>
+                <p class="copy">
+                  Mỗi tấm ảnh in ra là một khoảnh khắc được lưu giữ, đồng thời
+                  góp phần tạo nên nguồn quỹ cho hành trình tri ân. Nhóm chuẩn
+                  bị thiết bị in, giấy in, mực in và tổ chức phục vụ người tham
+                  gia.
+                </p>
+                <div class="stats">
+                  <span>50.000đ / lượt</span>
+                  <span>14 lượt</span>
+                  <span>700.000đ doanh thu</span>
+                </div>
+              </div>
+            </article>
+            <article class="activity reverse">
+              <figure>
+                <img
+                  src="assets/IMG_3342.JPG"
+                  alt="Tư liệu ảnh trong ngày hoạt động gây quỹ"
+                  loading="lazy"
+                />
+              </figure>
+              <div>
+                <span class="number">02 / BÁNH TRÁNG</span>
+                <h3>Một món ăn quen thuộc, một mục đích mới.</h3>
+                <p class="copy">
+                  Bánh tráng được lựa chọn vì gần gũi với sinh viên và phù hợp
+                  với mô hình bán hàng gây quỹ. Từ tìm nguồn cung đến tiếp nhận
+                  đơn hàng, mỗi công đoạn đều cần sự phối hợp của cả nhóm.
+                </p>
+                <div class="stats">
+                  <span>20.000đ / bịch</span>
+                  <span>120 bịch</span>
+                  <span>2.400.000đ doanh thu</span>
+                </div>
+              </div>
+            </article>
+            <article class="activity">
+              <figure>
+                <img
+                  src="assets/DSC09777.JPG"
+                  alt="Tư liệu hoạt động gây quỹ Dấu Người"
+                  loading="lazy"
+                />
+              </figure>
+              <div>
+                <span class="number">03 / TRÀ TẮC</span>
+                <h3>Một chút mát lành được trao đi.</h3>
+                <p class="copy">
+                  Trà tắc bổ sung thêm lựa chọn cho gian hàng; từ một thức uống
+                  quen thuộc, nhóm tạo thêm một cơ hội đóng góp cho quỹ chung.
+                </p>
+                <div class="stats">
+                  <span>20.000đ / ly</span>
+                  <span>21 ly</span>
+                  <span>420.000đ doanh thu</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="section main-day">
+        <div class="inner reveal">
+          <p class="eyebrow">05 / The main day · 13 October 2026</p>
+          <h2 class="title">Ngày những nỗ lực trở thành kỷ niệm.</h2>
+          <p class="copy">
+            Sau nhiều tuần chuẩn bị, 13/10 là thời điểm các hoạt động gây quỹ
+            được triển khai tập trung và khép lại. Đằng sau mỗi sản phẩm là quá
+            trình tìm nguồn hàng, tính toán chi phí, phối hợp công việc và chuẩn
+            bị phục vụ người tham gia.
+          </p>
+          <div class="gallery" aria-label="Thư viện ảnh ngày hoạt động">
+            <button data-full="assets/DSC09780.JPG">
+              <img
+                src="assets/DSC09780.JPG"
+                alt="Ảnh tư liệu ngày hoạt động"
+                loading="lazy"
+              />
+            </button>
+            <button data-full="assets/DSC09777.JPG">
+              <img
+                src="assets/DSC09777.JPG"
+                alt="Khoảnh khắc trong ngày hoạt động"
+                loading="lazy"
+              />
+            </button>
+            <button data-full="assets/IMG_3342.JPG">
+              <img
+                src="assets/IMG_3342.JPG"
+                alt="Tư liệu tại gian hàng"
+                loading="lazy"
+              />
+            </button>
+            <button data-full="assets/fptu-photobooth-20261013-163140.png">
+              <img
+                src="assets/fptu-photobooth-20261013-163140.png"
+                alt="Ảnh photobooth"
+                loading="lazy"
+              />
+            </button>
+            <button data-full="assets/fptu-photobooth-20261013-163310.png">
+              <img
+                src="assets/fptu-photobooth-20261013-163310.png"
+                alt="Ảnh photobooth của người tham gia"
+                loading="lazy"
+              />
+            </button>
+          </div>
+        </div>
+      </section>
+      <section class="section impact" id="impact">
+        <div class="inner reveal">
+          <p class="eyebrow">06 / Our impact</p>
+          <h2 class="title">Từ những đóng góp nhỏ đến một kết quả chung.</h2>
+          <div class="metrics">
+            <div class="metric">
+              <span>Vốn nhóm ban đầu</span>
+              <b data-count-to="1500000" data-count-suffix="đ">1.500.000đ</b>
+            </div>
+            <div class="metric">
+              <span>Doanh thu vận hành</span>
+              <b data-count-to="3520000" data-count-suffix="đ">3.520.000đ</b>
+            </div>
+            <div class="metric">
+              <span>Chi phí vận hành</span>
+              <b data-count-to="2020000" data-count-suffix="đ">2.020.000đ</b>
+            </div>
+            <div class="metric">
+              <span>Thặng dư vận hành</span>
+              <b data-count-to="1500000" data-count-suffix="đ">1.500.000đ</b>
+            </div>
+          </div>
+          <div class="finance">
+            <div>
+              <p class="eyebrow">Bảng đối soát</p>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Hạng mục</th>
+                    <th>Thu</th>
+                    <th>Chi</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Bánh tráng</td>
+                    <td>2.400.000đ</td>
+                    <td>1.440.000đ</td>
+                  </tr>
+                  <tr>
+                    <td>Trà tắc</td>
+                    <td>420.000đ</td>
+                    <td>180.000đ</td>
+                  </tr>
+                  <tr>
+                    <td>Photobooth</td>
+                    <td>700.000đ</td>
+                    <td>400.000đ</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>Tổng vận hành</strong>
+                    </td>
+                    <td>
+                      <strong>3.520.000đ</strong>
+                    </td>
+                    <td>
+                      <strong>2.020.000đ</strong>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>Thặng dư vận hành</strong>
+                    </td>
+                    <td colspan="2">
+                      <strong>1.500.000đ</strong>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <p class="caveat">
+                Vốn ban đầu 1.500.000đ của sáu thành viên không phải doanh thu
+                bán hàng. Tổng tiền vào gồm vốn ban đầu là 5.020.000đ. Khoản
+                chuyển thiện nguyện chưa được ghi nhận là đã xác minh.
+              </p>
+            </div>
+            <div class="bars">
+              <h3>Doanh thu theo hoạt động</h3>
+              <div class="bar">
+                <span>Bánh tráng</span>
+                <i style="width: 100%"> </i>
+                <b>2.400.000đ</b>
+              </div>
+              <div class="bar">
+                <span>Photobooth</span>
+                <i style="width: 29.2%"> </i>
+                <b>700.000đ</b>
+              </div>
+              <div class="bar">
+                <span>Trà tắc</span>
+                <i style="width: 17.5%"> </i>
+                <b>420.000đ</b>
+              </div>
+              <h3>Chi phí theo hoạt động</h3>
+              <div class="bar">
+                <span>Bánh tráng</span>
+                <i style="width: 100%"> </i>
+                <b>1.440.000đ</b>
+              </div>
+              <div class="bar">
+                <span>Photobooth</span>
+                <i style="width: 27.8%"> </i>
+                <b>400.000đ</b>
+              </div>
+              <div class="bar">
+                <span>Trà tắc</span>
+                <i style="width: 12.5%"> </i>
+                <b>180.000đ</b>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section" id="beyond">
+        <div class="inner beyond reveal">
+          <div class="beyond-story">
+            <p class="eyebrow">07 / KINDNESS FIELDTRIP 9 · 01 NOVEMBER 2026</p>
+            <h2 class="title">Khi những đóng góp nhỏ tiếp nối một hành trình tri ân.</h2>
+            <p class="copy">
+              Dấu Người khép lại hành trình gây quỹ và đóng góp nguồn quỹ vào chương trình Kindness Fieldtrip 9, do câu lạc bộ SSC tổ chức ngày 01/11/2026 tại Trung tâm Điều dưỡng Thương binh và Người có công Long Đất.
+            </p>
+            <p class="copy">
+              Chương trình hướng đến việc thăm hỏi, giao lưu và bày tỏ lòng biết ơn đối với các cô chú thương binh, bệnh binh và người có công. Dù không trực tiếp tham gia chuyến đi, nhóm Dấu Người vẫn góp một phần nhỏ vào hành trình ý nghĩa ấy.
+            </p>
+            <div class="fieldtrip-gallery" aria-label="Tư liệu hình ảnh Kindness Fieldtrip 9">
+              <figure
+                class="tour-image fieldtrip-hall"
+                data-full="assets/class-tour-hall.jpg"
+              >
+                <img
+                  src="assets/class-tour-hall.jpg"
+                  alt="Người tham dự trong hội trường chương trình Kindness Fieldtrip 9"
+                  loading="lazy"
+                />
+              </figure>
+              <figure
+                class="tour-image fieldtrip-activity"
+                data-full="assets/class-tour-meet-room.jpg"
+              >
+                <img
+                  src="assets/class-tour-meet-room.jpg"
+                  alt="Nhân viên y tế thăm hỏi một người có công tại trung tâm"
+                  loading="lazy"
+                />
+              </figure>
+              <figure
+                class="tour-image fieldtrip-visit"
+                data-full="assets/class-tour-visit.jpg"
+              >
+                <img
+                  src="assets/class-tour-visit.jpg"
+                  alt="Khoảnh khắc thăm hỏi trực tiếp các cô chú tại trung tâm"
+                  loading="lazy"
+                />
+              </figure>
+            </div>
+            <p class="fieldtrip-credit">Tư liệu hình ảnh: Kindness Fieldtrip 9 — CLB SSC, 01/11/2026.</p>
+          </div>
+        </div>
+      </section>
+      <section class="section team" id="team">
+        <div class="inner reveal">
+          <div class="team-lead">
+            <div>
+              <p class="eyebrow">08 / Our team</p>
+              <h2 class="title">Sáu con người. Một hành trình chung.</h2>
+              <p>
+                Để một ý tưởng thành hoạt động thực tế, nhóm cùng tham gia từ
+                lên kế hoạch, tìm nguồn cung, chuẩn bị vật tư và triển khai bán
+                hàng đến tổng hợp kết quả.
+              </p>
+              <p>
+                Thông tin tên, vai trò và trách nhiệm cá nhân chưa được cung cấp
+                trong tài liệu nguồn; phần dưới được giữ ở trạng thái biên tập
+                để không gán công việc sai cho bất kỳ thành viên nào.
+              </p>
+            </div>
+            <img
+              src="assets/IMG_3342.JPG"
+              alt="Tư liệu nhóm trong ngày hoạt động"
+              loading="lazy"
+            />
+          </div>
+          <div class="team-cards">
+            <article class="member">
+              <span class="number">01</span>
+              <h3>Thành viên 01</h3>
+              <p>Chờ xác nhận tên & vai trò</p>
+            </article>
+            <article class="member">
+              <span class="number">02</span>
+              <h3>Thành viên 02</h3>
+              <p>Chờ xác nhận tên & vai trò</p>
+            </article>
+            <article class="member">
+              <span class="number">03</span>
+              <h3>Thành viên 03</h3>
+              <p>Chờ xác nhận tên & vai trò</p>
+            </article>
+            <article class="member">
+              <span class="number">04</span>
+              <h3>Thành viên 04</h3>
+              <p>Chờ xác nhận tên & vai trò</p>
+            </article>
+            <article class="member">
+              <span class="number">05</span>
+              <h3>Thành viên 05</h3>
+              <p>Chờ xác nhận tên & vai trò</p>
+            </article>
+            <article class="member">
+              <span class="number">06</span>
+              <h3>Thành viên 06</h3>
+              <p>Chờ xác nhận tên & vai trò</p>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="section closing" id="reflection">
+        <img
+          src="assets/fptu-photobooth-20261013-163310.png"
+          alt="Khoảnh khắc photobooth khép lại hành trình"
+          loading="lazy"
+        />
+        <div class="inner reveal">
+          <p class="eyebrow" style="color: #d7d8bd">09 / Reflection</p>
+          <h2>Có những dấu ấn không nằm trên một tấm ảnh.</h2>
+          <p class="copy" style="color: #efede7">
+            Từ việc chọn sản phẩm, liên hệ nhà cung cấp, tính ngân sách đến vận
+            hành bán hàng, mỗi bước đều đòi hỏi kiên nhẫn, trách nhiệm và tinh
+            thần hợp tác. Dấu Người nhắc chúng mình rằng sự tri ân có thể bắt
+            đầu từ những việc rất nhỏ, miễn là được thực hiện bằng sự chân
+            thành.
+          </p>
+          <p class="quote" style="margin: 38px 0">
+            DẤU NGƯỜI<br />Hành trình khép lại. Những dấu ấn còn ở lại.
+          </p>
+          <footer class="footer-meta">
+            <span>Bắt đầu thành lập nhóm: 15.09.2026</span>
+            <span>Theo dõi tác động: 01.11.2026</span>
+            <span>SSG105 · FPT University</span>
+          </footer>
+        </div>
+      </section>
+    </main>
+    <dialog class="lightbox" aria-label="Xem ảnh phóng to">
+      <button class="close" aria-label="Đóng ảnh">×</button>
+      <button class="prev" aria-label="Ảnh trước">‹</button>
+      <img src="" alt="" />
+      <button class="next" aria-label="Ảnh sau">›</button>
+    </dialog>
+    <script>
+      const nav = document.querySelector(".nav"),
+        menu = document.querySelector(".menu");
+      menu.onclick = () => {
+        nav.classList.toggle("open");
+        menu.setAttribute("aria-expanded", nav.classList.contains("open"));
+      };
+      document
+        .querySelectorAll(".links a")
+        .forEach((a) => (a.onclick = () => nav.classList.remove("open")));
+      addEventListener(
+        "scroll",
+        () => nav.classList.toggle("scrolled", scrollY > 12),
+        { passive: true },
+      );
+      const motionPreference = matchMedia("(prefers-reduced-motion: reduce)");
+      const canObserve = "IntersectionObserver" in window;
+      const timeline = document.querySelector(".journey .timeline");
+      const milestones = timeline ? [...timeline.querySelectorAll(".milestone")] : [];
+      const sectionTargets = [];
+      document.querySelectorAll(".section .reveal").forEach((container) => {
+        const label = container.querySelector(".eyebrow");
+        const heading = container.querySelector(".title, h2");
+        if (label) {
+          label.classList.add("motion-label");
+          sectionTargets.push(container);
+        }
+        if (heading) heading.classList.add("motion-heading");
+        if (heading) {
+          const support = [...container.querySelectorAll(".copy, .journey-support")].find(
+            (node) =>
+              heading.compareDocumentPosition(node) &
+              Node.DOCUMENT_POSITION_FOLLOWING,
+          );
+          if (support) support.classList.add("motion-support");
+        }
+      });
+      sectionTargets.push(...milestones);
+
+      const metrics = [...document.querySelectorAll(".metric b[data-count-to]")];
+      const metricFinalText = new Map(
+        metrics.map((metric) => [metric, metric.textContent.trim()]),
+      );
+      const runningCounters = new Map();
+      const amountFormatter = new Intl.NumberFormat("vi-VN", {
+        maximumFractionDigits: 0,
+      });
+      let sectionObserver = null;
+      let imageObserver = null;
+      let metricObserver = null;
+
+      if (!motionPreference.matches && canObserve) {
+        sectionObserver = new IntersectionObserver(
+          (entries) =>
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("motion-visible");
+                sectionObserver.unobserve(entry.target);
+              }
+            }),
+          { threshold: 0.04, rootMargin: "0px 0px -8% 0px" },
+        );
+        imageObserver = new IntersectionObserver(
+          (entries) =>
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              const image = entry.target;
+              const revealImage = () => {
+                image.classList.add("image-revealed");
+                if (motionPreference.matches || !image.naturalWidth) return;
+                try {
+                  image.animate(
+                    [{ opacity: 0.92 }, { opacity: 1 }],
+                    { duration: 420, easing: "ease-out" },
+                  );
+                } catch {
+                  // The image remains visible when the optional fade is unavailable.
+                }
+              };
+              imageObserver.unobserve(image);
+              if (image.complete && image.naturalWidth) {
+                revealImage();
+              } else {
+                image.addEventListener("load", revealImage, { once: true });
+                image.addEventListener("error", revealImage, { once: true });
+              }
+            }),
+          { threshold: 0.05, rootMargin: "0px 0px -5% 0px" },
+        );
+        metricObserver = new IntersectionObserver(
+          (entries) =>
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              const metric = entry.target;
+              metricObserver.unobserve(metric);
+              const target = Number(metric.dataset.countTo);
+              const suffix = metric.dataset.countSuffix || "";
+              const finalText = metricFinalText.get(metric);
+              const startedAt = performance.now();
+              const duration = 1050;
+              metric.textContent = `0${suffix}`;
+              const tick = (now) => {
+                if (motionPreference.matches) {
+                  metric.textContent = finalText;
+                  runningCounters.delete(metric);
+                  return;
+                }
+                const progress = Math.min(1, (now - startedAt) / duration);
+                const eased = 1 - Math.pow(1 - progress, 3);
+                const value = Math.round(target * eased);
+                metric.textContent = `${amountFormatter.format(value)}${suffix}`;
+                if (progress < 1) {
+                  runningCounters.set(metric, requestAnimationFrame(tick));
+                } else {
+                  metric.textContent = finalText;
+                  runningCounters.delete(metric);
+                }
+              };
+              runningCounters.set(metric, requestAnimationFrame(tick));
+            }),
+          { threshold: 0.45 },
+        );
+
+        document.body.classList.add("motion-ready");
+        sectionTargets.forEach((target) => sectionObserver.observe(target));
+        document
+          .querySelectorAll("img")
+          .forEach((image) => {
+            if (image.closest(".lightbox") || image.classList.contains("strip")) return;
+            image.classList.add("image-motion");
+            imageObserver.observe(image);
+          });
+        metrics.forEach((metric) => metricObserver.observe(metric));
+      }
+
+      let journeyFrame = 0;
+      let timelineResizeObserver = null;
+      function updateJourney() {
+        journeyFrame = 0;
+        if (!timeline || !milestones.length || motionPreference.matches) return;
+        const timelineRect = timeline.getBoundingClientRect();
+        const markerTops = milestones.map(
+          (milestone) => milestone.getBoundingClientRect().top,
+        );
+        const trigger = window.innerHeight * 0.52;
+        const progress = Math.max(
+          0,
+          Math.min(1, (trigger - timelineRect.top) / timelineRect.height),
+        );
+        let nextActive = -1;
+        markerTops.forEach((top, index) => {
+          if (top <= trigger) nextActive = index;
+        });
+        const nextStates = milestones.map((_, index) =>
+          index < nextActive ? "passed" : index === nextActive ? "active" : "upcoming",
+        );
+
+        timeline.style.setProperty("--timeline-progress", progress.toString());
+        milestones.forEach((milestone, index) => {
+          const oldState = milestone.dataset.state || "upcoming";
+          const nextState = nextStates[index];
+          milestone.dataset.state = nextState;
+          if (
+            nextState !== "upcoming" &&
+            oldState === "upcoming" &&
+            milestone.classList.contains("milestone-highlight") &&
+            !milestone.dataset.pulsed
+          ) {
+            milestone.dataset.pulsed = "true";
+            milestone.classList.add("pulse-once");
+          }
+        });
+      }
+      function requestJourneyUpdate() {
+        if (!journeyFrame && !motionPreference.matches) {
+          journeyFrame = requestAnimationFrame(updateJourney);
+        }
+      }
+      if (timeline && !motionPreference.matches) {
+        addEventListener("scroll", requestJourneyUpdate, { passive: true });
+        addEventListener("resize", requestJourneyUpdate, { passive: true });
+        if ("ResizeObserver" in window) {
+          timelineResizeObserver = new ResizeObserver(requestJourneyUpdate);
+          timelineResizeObserver.observe(timeline);
+        }
+        requestJourneyUpdate();
+      }
+
+      motionPreference.addEventListener?.("change", (event) => {
+        if (!event.matches) return;
+        document.body.classList.remove("motion-ready");
+        sectionObserver?.disconnect();
+        imageObserver?.disconnect();
+        metricObserver?.disconnect();
+        removeEventListener("scroll", requestJourneyUpdate);
+        removeEventListener("resize", requestJourneyUpdate);
+        timelineResizeObserver?.disconnect();
+        if (journeyFrame) cancelAnimationFrame(journeyFrame);
+        runningCounters.forEach((frame, metric) => {
+          cancelAnimationFrame(frame);
+          metric.textContent = metricFinalText.get(metric);
+        });
+        runningCounters.clear();
+        timeline?.style.removeProperty("--timeline-progress");
+      });
+
+      const pics = [...document.querySelectorAll("[data-full]")],
+        box = document.querySelector(".lightbox"),
+        full = box.querySelector("img");
+      let index = 0;
+      function open(i) {
+        index = (i + pics.length) % pics.length;
+        full.src = pics[index].dataset.full;
+        full.alt = pics[index].querySelector("img").alt;
+        box.showModal();
+      }
+      pics.forEach((p, i) => (p.onclick = () => open(i)));
+      function close() {
+        box.close();
+      }
+      box.querySelector(".close").onclick = close;
+      box.querySelector(".prev").onclick = () => open(index - 1);
+      box.querySelector(".next").onclick = () => open(index + 1);
+      box.addEventListener("click", (e) => {
+        if (e.target === box) close();
+      });
+      addEventListener("keydown", (e) => {
+        if (!box.open) return;
+        if (e.key === "Escape") close();
+        if (e.key === "ArrowLeft") open(index - 1);
+        if (e.key === "ArrowRight") open(index + 1);
+      });
+    </script>
+  </body>
+</html>
