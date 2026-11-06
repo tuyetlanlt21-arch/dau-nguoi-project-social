@@ -2784,7 +2784,6 @@
       languageToggle?.addEventListener("click", () =>
         setLanguage(document.documentElement.lang !== "en"),
       );
-      setLanguage(initialLanguage);
 
       const box = document.querySelector(".lightbox");
       const full = box.querySelector("img");
@@ -2877,8 +2876,10 @@
         if (!box.open) box.showModal();
       }
       document.addEventListener("click", (event) => {
-        if (event.target.closest(".lightbox")) return;
-        const image = event.target.closest("img");
+        const target =
+          event.target instanceof Element ? event.target : null;
+        if (!target || target.closest(".lightbox")) return;
+        const image = target.closest("img");
         if (!isContentImage(image)) return;
         ensureImageSource(image);
         activeLightboxGroup = lightboxGroup(image);
@@ -2888,7 +2889,7 @@
         );
         const targetIndex = trigger ? items.indexOf(trigger) : -1;
         if (targetIndex >= 0) open(targetIndex);
-      });
+      }, true);
       function close() {
         if (box.open) box.close();
         resetLightboxZoom();
@@ -2978,6 +2979,7 @@
         if (e.key === "ArrowLeft") open(index - 1);
         if (e.key === "ArrowRight") open(index + 1);
       });
+      setLanguage(initialLanguage);
     </script>
   </body>
 </html>
