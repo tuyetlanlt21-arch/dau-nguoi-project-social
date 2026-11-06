@@ -569,9 +569,15 @@
         display: grid;
       }
       .lightbox img {
+        display: block;
+        width: auto;
+        height: auto;
         max-width: min(92vw, 1100px);
         max-height: 82vh;
         object-fit: contain;
+      }
+      .lightbox::backdrop {
+        background: rgb(20 20 17 / 0.92);
       }
       .close,
       .prev,
@@ -701,7 +707,12 @@
         <a href="#impact">Kết quả</a>
         <a href="#team">Đội ngũ</a>
       </nav>
-      <button class="language-toggle" type="button" aria-pressed="false" aria-label="Chuyển sang tiếng Anh">
+      <button
+        class="language-toggle"
+        type="button"
+        aria-pressed="false"
+        aria-label="Chuyển sang tiếng Anh"
+      >
         EN
       </button>
     </header>
@@ -728,8 +739,8 @@
         </div>
       </section>
       <section class="section" id="story">
-        <div class="inner story reveal">
-          <div class="story-copy">
+        <div class="inner story story-editorial reveal">
+          <div class="story-copy story-editorial-left">
             <p class="eyebrow">01 / Our story</p>
             <h2 class="title">
               Một hành trình tri ân bắt đầu từ những điều giản dị.
@@ -748,6 +759,13 @@
               Sự tri ân đôi khi bắt đầu từ những điều giản dị nhất.
             </p>
           </div>
+          <figure class="story-supporting-photo">
+            <img
+              src="assets/IMG_0215.JPG"
+              alt="Hoạt động chuẩn bị của nhóm Dấu Người"
+              loading="lazy"
+            />
+          </figure>
           <div class="legacy-copy">
             <p class="eyebrow">01 / Our story</p>
             <h2 class="title">
@@ -769,7 +787,7 @@
               kiến Kindness Fieldtrip 9 — không phải là toàn bộ chương trình.
             </p>
           </div>
-          <figure>
+          <figure class="story-editorial-right">
             <img
               src="assets/140230-cac-thuong-benh-binh-tai-trung-tam-dieu-duong-thuong-binh-va-nguoi-co-cong-long-dat-anh-hoang-nhi-ttxvn.jpg"
               alt="Tư liệu chuẩn bị cho hoạt động Dấu Người"
@@ -825,126 +843,182 @@
           <div class="journey-stage">
             <div
               class="timeline"
-              aria-label="10 cột mốc chính thức của dự án Dấu Người"
+              data-journey-track
+              aria-label="9 cột mốc chính thức của dự án Dấu Người"
             >
-            <article class="milestone" data-gallery="first-pieces" tabindex="0" role="button" aria-controls="journey-gallery" aria-label="Xem ảnh Những mảnh ghép đầu tiên">
-              <time class="date" datetime="2026-09-15">15.09.2026</time>
-              <div class="milestone-copy">
-                <div class="milestone-heading">
-                  <span class="milestone-index" aria-hidden="true">01</span>
-                  <h3>Những mảnh ghép đầu tiên</h3>
+              <article
+                class="milestone"
+                data-gallery="first-pieces"
+                tabindex="0"
+                role="button"
+                aria-controls="journey-gallery"
+                aria-label="Xem ảnh Những mảnh ghép đầu tiên"
+              >
+                <span class="journey-track-line" aria-hidden="true"></span>
+                <time class="date" datetime="2026-09-15">15.09.2026</time>
+                <div class="milestone-copy">
+                  <div class="milestone-heading">
+                    <span class="milestone-index" aria-hidden="true">01</span>
+                    <h3>Những mảnh ghép đầu tiên</h3>
+                  </div>
+                  <p>
+                    Sáu thành viên gặp gỡ, kết nối và bắt đầu hành trình chung.
+                  </p>
                 </div>
-                <p>
-                  Sáu thành viên gặp gỡ, kết nối và bắt đầu hành trình chung.
-                </p>
-              </div>
-            </article>
-            <article class="milestone milestone-highlight" data-gallery="birth" tabindex="0" role="button" aria-controls="journey-gallery" aria-label="Xem ảnh Dấu Người ra đời">
-              <time class="date" datetime="2026-09-25">25.09.2026</time>
-              <div class="milestone-copy">
-                <div class="milestone-heading">
-                  <span class="milestone-index" aria-hidden="true">02</span>
-                  <h3>Dấu Người ra đời</h3>
+              </article>
+              <article
+                class="milestone milestone-highlight"
+                data-gallery="birth"
+                tabindex="0"
+                role="button"
+                aria-controls="journey-gallery"
+                aria-label="Xem ảnh Dấu Người ra đời"
+              >
+                <time class="date" datetime="2026-09-25">25.09.2026</time>
+                <div class="milestone-copy">
+                  <div class="milestone-heading">
+                    <span class="milestone-index" aria-hidden="true">02</span>
+                    <h3>Dấu Người ra đời</h3>
+                  </div>
+                  <p>Định hình ý tưởng và thông điệp lan tỏa lòng biết ơn.</p>
                 </div>
-                <p>Định hình ý tưởng và thông điệp lan tỏa lòng biết ơn.</p>
-              </div>
-            </article>
-            <article class="milestone" data-gallery="resources" tabindex="0" role="button" aria-controls="journey-gallery" aria-label="Xem ảnh Chuẩn bị nguồn lực">
-              <time class="date" datetime="2026-10-03">03.10.2026</time>
-              <div class="milestone-copy">
-                <div class="milestone-heading">
-                  <span class="milestone-index" aria-hidden="true">03</span>
-                  <h3>Chuẩn bị nguồn lực</h3>
+              </article>
+              <article
+                class="milestone"
+                data-gallery="resources"
+                tabindex="0"
+                role="button"
+                aria-controls="journey-gallery"
+                aria-label="Xem ảnh Chuẩn bị nguồn lực"
+              >
+                <time class="date" datetime="2026-10-03">03.10.2026</time>
+                <div class="milestone-copy">
+                  <div class="milestone-heading">
+                    <span class="milestone-index" aria-hidden="true">03</span>
+                    <h3>Chuẩn bị nguồn lực</h3>
+                  </div>
+                  <p>Góp vốn, tìm nhà cung cấp và chuẩn bị vật tư.</p>
                 </div>
-                <p>Góp vốn, tìm nhà cung cấp và chuẩn bị vật tư.</p>
-              </div>
-            </article>
-            <article class="milestone">
-              <time class="date" datetime="2026-10-06">06.10.2026</time>
-              <div class="milestone-copy">
-                <div class="milestone-heading">
-                  <span class="milestone-index" aria-hidden="true">04</span>
-                  <h3>Bắt đầu bán hàng</h3>
+              </article>
+              <article class="milestone" data-gallery="sales-begin">
+                <time class="date" datetime="2026-10-06">06.10.2026</time>
+                <div class="milestone-copy">
+                  <div class="milestone-heading">
+                    <span class="milestone-index" aria-hidden="true">04</span>
+                    <h3>Bắt đầu bán hàng</h3>
+                  </div>
+                  <p>
+                    Mở bán bánh tráng online và offline xuyên suốt chiến dịch.
+                  </p>
                 </div>
-                <p>
-                  Mở bán bánh tráng online và offline xuyên suốt chiến dịch.
-                </p>
-              </div>
-            </article>
-            <article class="milestone">
-              <time class="date" datetime="2026-10-10">10.10.2026</time>
-              <div class="milestone-copy">
-                <div class="milestone-heading">
-                  <span class="milestone-index" aria-hidden="true">05</span>
-                  <h3>Sẵn sàng triển khai</h3>
+              </article>
+              <article class="milestone" data-gallery="ready-to-launch">
+                <time class="date" datetime="2026-10-10">10.10.2026</time>
+                <div class="milestone-copy">
+                  <div class="milestone-heading">
+                    <span class="milestone-index" aria-hidden="true">05</span>
+                    <h3>Sẵn sàng triển khai</h3>
+                  </div>
+                  <p>
+                    Phân công nhiệm vụ, kiểm kê và hoàn thiện công tác chuẩn bị.
+                  </p>
                 </div>
-                <p>
-                  Phân công nhiệm vụ, kiểm kê và hoàn thiện công tác chuẩn bị.
-                </p>
-              </div>
-            </article>
-            <article class="milestone" data-gallery="class-tour" tabindex="0" role="button" aria-controls="journey-gallery" aria-label="Xem ảnh Class Tour">
-              <time class="date" datetime="2026-10-12">12–13.10.2026</time>
-              <div class="milestone-copy">
-                <div class="milestone-heading">
-                  <span class="milestone-index" aria-hidden="true">06</span>
-                  <h3>Class Tour</h3>
+              </article>
+              <article
+                class="milestone"
+                data-gallery="class-tour"
+                tabindex="0"
+                role="button"
+                aria-controls="journey-gallery"
+                aria-label="Xem ảnh Class Tour"
+              >
+                <time class="date" datetime="2026-10-12">12–13.10.2026</time>
+                <div class="milestone-copy">
+                  <div class="milestone-heading">
+                    <span class="milestone-index" aria-hidden="true">06</span>
+                    <h3>Class Tour</h3>
+                  </div>
+                  <p>Giới thiệu dự án và lan tỏa thông điệp tại lớp học.</p>
                 </div>
-                <p>Giới thiệu dự án và lan tỏa thông điệp tại lớp học.</p>
-              </div>
-            </article>
-            <article class="milestone milestone-highlight">
-              <time class="date" datetime="2026-10-13">13.10.2026</time>
-              <div class="milestone-copy">
-                <div class="milestone-heading">
-                  <span class="milestone-index" aria-hidden="true">07</span>
-                  <h3>Workshop Dấu Người</h3>
+              </article>
+              <article
+                class="milestone milestone-highlight"
+                data-gallery="workshop"
+              >
+                <time class="date" datetime="2026-10-13">13.10.2026</time>
+                <div class="milestone-copy">
+                  <div class="milestone-heading">
+                    <span class="milestone-index" aria-hidden="true">07</span>
+                    <h3>Workshop Dấu Người</h3>
+                  </div>
+                  <p>
+                    Triển khai photobooth, bán trà tắc và kiểm kê doanh thu.
+                  </p>
                 </div>
-                <p>Triển khai photobooth, bán trà tắc và kiểm kê doanh thu.</p>
-              </div>
-            </article>
-            <article class="milestone">
-              <time class="date" datetime="2026-10-22">22.10.2026</time>
-              <div class="milestone-copy">
-                <div class="milestone-heading">
-                  <span class="milestone-index" aria-hidden="true">08</span>
-                  <h3>Tổng kết chiến dịch</h3>
+              </article>
+              <article class="milestone" data-gallery="campaign-wrap">
+                <time class="date" datetime="2026-10-22">22.10.2026</time>
+                <div class="milestone-copy">
+                  <div class="milestone-heading">
+                    <span class="milestone-index" aria-hidden="true">08</span>
+                    <h3>Tổng kết chiến dịch &amp; hoàn tất quỹ</h3>
+                  </div>
+                  <p>
+                    Nhóm tổng hợp doanh thu, chi phí và lợi nhuận, hoàn tất đối
+                    soát, chuyển khoản đóng góp, hoàn trả vốn và khóa quỹ.
+                  </p>
                 </div>
-                <p>
-                  Chốt doanh thu, chi phí, lợi nhuận và ngừng nhận tiền vào quỹ.
-                </p>
-              </div>
-            </article>
-            <article class="milestone">
-              <span class="date">SAU TỔNG KẾT</span>
-              <div class="milestone-copy">
-                <div class="milestone-heading">
-                  <span class="milestone-index" aria-hidden="true">09</span>
-                  <h3>Hoàn tất quỹ</h3>
+              </article>
+              <article
+                class="milestone milestone-highlight"
+                data-gallery="fieldtrip"
+              >
+                <time class="date" datetime="2026-11-01">01.11.2026</time>
+                <div class="milestone-copy">
+                  <div class="milestone-heading">
+                    <span class="milestone-index" aria-hidden="true">09</span>
+                    <h3>Kindness Fieldtrip 9</h3>
+                  </div>
+                  <p>
+                    Theo dõi chuyến đi do SSC tổ chức mà nhóm đã góp quỹ hỗ trợ.
+                  </p>
                 </div>
-                <p>Chuyển khoản đóng góp, hoàn trả vốn và khóa quỹ.</p>
-              </div>
-            </article>
-            <article class="milestone milestone-highlight">
-              <time class="date" datetime="2026-11-01">01.11.2026</time>
-              <div class="milestone-copy">
-                <div class="milestone-heading">
-                  <span class="milestone-index" aria-hidden="true">10</span>
-                  <h3>Kindness Fieldtrip 9</h3>
-                </div>
-                <p>
-                  Theo dõi chuyến đi do SSC tổ chức mà nhóm đã góp quỹ hỗ trợ.
-                </p>
-              </div>
-            </article>
+              </article>
             </div>
-            <aside class="journey-gallery" id="journey-gallery" aria-live="polite">
+            <div class="journey-controls" aria-label="Journey controls">
+              <button
+                type="button"
+                class="journey-prev"
+                aria-label="Previous milestone"
+              >
+                ←
+              </button>
+              <span class="journey-counter" aria-live="polite">01 / 09</span>
+              <button
+                type="button"
+                class="journey-next"
+                aria-label="Next milestone"
+              >
+                →
+              </button>
+            </div>
+            <aside
+              class="journey-gallery"
+              id="journey-gallery"
+              aria-live="polite"
+            >
               <div class="journey-gallery-copy">
                 <p class="journey-gallery-kicker">15.09.2026</p>
                 <h3>Những mảnh ghép đầu tiên</h3>
-                <p>Nhấn vào một mốc có dấu chấm màu cam để xem những hình ảnh tương ứng.</p>
+                <p>
+                  Nhấn vào một mốc có dấu chấm màu cam để xem những hình ảnh
+                  tương ứng.
+                </p>
               </div>
-              <div class="journey-gallery-grid" aria-label="Ảnh theo mốc thời gian"></div>
+              <div
+                class="journey-gallery-grid"
+                aria-label="Ảnh theo mốc thời gian"
+              ></div>
             </aside>
           </div>
         </div>
@@ -1034,44 +1108,74 @@
       </section>
       <section class="section main-day">
         <div class="inner reveal">
+          <header class="main-day-header">
+            <p class="eyebrow">05 / NHỮNG KHOẢNH KHẮC</p>
+            <h2 class="main-day-title">Ngày những nỗ lực trở thành kỷ niệm.</h2>
+            <p class="main-day-intro">
+              Một ngày của những cuộc gặp gỡ, những nụ cười và những khoảnh khắc
+              được lưu giữ qua từng khung hình.
+            </p>
+          </header>
           <div class="main-day-feature">
-            <div class="main-day-primary">
-              <h2 class="title">Ngày những nỗ lực trở thành kỷ niệm.</h2>
-              <p class="copy">
-                Sau nhiều tuần chuẩn bị, 13/10 là thời điểm các hoạt động gây quỹ
-                được triển khai tập trung và khép lại. Đằng sau mỗi sản phẩm là quá
-                trình tìm nguồn hàng, tính toán chi phí, phối hợp công việc và chuẩn
-                bị phục vụ người tham gia.
-              </p>
-              <button data-full="assets/DSC09776.JPG">
+            <article class="main-day-activity">
+              <button class="main-day-photo" data-full="assets/DSC09776.JPG">
                 <img
                   src="assets/DSC09776.JPG"
-                  alt="Ảnh tư liệu ngày hoạt động"
+                  alt="Các thành viên trong ngày hoạt động"
                   loading="lazy"
                 />
               </button>
+              <h3>Khi những nỗ lực trở thành kỷ niệm.</h3>
+              <p>
+                Sau những ngày chuẩn bị, 13/10 là dịp để các thành viên cùng
+                nhau thực hiện những hoạt động đã lên kế hoạch, gặp gỡ và lưu
+                giữ những khoảnh khắc đáng nhớ.
+              </p>
+            </article>
+            <article class="main-day-activity">
+              <button class="main-day-photo" data-full="assets/DSC09777.JPG">
+                <img
+                  src="assets/DSC09777.JPG"
+                  alt="Một ngày nhiều dấu ấn của Dấu Người"
+                  loading="lazy"
+                />
+              </button>
+              <h3>Một ngày, nhiều dấu ấn.</h3>
+              <p>
+                Từ gian hàng đến khu vực photobooth, mỗi cuộc gặp gỡ và mỗi sự
+                ủng hộ đều góp phần tạo nên một ngày ý nghĩa đối với Dấu Người.
+              </p>
+            </article>
+          </div>
+          <section
+            class="main-day-collection"
+            aria-labelledby="photobooth-heading"
+          >
+            <div class="main-day-collection-header">
+              <p class="eyebrow">BỘ SƯU TẬP ẢNH / 13 KHOẢNH KHẮC</p>
+              <h2 id="photobooth-heading">Những khoảnh khắc còn ở lại.</h2>
+              <p>
+                Mỗi tấm ảnh là một kỷ niệm nhỏ được lưu giữ trong hành trình Dấu
+                Người.
+              </p>
             </div>
-            <button class="main-day-secondary" data-full="assets/DSC09777.JPG">
-              <img
-                src="assets/DSC09777.JPG"
-                alt="Khoảnh khắc trong ngày hoạt động"
-                loading="lazy"
-              />
-            </button>
-          </div>
-          <div class="main-day-photobooths" aria-label="Toàn bộ ảnh photobooth FPT University" data-photobooth-wall>
-          </div>
+            <div
+              class="main-day-photobooths"
+              aria-label="Mười ba ảnh photobooth của Dấu Người"
+              data-photobooth-wall
+            ></div>
+          </section>
         </div>
       </section>
       <section class="section impact" id="impact">
         <div class="inner reveal">
-          <p class="eyebrow">06 / Our impact</p>
-          <h2 class="title">Từ những đóng góp nhỏ đến một kết quả chung.</h2>
+          <p class="eyebrow">06 / KẾT QUẢ DỰ ÁN</p>
+          <h2 class="title">Những nỗ lực được đền đáp.</h2>
+          <p class="impact-intro">
+            Từ những hoạt động gây quỹ giản dị, Dấu Người đã ghi nhận được những
+            kết quả tài chính cụ thể.
+          </p>
           <div class="metrics">
-            <div class="metric">
-              <span>Vốn nhóm ban đầu</span>
-              <b data-count-to="1500000" data-count-suffix="đ">1.500.000đ</b>
-            </div>
             <div class="metric">
               <span>Doanh thu vận hành</span>
               <b data-count-to="3522222" data-count-suffix="đ">3.522.222đ</b>
@@ -1081,13 +1185,20 @@
               <b data-count-to="2020000" data-count-suffix="đ">2.020.000đ</b>
             </div>
             <div class="metric">
-              <span>Lợi nhuận</span>
-              <b data-count-to="1502222" data-count-suffix="đ">1.502.222đ</b>
+              <span>Vốn ban đầu</span>
+              <b data-count-to="1500000" data-count-suffix="đ">1.500.000đ</b>
             </div>
           </div>
+          <p class="impact-note">
+            Vốn ban đầu được theo dõi riêng và không tính vào doanh thu vận
+            hành. Lợi nhuận được xác định sau khi trừ các chi phí hoạt động.
+          </p>
           <div class="finance">
             <div>
-              <p class="eyebrow">Bảng đối soát</p>
+              <p class="eyebrow">Đối soát tài chính</p>
+              <p class="finance-subtitle">
+                Chi tiết thu và chi theo từng hoạt động.
+              </p>
               <table class="table">
                 <thead>
                   <tr>
@@ -1128,59 +1239,109 @@
                       <strong>2.020.000đ</strong>
                     </td>
                   </tr>
-                  <tr>
-                    <td>
-                      <strong>Lợi nhuận</strong>
-                    </td>
-                    <td colspan="2">
-                      <strong>1.502.222đ</strong>
-                    </td>
-                  </tr>
                 </tbody>
               </table>
             </div>
             <div class="bars">
-              <figure class="finance-chart" aria-label="So sánh thu và chi theo hoạt động">
+              <h3 class="finance-chart-title">So sánh doanh thu và chi phí</h3>
+              <figure
+                class="finance-chart"
+                aria-label="So sánh thu và chi theo hoạt động"
+              >
                 <div class="chart-legend" aria-hidden="true">
-                  <span class="legend-income">Thu</span><span class="legend-cost">Chi</span>
+                  <span class="legend-income">Thu</span
+                  ><span class="legend-cost">Chi</span>
                 </div>
                 <div class="chart-comparison">
                   <div class="comparison-row">
                     <span>Bánh tráng</span>
                     <div class="comparison-bars">
-                      <div class="comparison-bar income" style="--value: 100%"><i></i><b>2.400.000đ</b></div>
-                      <div class="comparison-bar cost" style="--value: 60%"><i></i><b>1.440.000đ</b></div>
+                      <div class="comparison-bar income" style="--value: 100%">
+                        <i></i><b>2.400.000đ</b>
+                      </div>
+                      <div class="comparison-bar cost" style="--value: 60%">
+                        <i></i><b>1.440.000đ</b>
+                      </div>
                     </div>
                   </div>
                   <div class="comparison-row">
                     <span>Photobooth</span>
                     <div class="comparison-bars">
-                      <div class="comparison-bar income" style="--value: 29.2%"><i></i><b>700.000đ</b></div>
-                      <div class="comparison-bar cost" style="--value: 16.7%"><i></i><b>400.000đ</b></div>
+                      <div class="comparison-bar income" style="--value: 29.2%">
+                        <i></i><b>700.000đ</b>
+                      </div>
+                      <div class="comparison-bar cost" style="--value: 16.7%">
+                        <i></i><b>400.000đ</b>
+                      </div>
                     </div>
                   </div>
                   <div class="comparison-row">
                     <span>Trà tắc</span>
                     <div class="comparison-bars">
-                      <div class="comparison-bar income" style="--value: 17.5%"><i></i><b>420.000đ</b></div>
-                      <div class="comparison-bar cost" style="--value: 7.5%"><i></i><b>180.000đ</b></div>
+                      <div class="comparison-bar income" style="--value: 17.5%">
+                        <i></i><b>420.000đ</b>
+                      </div>
+                      <div class="comparison-bar cost" style="--value: 7.5%">
+                        <i></i><b>180.000đ</b>
+                      </div>
                     </div>
                   </div>
                   <div class="comparison-row">
                     <span>Điều chỉnh</span>
                     <div class="comparison-bars">
-                      <div class="comparison-bar income" style="--value: 0.1%"><i></i><b>2.222đ</b></div>
-                      <div class="comparison-bar cost" style="--value: 0%"><i></i><b>0đ</b></div>
+                      <div class="comparison-bar income" style="--value: 0.1%">
+                        <i></i><b>2.222đ</b>
+                      </div>
+                      <div class="comparison-bar cost" style="--value: 0%">
+                        <i></i><b>0đ</b>
+                      </div>
                     </div>
                   </div>
                 </div>
               </figure>
             </div>
           </div>
-          <div class="finance-evidence" aria-label="Chứng từ đối soát quỹ">
-            <button type="button" data-full="assets/5.1a.png" aria-label="Mở chứng từ đối soát, phần 1"><img src="assets/5.1a.png" alt="Chứng từ đối soát quỹ, phần 1" loading="lazy" /></button>
-            <button type="button" data-full="assets/5.1b.png" aria-label="Mở chứng từ đối soát, phần 2"><img src="assets/5.1b.png" alt="Chứng từ đối soát quỹ, phần 2" loading="lazy" /></button>
-            <button type="button" data-full="assets/5.1c.png" aria-label="Mở chứng từ đối soát, phần 3"><img src="assets/5.1c.png" alt="Chứng từ đối soát quỹ, phần 3" loading="lazy" /></button>
+          <div class="finance-evidence-header">
+            <p class="eyebrow">Chứng từ &amp; đối soát</p>
+            <p>
+              Các trang sổ thu – chi được lưu giữ làm minh chứng cho quá trình
+              tổng hợp tài chính.
+            </p>
+          </div>
+          <div class="finance-evidence" aria-label="Ba chứng từ đối soát quỹ">
+            <button
+              type="button"
+              data-full="assets/5.1a.png"
+              aria-label="Mở chứng từ đối soát, phần 1"
+            >
+              <img
+                src="assets/5.1a.png"
+                alt="Chứng từ đối soát quỹ, phần 1"
+                loading="lazy"
+              />
+            </button>
+            <button
+              type="button"
+              data-full="assets/5.1b.png"
+              aria-label="Mở chứng từ đối soát, phần 2"
+            >
+              <img
+                src="assets/5.1b.png"
+                alt="Chứng từ đối soát quỹ, phần 2"
+                loading="lazy"
+              />
+            </button>
+            <button
+              type="button"
+              data-full="assets/5.1c.png"
+              aria-label="Mở chứng từ đối soát, phần 3"
+            >
+              <img
+                src="assets/5.1c.png"
+                alt="Chứng từ đối soát quỹ, phần 3"
+                loading="lazy"
+              />
+            </button>
           </div>
         </div>
       </section>
@@ -1188,76 +1349,112 @@
         <div class="inner beyond reveal">
           <div class="beyond-story">
             <p class="eyebrow">07 / KINDNESS FIELDTRIP 9 · 01 NOVEMBER 2026</p>
-            <h2 class="title">
-              Khi những đóng góp nhỏ tiếp nối một hành trình tri ân.
-            </h2>
-            <p class="copy">
-              Dấu Người khép lại hành trình gây quỹ và đóng góp nguồn quỹ vào
-              chương trình Kindness Fieldtrip 9, do câu lạc bộ SSC tổ chức ngày
-              01/11/2026 tại Trung tâm Điều dưỡng Thương binh và Người có công
-              Long Đất.
-            </p>
-            <p class="copy">
-              Chương trình hướng đến việc thăm hỏi, giao lưu và bày tỏ lòng biết
-              ơn đối với các cô chú thương binh, bệnh binh và người có công. Dù
-              không trực tiếp tham gia chuyến đi, nhóm Dấu Người vẫn góp một
-              phần nhỏ vào hành trình ý nghĩa ấy.
-            </p>
-            <div
-              class="fieldtrip-gallery"
-              aria-label="Tư liệu hình ảnh Kindness Fieldtrip 9"
-            >
-              <figure class="tour-image" data-full="assets/6.1a.JPG">
+            <div class="fieldtrip-intro-layout">
+              <div class="fieldtrip-intro-copy">
+                <h2 class="title">
+                  Khi những đóng góp nhỏ tiếp nối một hành trình tri ân.
+                </h2>
+                <p class="copy">
+                  Dấu Người khép lại hành trình gây quỹ và đóng góp nguồn quỹ
+                  vào chương trình Kindness Fieldtrip 9, do câu lạc bộ SSC tổ
+                  chức ngày 01/11/2026 tại Trung tâm Điều dưỡng Thương binh và
+                  Người có công Long Đất.
+                </p>
+                <p class="copy">
+                  Chương trình hướng đến việc thăm hỏi, giao lưu và bày tỏ lòng
+                  biết ơn đối với các cô chú thương binh, bệnh binh và người có
+                  công. Dù không trực tiếp tham gia chuyến đi, nhóm Dấu Người
+                  vẫn góp một phần nhỏ vào hành trình ý nghĩa ấy.
+                </p>
+              </div>
+              <figure
+                class="tour-image fieldtrip-hero"
+                data-full="assets/6.1a.JPG"
+              >
                 <img
                   src="assets/6.1a.JPG"
                   alt="Đoàn Kindness Fieldtrip 9 chụp ảnh lưu niệm cùng băng rôn chương trình"
                   loading="lazy"
                 />
               </figure>
-              <figure class="tour-image" data-full="assets/6.1b.JPG">
-                <img
-                  src="assets/6.1b.JPG"
-                  alt="Người tham dự và các cô chú trong hoạt động Kindness Fieldtrip 9"
-                  loading="lazy"
-                />
-              </figure>
-              <figure class="tour-image" data-full="assets/6.1c.JPG">
-                <img
-                  src="assets/6.1c.JPG"
-                  alt="Khoảnh khắc giao lưu tại Kindness Fieldtrip 9"
-                  loading="lazy"
-                />
-              </figure>
-              <figure
-                class="tour-image fieldtrip-hall"
-                data-full="assets/class-tour-hall.jpg"
-              >
-                <img
-                  src="assets/class-tour-hall.jpg"
-                  alt="Người tham dự trong hội trường chương trình Kindness Fieldtrip 9"
-                  loading="lazy"
-                />
-              </figure>
-              <figure
-                class="tour-image fieldtrip-activity"
-                data-full="assets/class-tour-meet-room.jpg"
-              >
-                <img
-                  src="assets/class-tour-meet-room.jpg"
-                  alt="Nhân viên y tế thăm hỏi một người có công tại trung tâm"
-                  loading="lazy"
-                />
-              </figure>
-              <figure
-                class="tour-image fieldtrip-visit"
-                data-full="assets/class-tour-visit.jpg"
-              >
-                <img
-                  src="assets/class-tour-visit.jpg"
-                  alt="Khoảnh khắc thăm hỏi trực tiếp các cô chú tại trung tâm"
-                  loading="lazy"
-                />
-              </figure>
+            </div>
+            <div
+              class="fieldtrip-editorial"
+              aria-label="Tư liệu hình ảnh Kindness Fieldtrip 9"
+            >
+              <div class="fieldtrip-cluster fieldtrip-intro-cluster">
+                <figure class="tour-image" data-full="assets/6.1b.JPG">
+                  <img
+                    src="assets/6.1b.JPG"
+                    alt="Người tham dự và các cô chú trong hoạt động Kindness Fieldtrip 9"
+                    loading="lazy"
+                  />
+                </figure>
+                <div class="fieldtrip-inline-copy">
+                  <p>
+                    Những cuộc gặp gỡ nhỏ mở ra thêm một cách để lòng biết ơn
+                    được tiếp nối.
+                  </p>
+                </div>
+                <figure class="tour-image" data-full="assets/6.1c.JPG">
+                  <img
+                    src="assets/6.1c.JPG"
+                    alt="Khoảnh khắc giao lưu tại Kindness Fieldtrip 9"
+                    loading="lazy"
+                  />
+                </figure>
+              </div>
+              <div class="fieldtrip-cluster fieldtrip-visit-cluster">
+                <figure
+                  class="tour-image fieldtrip-hall"
+                  data-full="assets/class-tour-hall.jpg"
+                >
+                  <img
+                    src="assets/class-tour-hall.jpg"
+                    alt="Người tham dự trong hội trường chương trình Kindness Fieldtrip 9"
+                    loading="lazy"
+                  />
+                </figure>
+                <div class="fieldtrip-final-grid">
+                  <figure
+                    class="tour-image fieldtrip-activity"
+                    data-full="assets/class-tour-meet-room.jpg"
+                  >
+                    <img
+                      src="assets/class-tour-meet-room.jpg"
+                      alt="Nhân viên y tế thăm hỏi một người có công tại trung tâm"
+                      loading="lazy"
+                    />
+                  </figure>
+                  <figure
+                    class="tour-image fieldtrip-visit"
+                    data-full="assets/class-tour-visit.jpg"
+                  >
+                    <img
+                      src="assets/class-tour-visit.jpg"
+                      alt="Khoảnh khắc thăm hỏi trực tiếp các cô chú tại trung tâm"
+                      loading="lazy"
+                    />
+                  </figure>
+                  <figure
+                    class="tour-image fieldtrip-extra"
+                    data-full="assets/class-tour-closing.jpg"
+                  >
+                    <img
+                      src="assets/class-tour-closing.jpg"
+                      alt="Hoạt động gây quỹ và gặp gỡ trong hành trình Dấu Người"
+                      loading="lazy"
+                    />
+                  </figure>
+                </div>
+                <div class="fieldtrip-visit-copy">
+                  <h3>Những hoạt động tại Long Đất</h3>
+                  <p>
+                    Chuyến đi là dịp thăm hỏi, giao lưu và bày tỏ lòng biết ơn
+                    với các cô chú thương binh, bệnh binh và người có công.
+                  </p>
+                </div>
+              </div>
             </div>
             <p class="fieldtrip-credit">
               Tư liệu hình ảnh: Kindness Fieldtrip 9 — CLB SSC, 01/11/2026.
@@ -1269,7 +1466,7 @@
         <div class="inner reveal">
           <div class="team-lead">
             <div>
-              <p class="eyebrow">08 / Our team</p>
+              <p class="eyebrow">08 / OUR TEAM</p>
               <h2 class="title">Sáu con người. Một hành trình chung.</h2>
               <p>
                 Để một ý tưởng thành hoạt động thực tế, nhóm cùng tham gia từ
@@ -1287,72 +1484,108 @@
             <article class="member">
               <span class="number">01</span>
               <h3>Lương Minh Khánh</h3>
-              <div class="member-meta"><span><small>MSSV</small>SE203451</span><span><small>Đánh giá</small>100%</span></div>
-              <p>- Tổ chức họp, lên ý tưởng, thống nhất nội dung<br>
-                - Cập nhật thông tin, lên lịch, phân công nhiệm vụ cho từng thành viên, kiểm tra tiến độ<br>
-                - Mời khách, kêu gọi mọi người giới thiệu photobooth<br>
-                - Hỗ trợ quá trình chụp ảnh và trả ảnh<br>
-                - Tìm kiếm nguồn thuê máy in, các sản phẩm liên quan phục vụ cho photobooth<br>
-                - Tham gia trực tiếp vào hoạt động bán hàng<br>
-                - Tính toán, ghi nhận doanh số, thu chi, tổng kết tiền, gửi tiền<br>
-                - Tham gia class tour, là người trực tiếp viết mail xin phép, chịu trách nhiệm liên lạc, lên lịch cho các buổi giới thiệu cũng như thuyết trình tại các lớp học<br>
-                – Chuẩn bị tài liệu báo cáo tổng kết và thuyết trình<br>
+              <div class="member-meta">
+                <span><small>MSSV</small>SE203451</span
+                ><span><small>Đánh giá</small>100%</span>
+              </div>
+              <p>
+                - Tổ chức họp, lên ý tưởng, thống nhất nội dung<br />
+                - Cập nhật thông tin, lên lịch, phân công nhiệm vụ cho từng
+                thành viên, kiểm tra tiến độ<br />
+                - Mời khách, kêu gọi mọi người giới thiệu photobooth<br />
+                - Hỗ trợ quá trình chụp ảnh và trả ảnh<br />
+                - Tìm kiếm nguồn thuê máy in, các sản phẩm liên quan phục vụ cho
+                photobooth<br />
+                - Tham gia trực tiếp vào hoạt động bán hàng<br />
+                - Tính toán, ghi nhận doanh số, thu chi, tổng kết tiền, gửi
+                tiền<br />
+                - Tham gia class tour, là người trực tiếp viết mail xin phép,
+                chịu trách nhiệm liên lạc, lên lịch cho các buổi giới thiệu cũng
+                như thuyết trình tại các lớp học<br />
+                – Chuẩn bị tài liệu báo cáo tổng kết và thuyết trình<br />
               </p>
             </article>
             <article class="member">
               <span class="number">02</span>
               <h3>Lê Thị Tuyết Lan</h3>
-              <div class="member-meta"><span><small>MSSV</small>SE203600</span><span><small>Đánh giá</small>100%</span></div>
-              <p>- Chịu trách nhiệm lên ý tưởng, các sản phẩm nên bán cho nhóm<br>
-                - Xây dựng website chụp ảnh photobooth cho hoạt động chụp ảnh ngày 13/10<br>
-                - Chịu trách nhiệm, phụ trách chính và đứng giao tiếp, hướng dẫn khách hàng tại khu vực chụp photobooth của nhóm<br>
-                - Trực tiếp tìm kiếm nguồn thuê máy ảnh, chịu trách nhiệm về máy móc công nghệ cho dự án<br>
-                - Tham gia vào toàn bộ các buổi class tour (3/3)<br>
-                - Thủ quỹ <br>
-                - Tham gia trực tiếp vào hoạt động bán hàng<br>
-                - Làm báo cáo tổng kết cuối dự án cho nhóm<br>
+              <div class="member-meta">
+                <span><small>MSSV</small>SE203600</span
+                ><span><small>Đánh giá</small>100%</span>
+              </div>
+              <p>
+                - Chịu trách nhiệm lên ý tưởng, các sản phẩm nên bán cho nhóm<br />
+                - Xây dựng website chụp ảnh photobooth cho hoạt động chụp ảnh
+                ngày 13/10<br />
+                - Chịu trách nhiệm, phụ trách chính và đứng giao tiếp, hướng dẫn
+                khách hàng tại khu vực chụp photobooth của nhóm<br />
+                - Trực tiếp tìm kiếm nguồn thuê máy ảnh, chịu trách nhiệm về máy
+                móc công nghệ cho dự án<br />
+                - Tham gia vào toàn bộ các buổi class tour (3/3)<br />
+                - Thủ quỹ <br />
+                - Tham gia trực tiếp vào hoạt động bán hàng<br />
+                - Làm báo cáo tổng kết cuối dự án cho nhóm<br />
               </p>
             </article>
             <article class="member">
               <span class="number">03</span>
               <h3>Nguyễn Quốc Toàn</h3>
-              <div class="member-meta"><span><small>MSSV</small>SE190537</span><span><small>Đánh giá</small>100%</span></div>
-              <p>- Tham gia đóng góp nội dung thuyết trình<br>
-                - Có mặt trong các cuộc họp để đưa ra các ý kiến cá nhân để hỗ trợ nhóm lựa chọn các mô hình phù hợp với dự án<br>
-                - Hỗ trợ việc vận chuyển các mặt hàng cho các thành viên khác<br>
-                - Phụ trách hỗ trợ các thành viên trong nhóm lấy bàn ghế setup khu vực buôn bán và bán hàng<br>
-                - Tham gia vào buổi class tour<br>
-                - Tham gia trực tiếp vào hoạt động bán hàng<br>
+              <div class="member-meta">
+                <span><small>MSSV</small>SE190537</span
+                ><span><small>Đánh giá</small>100%</span>
+              </div>
+              <p>
+                - Tham gia đóng góp nội dung thuyết trình<br />
+                - Có mặt trong các cuộc họp để đưa ra các ý kiến cá nhân để hỗ
+                trợ nhóm lựa chọn các mô hình phù hợp với dự án<br />
+                - Hỗ trợ việc vận chuyển các mặt hàng cho các thành viên khác<br />
+                - Phụ trách hỗ trợ các thành viên trong nhóm lấy bàn ghế setup
+                khu vực buôn bán và bán hàng<br />
+                - Tham gia vào buổi class tour<br />
+                - Tham gia trực tiếp vào hoạt động bán hàng<br />
               </p>
             </article>
             <article class="member">
               <span class="number">04</span>
               <h3>Nguyễn Khánh Trình</h3>
-              <div class="member-meta"><span><small>MSSV</small>SE200962</span><span><small>Đánh giá</small>100%</span></div>
-              <p>- Góp công trong việc nghĩ ra ý tưởng cần thiết cho dự án như trà tắc<br>
-                  - Hỗ trợ cho nhóm công việc ký hợp đồng với đối tác quan trọng cho dự án<br>
-                  - Nhận và trả máy photobooth cho cả nhóm<br>
-                  - Đảm nhận 1 phần việc thuyết trình<br>
-                  - Hỗ trợ cả nhóm khi cần trong dự án gây quỹ<br>
-                  - Làm slide<br>
+              <div class="member-meta">
+                <span><small>MSSV</small>SE200962</span
+                ><span><small>Đánh giá</small>100%</span>
+              </div>
+              <p>
+                - Góp công trong việc nghĩ ra ý tưởng cần thiết cho dự án như
+                trà tắc<br />
+                - Hỗ trợ cho nhóm công việc ký hợp đồng với đối tác quan trọng
+                cho dự án<br />
+                - Nhận và trả máy photobooth cho cả nhóm<br />
+                - Đảm nhận 1 phần việc thuyết trình<br />
+                - Hỗ trợ cả nhóm khi cần trong dự án gây quỹ<br />
+                - Làm slide<br />
               </p>
             </article>
             <article class="member">
               <span class="number">05</span>
               <h3>Nguyễn Minh Hoàng</h3>
-              <div class="member-meta"><span><small>MSSV</small>SE204858</span><span><small>Đánh giá</small>100%</span></div>
-              <p>- Phụ trách lấy bàn ghế cho nhóm<br>
-                 - Tìm nguồn cung bánh tráng và trà tắc<br>
-                 - Bán hàng và kéo khách cho nhóm <br>
-                 - Vận chuyển và bảo quản trà tắc với bánh tráng<br>
+              <div class="member-meta">
+                <span><small>MSSV</small>SE204858</span
+                ><span><small>Đánh giá</small>100%</span>
+              </div>
+              <p>
+                - Phụ trách lấy bàn ghế cho nhóm<br />
+                - Tìm nguồn cung bánh tráng và trà tắc<br />
+                - Bán hàng và kéo khách cho nhóm <br />
+                - Vận chuyển và bảo quản trà tắc với bánh tráng<br />
               </p>
             </article>
             <article class="member">
               <span class="number">06</span>
               <h3>Nguyễn Việt Quân</h3>
-              <div class="member-meta"><span><small>MSSV</small>SE204751</span><span><small>Đánh giá</small>100%</span></div>
-              <p>- Hỗ trợ bán hàng<br>
-                - Truyền thông sản phẩm<br>
+              <div class="member-meta">
+                <span><small>MSSV</small>SE204751</span
+                ><span><small>Đánh giá</small>100%</span>
+              </div>
+              <p>
+                - Hỗ trợ bán hàng<br />
+                - Truyền thông sản phẩm<br />
               </p>
             </article>
           </div>
@@ -1360,18 +1593,66 @@
       </section>
       <section class="section closing" id="reflection">
         <div class="closing-collage" aria-hidden="true">
-          <img src="assets/fptu-photobooth-20261013-131043.png" alt="" loading="lazy" />
-          <img src="assets/fptu-photobooth-20261013-131535.png" alt="" loading="lazy" />
-          <img src="assets/fptu-photobooth-20261013-132013.png" alt="" loading="lazy" />
-          <img src="assets/fptu-photobooth-20261013-132624.png" alt="" loading="lazy" />
-          <img src="assets/fptu-photobooth-20261013-132857.png" alt="" loading="lazy" />
-          <img src="assets/fptu-photobooth-20261013-134744.png" alt="" loading="lazy" />
-          <img src="assets/fptu-photobooth-20261013-144744.png" alt="" loading="lazy" />
-          <img src="assets/fptu-photobooth-20261013-145631.png" alt="" loading="lazy" />
-          <img src="assets/fptu-photobooth-20261013-145930.png" alt="" loading="lazy" />
-          <img src="assets/fptu-photobooth-20261013-154619.png" alt="" loading="lazy" />
-          <img src="assets/fptu-photobooth-20261013-155213.png" alt="" loading="lazy" />
-          <img src="assets/fptu-photobooth-20261013-155919.png" alt="" loading="lazy" />
+          <img
+            src="assets/fptu-photobooth-20261013-131043.png"
+            alt=""
+            loading="lazy"
+          />
+          <img
+            src="assets/fptu-photobooth-20261013-131535.png"
+            alt=""
+            loading="lazy"
+          />
+          <img
+            src="assets/fptu-photobooth-20261013-132013.png"
+            alt=""
+            loading="lazy"
+          />
+          <img
+            src="assets/fptu-photobooth-20261013-132624.png"
+            alt=""
+            loading="lazy"
+          />
+          <img
+            src="assets/fptu-photobooth-20261013-132857.png"
+            alt=""
+            loading="lazy"
+          />
+          <img
+            src="assets/fptu-photobooth-20261013-134744.png"
+            alt=""
+            loading="lazy"
+          />
+          <img
+            src="assets/fptu-photobooth-20261013-144744.png"
+            alt=""
+            loading="lazy"
+          />
+          <img
+            src="assets/fptu-photobooth-20261013-145631.png"
+            alt=""
+            loading="lazy"
+          />
+          <img
+            src="assets/fptu-photobooth-20261013-145930.png"
+            alt=""
+            loading="lazy"
+          />
+          <img
+            src="assets/fptu-photobooth-20261013-154619.png"
+            alt=""
+            loading="lazy"
+          />
+          <img
+            src="assets/fptu-photobooth-20261013-155213.png"
+            alt=""
+            loading="lazy"
+          />
+          <img
+            src="assets/fptu-photobooth-20261013-155919.png"
+            alt=""
+            loading="lazy"
+          />
         </div>
         <div class="inner reveal">
           <p class="eyebrow" style="color: #d7d8bd">09 / Reflection</p>
@@ -1418,7 +1699,7 @@
 
           lastScrollY = currentScrollY;
         },
-        { passive: true }
+        { passive: true },
       );
       const nav = document.querySelector(".nav"),
         menu = document.querySelector(".menu");
@@ -1437,9 +1718,38 @@
       const motionPreference = matchMedia("(prefers-reduced-motion: reduce)");
       const canObserve = "IntersectionObserver" in window;
       const timeline = document.querySelector(".journey .timeline");
+      const journeyTrackLine = timeline?.querySelector(".journey-track-line");
+      if (timeline && journeyTrackLine) timeline.prepend(journeyTrackLine);
+      const journeyStage = document.querySelector(".journey-stage");
+      const journeyGallery = document.querySelector(".journey-gallery");
+      const journeyControls = document.querySelector(".journey-controls");
+      if (
+        journeyStage &&
+        timeline &&
+        journeyGallery &&
+        !journeyStage.querySelector(".journey-content-stage")
+      ) {
+        const contentStage = document.createElement("div");
+        contentStage.className = "journey-content-stage";
+        journeyGallery.classList.add("journey-active-stage");
+        journeyGallery
+          .querySelector(".journey-gallery-copy")
+          ?.classList.add("journey-active-copy");
+        journeyGallery
+          .querySelector(".journey-gallery-grid")
+          ?.classList.add("journey-active-media");
+        journeyStage.insertBefore(contentStage, timeline);
+        contentStage.append(journeyGallery);
+        if (journeyControls) journeyStage.append(journeyControls);
+      }
       const milestones = timeline
         ? [...timeline.querySelectorAll(".milestone")]
         : [];
+      milestones.forEach((milestone) => {
+        milestone.tabIndex = 0;
+        milestone.setAttribute("role", "button");
+        milestone.setAttribute("aria-controls", "journey-gallery");
+      });
       const sectionTargets = [];
       document.querySelectorAll(".section .reveal").forEach((container) => {
         const label = container.querySelector(".eyebrow");
@@ -1562,6 +1872,8 @@
       let journeyFrame = 0;
       let timelineResizeObserver = null;
       function updateJourney() {
+        return;
+        /* Legacy vertical-scroll state logic intentionally disabled for the horizontal timeline. */
         journeyFrame = 0;
         if (!timeline || !milestones.length || motionPreference.matches) return;
         const timelineRect = timeline.getBoundingClientRect();
@@ -1645,7 +1957,12 @@
           date: "25.09.2026",
           title: "Dấu Người ra đời",
           titleEn: "Dấu Người takes shape",
-          images: ["assets/3.2a.png", "assets/3.2b.png", "assets/3.2c.png", "assets/3.2d.png"],
+          images: [
+            "assets/3.2a.png",
+            "assets/3.2b.png",
+            "assets/3.2c.png",
+            "assets/3.2d.png",
+          ],
         },
         resources: {
           date: "03.10.2026",
@@ -1659,76 +1976,260 @@
           titleEn: "Class Tour",
           images: ["assets/3.4a.png", "assets/3.4b.png", "assets/3.4c.png"],
         },
+        "sales-begin": {
+          layout: "grid",
+          date: "06.10.2026",
+          title: "Bắt đầu bán hàng",
+          titleEn: "Sales begin",
+          images: [
+            "assets/anh_ban_hang_1.jpg", // TEMP IMAGE — replace later
+            "assets/ban_hang.jpg", // TEMP IMAGE — replace later
+            "assets/anh_ban_hang_3.jpg", // TEMP IMAGE — replace later
+            "assets/anh_ban_hang_4.jpg", // TEMP IMAGE — replace later
+          ],
+        },
+        "ready-to-launch": {
+          layout: "single",
+          date: "10.10.2026",
+          title: "Sẵn sàng triển khai",
+          titleEn: "Ready to launch",
+          images: ["assets/chia_task.jpg"], // TEMP IMAGE — replace later
+        },
+        workshop: {
+          layout: "grid",
+          date: "13.10.2026",
+          title: "Workshop Dấu Người",
+          titleEn: "Dấu Người workshop",
+          images: [
+            "assets/DSC09776.JPG", // TEMP IMAGE — replace later
+            "assets/DSC09777.JPG", // TEMP IMAGE — replace later
+            "assets/IMG_3538.PNG", // TEMP IMAGE — replace later
+            "assets/ban_hang_13.10.jpg", // TEMP IMAGE — replace later
+          ],
+        },
+        "campaign-wrap": {
+          date: "22.10.2026",
+          title: "Tổng kết chiến dịch & hoàn tất quỹ",
+          titleEn: "Campaign wrap-up & fund completion",
+          layout: "featured-left",
+          images: [
+            "assets/c6c3ceed-42e6-4d50-952a-c03df4a87e49.jpg", // TEMP IMAGE — replace later
+            "assets/chart.png", // TEMP IMAGE — replace later
+            "assets/chart (1).png", // TEMP IMAGE — replace later
+          ],
+        },
+        fieldtrip: {
+          date: "01.11.2026",
+          title: "Kindness Fieldtrip 9",
+          titleEn: "Kindness Fieldtrip 9",
+          images: [
+            "assets/IMG_0172.JPG",
+            "assets/IMG_0193.JPG",
+            "assets/IMG_0187.JPG",
+            "assets/IMG_0215.JPG",
+          ], // TEMP IMAGE — replace later
+        },
       };
       const galleryPanel = document.querySelector(".journey-gallery");
       const galleryTitle = galleryPanel?.querySelector("h3");
-      const galleryDate = galleryPanel?.querySelector(".journey-gallery-kicker");
+      const galleryDate = galleryPanel?.querySelector(
+        ".journey-gallery-kicker",
+      );
+      const journeyDescription = galleryPanel?.querySelector(
+        ".journey-gallery-copy > p:last-child",
+      );
       const galleryGrid = galleryPanel?.querySelector(".journey-gallery-grid");
       let selectedJourney = "first-pieces";
       function renderJourneyGallery(animate = false) {
         const set = journeySets[selectedJourney];
         if (!set || !galleryGrid) return;
-        galleryGrid.classList.toggle("is-changing", animate && !motionPreference.matches);
-        galleryTitle.textContent = document.documentElement.lang === "en" ? set.titleEn : set.title;
+        galleryGrid.classList.toggle(
+          "is-changing",
+          animate && !motionPreference.matches,
+        );
+        galleryTitle.textContent =
+          document.documentElement.lang === "en" ? set.titleEn : set.title;
         galleryDate.textContent = set.date;
+        if (journeyDescription)
+          journeyDescription.textContent =
+            milestones[selectedJourneyIndex]
+              ?.querySelector(".milestone-copy > p")
+              ?.textContent.trim() || "";
         galleryGrid.dataset.count = String(set.images.length);
+        galleryGrid.dataset.layout = set.layout || "equal";
+        galleryGrid.dataset.gallery = selectedJourney;
         const cards = set.images.map((source, index) => {
           const button = document.createElement("button");
           button.type = "button";
           button.dataset.full = source;
           const english = document.documentElement.lang === "en";
           const galleryTitleText = english ? set.titleEn : set.title;
-          button.setAttribute("aria-label", english ? `Open image ${index + 1}: ${galleryTitleText}` : `Mở ảnh ${index + 1}: ${galleryTitleText}`);
+          button.setAttribute(
+            "aria-label",
+            english
+              ? `Open image ${index + 1}: ${galleryTitleText}`
+              : `Mở ảnh ${index + 1}: ${galleryTitleText}`,
+          );
           const image = document.createElement("img");
           image.src = source;
-          image.alt = english ? `${galleryTitleText} — image ${index + 1}` : `${galleryTitleText} — ảnh ${index + 1}`;
+          image.alt = english
+            ? `${galleryTitleText} — image ${index + 1}`
+            : `${galleryTitleText} — ảnh ${index + 1}`;
           image.loading = "lazy";
           button.append(image);
           return button;
         });
         galleryGrid.replaceChildren(...cards);
-        if (animate && !motionPreference.matches) requestAnimationFrame(() => galleryGrid.classList.remove("is-changing"));
-        milestones.forEach((milestone) => milestone.classList.toggle("gallery-selected", milestone.dataset.gallery === selectedJourney));
+        if (animate && !motionPreference.matches)
+          requestAnimationFrame(() =>
+            galleryGrid.classList.remove("is-changing"),
+          );
+        milestones.forEach((milestone) =>
+          milestone.classList.toggle(
+            "gallery-selected",
+            milestone.dataset.gallery === selectedJourney,
+          ),
+        );
       }
       function selectJourneyGallery(key) {
         if (!journeySets[key]) return;
         selectedJourney = key;
         renderJourneyGallery(true);
       }
-      milestones.forEach((milestone) => {
-        if (!milestone.dataset.gallery) return;
-        milestone.addEventListener("click", () => selectJourneyGallery(milestone.dataset.gallery));
+      const journeyCounter = document.querySelector(".journey-counter");
+      const journeyPrevious = document.querySelector(".journey-prev");
+      const journeyNext = document.querySelector(".journey-next");
+      let selectedJourneyIndex = 0;
+      function selectJourneyIndex(index, focus = false) {
+        selectedJourneyIndex = Math.max(
+          0,
+          Math.min(milestones.length - 1, index),
+        );
+        const milestone = milestones[selectedJourneyIndex];
+        const key = milestone?.dataset.gallery;
+        milestones.forEach((item, itemIndex) => {
+          item.classList.toggle(
+            "journey-selected",
+            itemIndex === selectedJourneyIndex,
+          );
+          item.setAttribute(
+            "aria-current",
+            itemIndex === selectedJourneyIndex ? "step" : "false",
+          );
+        });
+        if (journeyCounter)
+          journeyCounter.textContent = `${String(selectedJourneyIndex + 1).padStart(2, "0")} / ${String(milestones.length).padStart(2, "0")}`;
+        if (journeyPrevious)
+          journeyPrevious.disabled = selectedJourneyIndex === 0;
+        if (journeyNext)
+          journeyNext.disabled = selectedJourneyIndex === milestones.length - 1;
+        if (key) {
+          galleryPanel?.classList.remove("journey-no-image");
+          selectedJourney = key;
+          renderJourneyGallery(true);
+        } else if (galleryPanel) {
+          galleryPanel.classList.add("journey-no-image");
+          galleryDate.textContent =
+            milestone?.querySelector(".date")?.textContent || "";
+          galleryTitle.textContent =
+            milestone?.querySelector("h3")?.textContent || "";
+          galleryGrid.replaceChildren();
+          galleryGrid.dataset.count = "0";
+        }
+        if (journeyDescription)
+          journeyDescription.textContent =
+            milestone
+              ?.querySelector(".milestone-copy > p")
+              ?.textContent.trim() || "";
+        if (timeline && milestone)
+          timeline.scrollTo({
+            left: Math.max(
+              0,
+              milestone.offsetLeft -
+                timeline.clientWidth / 2 +
+                milestone.offsetWidth / 2,
+            ),
+            behavior: motionPreference.matches ? "auto" : "smooth",
+          });
+        if (focus) milestone?.focus({ preventScroll: true });
+      }
+      milestones.forEach((milestone, index) => {
+        milestone.addEventListener("click", () => selectJourneyIndex(index));
         milestone.addEventListener("keydown", (event) => {
-          if (event.key === "Enter" || event.key === " ") {
+          if (["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) {
             event.preventDefault();
-            selectJourneyGallery(milestone.dataset.gallery);
+            const nextIndex =
+              event.key === "ArrowLeft"
+                ? index - 1
+                : event.key === "ArrowRight"
+                  ? index + 1
+                  : event.key === "Home"
+                    ? 0
+                    : milestones.length - 1;
+            selectJourneyIndex(nextIndex, true);
+          } else if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            selectJourneyIndex(index, true);
           }
         });
       });
+      journeyPrevious?.addEventListener("click", () =>
+        selectJourneyIndex(selectedJourneyIndex - 1, true),
+      );
+      journeyNext?.addEventListener("click", () =>
+        selectJourneyIndex(selectedJourneyIndex + 1, true),
+      );
       renderJourneyGallery();
+      selectJourneyIndex(0);
 
       const photoboothFiles = [
-        "131043", "131535", "132013", "132624", "132857", "134744", "144744",
-        "145631", "145930", "154619", "155213", "155919", "160019",
+        "131043",
+        "131535",
+        "132013",
+        "132624",
+        "132857",
+        "134744",
+        "144744",
+        "145631",
+        "145930",
+        "154619",
+        "155213",
+        "155919",
+        "160019",
       ];
-      const photoboothWall = document.querySelector("[data-photobooth-wall]");
-      if (photoboothWall) {
-        const fragment = document.createDocumentFragment();
-        photoboothFiles.forEach((time) => {
-          const source = `assets/fptu-photobooth-20261013-${time}.png`;
-          const button = document.createElement("button");
-          button.type = "button";
-          button.dataset.full = source;
-          const english = document.documentElement.lang === "en";
-          button.setAttribute("aria-label", english ? `Open photobooth image ${time}` : `Mở ảnh photobooth ${time}`);
-          const image = document.createElement("img");
-          image.src = source;
-          image.alt = english ? `FPT University photobooth image ${time}` : `Ảnh photobooth FPT University ${time}`;
-          image.loading = "lazy";
-          button.append(image);
-          fragment.append(button);
+      const photoboothWalls = document.querySelectorAll(
+        "[data-photobooth-wall]",
+      );
+      if (photoboothWalls.length) {
+        photoboothWalls.forEach((photoboothWall) => {
+          const start = Number(photoboothWall.dataset.start || 0);
+          const end = Number(
+            photoboothWall.dataset.end || photoboothFiles.length,
+          );
+          const fragment = document.createDocumentFragment();
+          photoboothFiles.slice(start, end).forEach((time) => {
+            const source = `assets/fptu-photobooth-20261013-${time}.png`;
+            const button = document.createElement("button");
+            button.type = "button";
+            button.dataset.full = source;
+            const english = document.documentElement.lang === "en";
+            button.setAttribute(
+              "aria-label",
+              english
+                ? `Open photobooth image ${time}`
+                : `Mở ảnh photobooth ${time}`,
+            );
+            const image = document.createElement("img");
+            image.src = source;
+            image.alt = english
+              ? `FPT University photobooth image ${time}`
+              : `Ảnh photobooth FPT University ${time}`;
+            image.loading = "lazy";
+            button.append(image);
+            fragment.append(button);
+          });
+          photoboothWall.append(fragment);
         });
-        photoboothWall.append(fragment);
       }
 
       const languageToggle = document.querySelector(".language-toggle");
@@ -1742,138 +2243,460 @@
         [".menu", "☰"],
         ["#journey > .inner > .eyebrow", "03 / The journey"],
         ["#journey > .inner > .title", "One journey, many traces."],
-        ["#journey .journey-support", "From the first meetings to a continuing journey of gratitude."],
-        ["#journey .milestone:nth-child(1) h3", "The first pieces come together"],
-        ["#journey .milestone:nth-child(1) p", "Six members meet, connect, and begin the journey together."],
+        [
+          "#journey .journey-support",
+          "From the first meetings to a continuing journey of gratitude.",
+        ],
+        [
+          "#journey .milestone:nth-child(1) h3",
+          "The first pieces come together",
+        ],
+        [
+          "#journey .milestone:nth-child(1) p",
+          "Six members meet, connect, and begin the journey together.",
+        ],
         ["#journey .milestone:nth-child(2) h3", "Dấu Người takes shape"],
-        ["#journey .milestone:nth-child(2) p", "The idea and its message of gratitude begin to take form."],
+        [
+          "#journey .milestone:nth-child(2) p",
+          "The idea and its message of gratitude begin to take form.",
+        ],
         ["#journey .milestone:nth-child(3) h3", "Preparing our resources"],
-        ["#journey .milestone:nth-child(3) p", "The team contributes funds, finds suppliers, and prepares materials."],
+        [
+          "#journey .milestone:nth-child(3) p",
+          "The team contributes funds, finds suppliers, and prepares materials.",
+        ],
         ["#journey .milestone:nth-child(4) h3", "Sales begin"],
-        ["#journey .milestone:nth-child(4) p", "Rice paper goes on sale online and in person throughout the campaign."],
+        [
+          "#journey .milestone:nth-child(4) p",
+          "Rice paper goes on sale online and in person throughout the campaign.",
+        ],
         ["#journey .milestone:nth-child(5) h3", "Ready to launch"],
-        ["#journey .milestone:nth-child(5) p", "Tasks are assigned, supplies checked, and preparations completed."],
-        ["#journey .milestone:nth-child(6) p", "The project and its message are shared with students in class."],
+        [
+          "#journey .milestone:nth-child(5) p",
+          "Tasks are assigned, supplies checked, and preparations completed.",
+        ],
+        [
+          "#journey .milestone:nth-child(6) p",
+          "The project and its message are shared with students in class.",
+        ],
         ["#journey .milestone:nth-child(7) h3", "Dấu Người workshop"],
-        ["#journey .milestone:nth-child(7) p", "The photobooth and drinks stall go live, while revenue is recorded."],
-        ["#journey .milestone:nth-child(8) h3", "Campaign wrap-up"],
-        ["#journey .milestone:nth-child(8) p", "Revenue, costs, and profit are finalised before the fund closes."],
-        ["#journey .milestone:nth-child(9) h3", "Fund completed"],
-        ["#journey .milestone:nth-child(9) p", "The contribution is transferred, capital returned, and the fund closed."],
-        ["#journey .milestone:nth-child(10) h3", "Kindness Fieldtrip 9"],
-        ["#journey .milestone:nth-child(10) p", "The team follows the SSC field trip supported by the fundraiser."],
-        ["#journey .milestone:nth-child(9) .date", "AFTER WRAP-UP"],
-        [".journey-gallery-copy > p:last-child", "Select a milestone marked with an orange dot to view its related images."],
-        [".hero .quote", "“Some things are kept in a photograph. Others are given with all our hearts.”"],
+        [
+          "#journey .milestone:nth-child(7) p",
+          "The photobooth and drinks stall go live, while revenue is recorded.",
+        ],
+        [
+          "#journey .milestone:nth-child(8) h3",
+          "Campaign wrap-up & fund completion",
+        ],
+        [
+          "#journey .milestone:nth-child(8) p",
+          "The team finalised revenue, expenses and profit, reconciled the records, transferred the contribution, returned the initial capital and closed the fund.",
+        ],
+        ["#journey .milestone:nth-child(9) h3", "Kindness Fieldtrip 9"],
+        [
+          "#journey .milestone:nth-child(9) p",
+          "The team follows the SSC field trip supported by the fundraiser.",
+        ],
+        [
+          ".journey-gallery-copy > p:last-child",
+          "Select a milestone marked with an orange dot to view its related images.",
+        ],
+        [
+          ".hero .quote",
+          "“Some things are kept in a photograph. Others are given with all our hearts.”",
+        ],
         [".hero-meta span:nth-child(1)", "15.09.2026 - 01.11.2026"],
         [".hero-meta span:nth-child(2)", "Lecturer: Trương Thanh Tuyền"],
         [".hero-meta span:nth-child(3)", "SSG105 - SE2028"],
         [".story-copy .eyebrow", "Our story"],
-        [".story-copy .title", "A journey of gratitude, beginning with simple things."],
-        [".story-copy .copy:nth-of-type(1)", "Many sacrifices are invisible in everyday life, yet they are part of the peace we enjoy. From gratitude for those who served the country, Dấu Người began within FPT University’s Kindness Fieldtrip 9."],
-        [".story-copy .copy:nth-of-type(2)", "Organised by six students, the project combined a photobooth with product sales to fundraise and support the wider journey of gratitude."],
+        [
+          ".story-copy .title",
+          "A journey of gratitude, beginning with simple things.",
+        ],
+        [
+          ".story-copy > .copy:nth-of-type(2)",
+          "Many sacrifices are invisible in everyday life, yet they are part of the peace we enjoy. From gratitude for those who served the country, Dấu Người began within FPT University’s Kindness Fieldtrip 9.",
+        ],
+        [
+          ".story-copy > .copy:nth-of-type(3)",
+          "Organised by six students, the project combined a photobooth with product sales to fundraise and support the wider journey of gratitude.",
+        ],
         [".story-copy .pull", "Gratitude can begin with the simplest things."],
-        [".legacy-copy .title", "A journey of gratitude, beginning with simple things."],
-        [".legacy-copy .copy:nth-of-type(1)", "Many sacrifices are invisible in everyday life, yet they are part of the peace we enjoy. Dấu Người began from a wish to show gratitude to those who served the country, within FPT University’s Kindness Fieldtrip 9."],
-        [".legacy-copy .pull", "Gratitude can begin with a carefully prepared snack, a drink handed over warmly, or a photograph that keeps a smile."],
-        [".legacy-copy .copy:nth-of-type(2)", "This student-led fundraiser supported the Kindness Fieldtrip 9 initiative; it was not the entire programme."],
+        [
+          ".legacy-copy .title",
+          "A journey of gratitude, beginning with simple things.",
+        ],
+        [
+          ".legacy-copy > .copy:nth-of-type(2)",
+          "Many sacrifices are invisible in everyday life, yet they are part of the peace we enjoy. Dấu Người began from a wish to show gratitude to those who served the country, within FPT University’s Kindness Fieldtrip 9.",
+        ],
+        [
+          ".legacy-copy .pull",
+          "Gratitude can begin with a carefully prepared snack, a drink handed over warmly, or a photograph that keeps a smile.",
+        ],
+        [
+          ".legacy-copy > .copy:nth-of-type(4)",
+          "This student-led fundraiser supported the Kindness Fieldtrip 9 initiative; it was not the entire programme.",
+        ],
         [".purpose .eyebrow", "Our purpose"],
         [".purpose .title", "Fundraising through meaningful experiences."],
-        [".purpose > .inner > .copy", "Instead of only asking for direct donations, the team created small business activities. Every product sold generated funds while giving participants a practical experience."],
+        [
+          ".purpose > .inner > .copy",
+          "Instead of only asking for direct donations, the team created small business activities. Every product sold generated funds while giving participants a practical experience.",
+        ],
         [".goal:nth-child(1) h3", "Community fundraising"],
-        [".goal:nth-child(1) p", "Generate funding through sales and services for the gratitude programme."],
+        [
+          ".goal:nth-child(1) p",
+          "Generate funding through sales and services for the gratitude programme.",
+        ],
         [".goal:nth-child(2) h3", "Connect and preserve memories"],
-        [".goal:nth-child(2) p", "Create a place for people to take photos, meet, and join a meaningful activity."],
+        [
+          ".goal:nth-child(2) p",
+          "Create a place for people to take photos, meet, and join a meaningful activity.",
+        ],
         [".goal:nth-child(3) h3", "Learning through practice"],
-        [".goal:nth-child(3) p", "Plan, work with suppliers, manage costs, and run sales together."],
+        [
+          ".goal:nth-child(3) p",
+          "Plan, work with suppliers, manage costs, and run sales together.",
+        ],
         ["#created .eyebrow", "What we created"],
         ["#created .title", "Three activities. One shared purpose."],
         [".activity:nth-child(1) h3", "One photo. One memory."],
-        [".activity:nth-child(1) .copy", "Every printed photo preserved a moment while contributing to the fund for this journey of gratitude. The team prepared the printer, paper, ink, and service for participants."],
+        [
+          ".activity:nth-child(1) .copy",
+          "Every printed photo preserved a moment while contributing to the fund for this journey of gratitude. The team prepared the printer, paper, ink, and service for participants.",
+        ],
         [".activity:nth-child(2) h3", "A familiar snack, a new purpose."],
         [".activity:nth-child(2) .number", "02 / RICE PAPER"],
-        [".activity:nth-child(2) .copy", "Rice paper was chosen because it is familiar to students and suits a fundraising sales model. From sourcing to taking orders, every step required teamwork."],
+        [
+          ".activity:nth-child(2) .copy",
+          "Rice paper was chosen because it is familiar to students and suits a fundraising sales model. From sourcing to taking orders, every step required teamwork.",
+        ],
         [".activity:nth-child(3) h3", "A refreshing contribution."],
         [".activity:nth-child(3) .number", "03 / KUMQUAT TEA"],
-        [".activity:nth-child(3) .copy", "Kumquat tea gave the stall another familiar choice and created one more way to contribute to the shared fund."],
-        [".activity:nth-child(1) .stats span:nth-child(1)", "50,000₫ / session"],
+        [
+          ".activity:nth-child(3) .copy",
+          "Kumquat tea gave the stall another familiar choice and created one more way to contribute to the shared fund.",
+        ],
+        [
+          ".activity:nth-child(1) .stats span:nth-child(1)",
+          "50,000₫ / session",
+        ],
         [".activity:nth-child(1) .stats span:nth-child(2)", "14 sessions"],
         [".activity:nth-child(1) .stats span:nth-child(3)", "700,000₫ revenue"],
         [".activity:nth-child(2) .stats span:nth-child(1)", "20,000₫ / bag"],
         [".activity:nth-child(2) .stats span:nth-child(2)", "120 bags"],
-        [".activity:nth-child(2) .stats span:nth-child(3)", "2,400,000₫ revenue"],
+        [
+          ".activity:nth-child(2) .stats span:nth-child(3)",
+          "2,400,000₫ revenue",
+        ],
         [".activity:nth-child(3) .stats span:nth-child(1)", "20,000₫ / cup"],
         [".activity:nth-child(3) .stats span:nth-child(2)", "21 cups"],
         [".activity:nth-child(3) .stats span:nth-child(3)", "420,000₫ revenue"],
-        [".main-day .title", "When our efforts became memories."],
-        [".main-day-primary .copy", "After weeks of preparation, 13 October brought the fundraising activities together. Every product reflected sourcing, budgeting, coordination, and care for participants."],
-        ["#impact .eyebrow", "Our impact"],
-        ["#impact .title", "Small contributions, one shared result."],
-        [".metric:nth-child(1) span", "Initial team capital"],
-        [".metric:nth-child(2) span", "Operating revenue"],
-        [".metric:nth-child(3) span", "Operating costs"],
-        [".metric:nth-child(4) span", "Profit"],
+        [".main-day-header .eyebrow", "05 / MOMENTS WE KEEP"],
+        [".main-day-title", "When our efforts became memories."],
+        [
+          ".main-day-intro",
+          "A day of encounters, smiles, and moments preserved in every frame.",
+        ],
+        [
+          ".main-day-activity:nth-child(1) h3",
+          "When our efforts became memories.",
+        ],
+        [
+          ".main-day-activity:nth-child(1) p",
+          "After days of preparation, 13 October gave the team a chance to carry out the planned activities, meet one another, and preserve meaningful moments.",
+        ],
+        [".main-day-activity:nth-child(2) h3", "One day, many traces."],
+        [
+          ".main-day-activity:nth-child(2) p",
+          "From the stall to the photobooth, every encounter and every act of support helped make the day meaningful for Dấu Người.",
+        ],
+        [
+          ".main-day-collection-header .eyebrow",
+          "PHOTO COLLECTION / 13 MOMENTS",
+        ],
+        [".main-day-collection-header h2", "The moments that remain."],
+        [
+          ".main-day-collection-header > p:last-child",
+          "Each photograph holds a small memory from the Dấu Người journey.",
+        ],
+        ["#impact > .inner > .eyebrow", "06 / PROJECT RESULTS"],
+        ["#impact .title", "Efforts rewarded."],
+        [
+          ".impact-intro",
+          "From simple fundraising activities, Dấu Người recorded concrete financial results.",
+        ],
+        [".metric:nth-child(1) span", "Operating revenue"],
+        [".metric:nth-child(2) span", "Operating costs"],
+        [".metric:nth-child(3) span", "Initial capital"],
+        [
+          ".impact-note",
+          "Initial capital was tracked separately and is not included in operating revenue. Profit is determined after operating costs are deducted.",
+        ],
         [".finance .eyebrow", "Reconciliation"],
+        [".finance-subtitle", "Income and costs by activity."],
+        [".finance-chart-title", "Revenue and cost comparison"],
         [".table thead th:nth-child(1)", "Item"],
         [".table thead th:nth-child(2)", "Income"],
         [".table thead th:nth-child(3)", "Cost"],
         [".table tbody tr:nth-child(1) td:first-child", "Rice paper"],
         [".table tbody tr:nth-child(2) td:first-child", "Kumquat tea"],
         [".table tbody tr:nth-child(4) td:first-child", "Ledger adjustment"],
-        [".table tbody tr:nth-child(5) td:first-child strong", "Operating total"],
-        [".table tbody tr:nth-child(6) td:first-child strong", "Profit"],
-        [".finance .caveat", "The six members’ initial capital of 1,500,000₫ is not sales revenue. The total incoming amount, including initial capital, was 5,022,222₫. Operating revenue was therefore 3,522,222₫ and profit was 1,502,222₫."],
+        [
+          ".table tbody tr:nth-child(5) td:first-child strong",
+          "Operating total",
+        ],
+        [".finance-evidence-header .eyebrow", "Documents & reconciliation"],
+        [
+          ".finance-evidence-header > p:last-child",
+          "Documents supporting the financial summary and reconciliation process.",
+        ],
+        [
+          ".finance .caveat",
+          "The six members’ initial capital of 1,500,000₫ is not sales revenue. The total incoming amount, including initial capital, was 5,022,222₫. Operating revenue was therefore 3,522,222₫ and profit was 1,502,222₫.",
+        ],
         [".chart-legend .legend-income", "Income"],
         [".chart-legend .legend-cost", "Cost"],
         [".comparison-row:nth-child(1) > span", "Rice paper"],
         [".comparison-row:nth-child(3) > span", "Kumquat tea"],
         [".comparison-row:nth-child(4) > span", "Adjustment"],
-        ["#beyond .title", "When small contributions continue a journey of gratitude."],
-        ["#beyond .copy:nth-of-type(1)", "Dấu Người completed its fundraising and contributed the fund to Kindness Fieldtrip 9, organised by the SSC Club on 01 November 2026 at Long Đất Care Centre for Veterans and People with Meritorious Services."],
-        ["#beyond .copy:nth-of-type(2)", "The programme visits, connects with, and expresses gratitude to veterans, wounded soldiers, and people with meritorious service. Although Dấu Người did not join the trip directly, the team was proud to contribute."],
-        [".fieldtrip-credit", "Image documentation: Kindness Fieldtrip 9 — SSC Club, 01 November 2026."],
+        [
+          "#beyond .title",
+          "When small contributions continue a journey of gratitude.",
+        ],
+        [
+          "#beyond .copy:nth-of-type(1)",
+          "Dấu Người completed its fundraising and contributed the fund to Kindness Fieldtrip 9, organised by the SSC Club on 01 November 2026 at Long Đất Care Centre for Veterans and People with Meritorious Services.",
+        ],
+        [
+          "#beyond .copy:nth-of-type(2)",
+          "The programme visits, connects with, and expresses gratitude to veterans, wounded soldiers, and people with meritorious service. Although Dấu Người did not join the trip directly, the team was proud to contribute.",
+        ],
+        [
+          ".fieldtrip-credit",
+          "Image documentation: Kindness Fieldtrip 9 — SSC Club, 01 November 2026.",
+        ],
+        [".fieldtrip-visit-copy h3", "Activities at Long Đất"],
+        [
+          ".fieldtrip-visit-copy p",
+          "The visit created space to meet, connect, and express gratitude to veterans, wounded soldiers, and people with meritorious service.",
+        ],
         [".team-lead .title", "Six people. One shared journey."],
-        [".team-lead > div > p:nth-of-type(1)", "The team worked together from planning and sourcing through preparation, sales, and final reporting."],
+        [
+          ".team-lead > div > p:not(.eyebrow)",
+          "The team worked together from planning and sourcing through preparation, sales, and final reporting.",
+        ],
         [".member-meta small", "Student ID"],
         [".member-meta span:nth-child(2) small", "Assessment"],
-        [".team-cards .member:nth-child(1) p", "Coordinated meetings and planning, assigned tasks, supported the photobooth and sales activities, managed records and reporting, and led Class Tour communication."],
-        [".team-cards .member:nth-child(2) p", "Developed sales ideas and the photobooth website, guided participants, managed equipment sourcing, attended Class Tour sessions, and served as treasurer."],
-        [".team-cards .member:nth-child(3) p", "Contributed presentation content and project ideas, supported transport and set-up, joined Class Tour, and took part in sales."],
-        [".team-cards .member:nth-child(4) p", "Contributed product ideas, supported partner coordination and photobooth equipment, presented, helped the fundraising effort, and prepared slides."],
-        [".team-cards .member:nth-child(5) p", "Sourced rice paper and kumquat tea, supported set-up, sales, transport, and product preservation."],
-        [".team-cards .member:nth-child(6) p", "Supported sales and product communications."],
+        [
+          ".team-cards .member:nth-child(1) p",
+          "Organised meetings, developed ideas and agreed on the content; updated information, schedules and task assignments for each member and monitored progress; invited guests and encouraged people to share the photobooth; supported photographing and photo delivery; searched for printer rental sources and related products for the photobooth; took part directly in sales; calculated and recorded revenue, income, expenses, final totals and transfers; joined Class Tour, wrote the permission email, handled contact and scheduling, and presented in classes; prepared the final report and presentation.",
+        ],
+        [
+          ".team-cards .member:nth-child(2) p",
+          "Developed ideas for the products the group should sell; built the photobooth website for the 13 October activity; led communication and guided customers at the group photobooth; searched directly for camera rental and managed the project technology; attended all Class Tour sessions (3/3); served as treasurer; took part directly in sales; prepared the final project report for the group.",
+        ],
+        [
+          ".team-cards .member:nth-child(3) p",
+          "Contributed to presentation content; attended meetings and offered ideas to help the group choose suitable project models; supported transporting products for other members; helped the team collect tables and chairs, set up the sales area and sell products; attended a Class Tour session; took part directly in sales.",
+        ],
+        [
+          ".team-cards .member:nth-child(4) p",
+          "Contributed ideas needed for the project, such as kumquat tea; supported the group in signing an important partner contract; collected and returned the photobooth machine for the group; took responsibility for part of the presentation; supported the fundraising effort when needed; prepared the slides.",
+        ],
+        [
+          ".team-cards .member:nth-child(5) p",
+          "Collected tables and chairs for the group; found suppliers for rice paper and kumquat tea; sold products and attracted customers; transported and preserved the kumquat tea and rice paper.",
+        ],
+        [
+          ".team-cards .member:nth-child(6) p",
+          "Supported sales; communicated information about the products.",
+        ],
         [".closing h2", "Some traces live beyond a photograph."],
-        [".closing .copy", "From choosing products and contacting suppliers to budgeting and operating sales, every step required patience, responsibility, and collaboration. Dấu Người reminds us that gratitude can begin with the smallest actions, when they are done sincerely."],
-        [".closing .quote", "DẤU NGƯỜI\nThe journey closes. Its traces remain."],
+        [
+          ".closing .copy",
+          "From choosing products and contacting suppliers to budgeting and operating sales, every step required patience, responsibility, and collaboration. Dấu Người reminds us that gratitude can begin with the smallest actions, when they are done sincerely.",
+        ],
+        [
+          ".closing .quote",
+          "Dấu Người\nThe journey closes. Its traces remain.",
+        ],
+        [
+          ".team-lead > div > p:not(.eyebrow)",
+          "To turn an idea into a real activity, the team worked together on planning, sourcing, preparing materials, running sales, and compiling the results.",
+        ],
+        [
+          ".fieldtrip-intro-copy .copy:nth-of-type(1)",
+          "Dấu Người concluded its fundraising journey by contributing the fund to Kindness Fieldtrip 9, organised by the SSC Club on 01 November 2026 at Long Đất Care Centre for Veterans and People with Meritorious Services.",
+        ],
+        [
+          ".fieldtrip-intro-copy .copy:nth-of-type(2)",
+          "The programme focused on visiting, connecting with, and expressing gratitude to veterans, wounded soldiers, and people with meritorious service. Although the Dấu Người team did not join the trip directly, it was proud to contribute a small part to this meaningful journey.",
+        ],
+        [
+          ".fieldtrip-inline-copy p",
+          "Small encounters create another way for gratitude to continue.",
+        ],
       ];
       const attributeTranslations = [
         [".menu", "aria-label", "Open navigation"],
-        [".timeline", "aria-label", "10 official milestones of the Dấu Người project"],
+        [
+          ".timeline",
+          "aria-label",
+          "9 official milestones of the Dấu Người project",
+        ],
         [".journey-gallery-grid", "aria-label", "Images by timeline milestone"],
-        [".main-day-photobooths", "aria-label", "All FPT University photobooth images"],
-        [".finance-chart", "aria-label", "Income and cost comparison by activity"],
+        [
+          ".main-day-photobooths",
+          "aria-label",
+          "All FPT University photobooth images",
+        ],
+        [
+          ".finance-chart",
+          "aria-label",
+          "Income and cost comparison by activity",
+        ],
         [".finance-evidence", "aria-label", "Fund reconciliation documents"],
-        [".finance-evidence button", "aria-label", "Open fund reconciliation document"],
-        [".fieldtrip-gallery", "aria-label", "Kindness Fieldtrip 9 image documentation"],
+        [
+          ".finance-evidence button",
+          "aria-label",
+          "Open fund reconciliation document",
+        ],
+        [
+          ".fieldtrip-gallery",
+          "aria-label",
+          "Kindness Fieldtrip 9 image documentation",
+        ],
+        [
+          ".fieldtrip-editorial",
+          "aria-label",
+          "Kindness Fieldtrip 9 image documentation",
+        ],
+        [".journey-controls", "aria-label", "Journey controls"],
+        [".journey-prev", "aria-label", "Previous milestone"],
+        [".journey-next", "aria-label", "Next milestone"],
+        [
+          ".finance-evidence button:nth-child(1)",
+          "aria-label",
+          "Open fund reconciliation document, part 1",
+        ],
+        [
+          ".finance-evidence button:nth-child(2)",
+          "aria-label",
+          "Open fund reconciliation document, part 2",
+        ],
+        [
+          ".finance-evidence button:nth-child(3)",
+          "aria-label",
+          "Open fund reconciliation document, part 3",
+        ],
         [".lightbox", "aria-label", "View enlarged image"],
         [".lightbox .close", "aria-label", "Close image"],
         [".lightbox .prev", "aria-label", "Previous image"],
         [".lightbox .next", "aria-label", "Next image"],
         [".hero > img", "alt", "Dấu Người activity documentation"],
-        [".story figure img", "alt", "Dấu Người activity preparation documentation"],
-        [".activity:nth-child(1) figure img:first-child", "alt", "A participant's photobooth photo"],
-        [".activity:nth-child(1) figure .strip", "alt", "Photobooth photo strip"],
-        [".activity:nth-child(2) img", "alt", "Fundraising activity documentation"],
-        [".activity:nth-child(3) img", "alt", "Dấu Người fundraising activity documentation"],
-        [".main-day-primary img", "alt", "Activity-day documentation"],
-        [".main-day-secondary img", "alt", "Moment from the activity day"],
+        [
+          ".story figure img",
+          "alt",
+          "Dấu Người activity preparation documentation",
+        ],
+        [
+          ".activity:nth-child(1) figure img:first-child",
+          "alt",
+          "A participant's photobooth photo",
+        ],
+        [
+          ".activity:nth-child(1) figure .strip",
+          "alt",
+          "Photobooth photo strip",
+        ],
+        [
+          ".activity:nth-child(2) img",
+          "alt",
+          "Fundraising activity documentation",
+        ],
+        [
+          ".activity:nth-child(3) img",
+          "alt",
+          "Dấu Người fundraising activity documentation",
+        ],
+        [
+          ".main-day-activity:nth-child(1) img",
+          "alt",
+          "Members during the activity day",
+        ],
+        [
+          ".main-day-activity:nth-child(2) img",
+          "alt",
+          "A day of meaningful traces for Dấu Người",
+        ],
         [".team-lead img", "alt", "Team documentation from the activity day"],
-        [".tour-image:nth-child(1) img", "alt", "Kindness Fieldtrip 9 group photo with the programme banner"],
-        [".tour-image:nth-child(2) img", "alt", "Participants and veterans at Kindness Fieldtrip 9"],
-        [".tour-image:nth-child(3) img", "alt", "A moment of connection at Kindness Fieldtrip 9"],
-        [".tour-image:nth-child(4) img", "alt", "Participants in the programme hall"],
-        [".tour-image:nth-child(5) img", "alt", "Healthcare staff visiting a person with meritorious service"],
-        [".tour-image:nth-child(6) img", "alt", "A direct visit with veterans at the centre"],
+        [
+          ".fieldtrip-hero img",
+          "alt",
+          "Kindness Fieldtrip 9 group photo with the programme banner",
+        ],
+        [
+          ".fieldtrip-intro-cluster .tour-image:nth-child(1) img",
+          "alt",
+          "Participants and veterans at Kindness Fieldtrip 9",
+        ],
+        [
+          ".fieldtrip-intro-cluster .tour-image:nth-child(3) img",
+          "alt",
+          "A moment of connection at Kindness Fieldtrip 9",
+        ],
+        [
+          ".fieldtrip-hall img",
+          "alt",
+          "Participants in the Kindness Fieldtrip 9 programme hall",
+        ],
+        [
+          ".fieldtrip-activity img",
+          "alt",
+          "Healthcare staff visiting a person with meritorious service",
+        ],
+        [
+          ".fieldtrip-visit img",
+          "alt",
+          "A direct visit with veterans at the centre",
+        ],
+        [
+          ".fieldtrip-extra img",
+          "alt",
+          "Fundraising and community activities during the Dấu Người journey",
+        ],
+        [
+          ".tour-image:nth-child(1) img",
+          "alt",
+          "Kindness Fieldtrip 9 group photo with the programme banner",
+        ],
+        [
+          ".tour-image:nth-child(2) img",
+          "alt",
+          "Participants and veterans at Kindness Fieldtrip 9",
+        ],
+        [
+          ".tour-image:nth-child(3) img",
+          "alt",
+          "A moment of connection at Kindness Fieldtrip 9",
+        ],
+        [
+          ".tour-image:nth-child(4) img",
+          "alt",
+          "Participants in the programme hall",
+        ],
+        [
+          ".tour-image:nth-child(5) img",
+          "alt",
+          "Healthcare staff visiting a person with meritorious service",
+        ],
+        [
+          ".tour-image:nth-child(6) img",
+          "alt",
+          "A direct visit with veterans at the centre",
+        ],
       ];
       const setLanguage = (english) => {
         document.documentElement.lang = english ? "en" : "vi";
@@ -1884,53 +2707,192 @@
             else node.innerHTML = node.dataset.viHtml;
           });
         });
+        const mergedMilestone = document.querySelector(
+          '[data-gallery="campaign-wrap"]',
+        );
+        if (mergedMilestone) {
+          const mergedTitle = mergedMilestone.querySelector("h3");
+          const mergedDescription = mergedMilestone.querySelector(
+            ".milestone-copy > p",
+          );
+          if (mergedTitle)
+            mergedTitle.textContent = english
+              ? "Campaign wrap-up & fund completion"
+              : "T\u1ed5ng k\u1ebft chi\u1ebfn d\u1ecbch & ho\u00e0n t\u1ea5t qu\u1ef9";
+          if (mergedDescription)
+            mergedDescription.textContent = english
+              ? "The team finalised revenue, expenses and profit, reconciled the records, transferred the contribution, returned the initial capital and closed the fund."
+              : "Nh\u00f3m t\u1ed5ng h\u1ee3p doanh thu, chi ph\u00ed v\u00e0 l\u1ee3i nhu\u1eadn, ho\u00e0n t\u1ea5t \u0111\u1ed1i so\u00e1t, chuy\u1ec3n kho\u1ea3n \u0111\u00f3ng g\u00f3p, ho\u00e0n tr\u1ea3 v\u1ed1n v\u00e0 kh\u00f3a qu\u1ef9.";
+        }
+        const fieldtripMilestone = document.querySelector(
+          '[data-gallery="fieldtrip"]',
+        );
+        if (fieldtripMilestone) {
+          const fieldtripTitle = fieldtripMilestone.querySelector("h3");
+          const fieldtripDescription = fieldtripMilestone.querySelector(
+            ".milestone-copy > p",
+          );
+          if (fieldtripTitle)
+            fieldtripTitle.textContent = "Kindness Fieldtrip 9";
+          if (fieldtripDescription)
+            fieldtripDescription.textContent = english
+              ? "The team follows the SSC-organised visit supported by the fund."
+              : "Theo dõi chuyến đi do SSC tổ chức mà nhóm đã góp quỹ hỗ trợ.";
+        }
         attributeTranslations.forEach(([selector, attribute, translation]) => {
           document.querySelectorAll(selector).forEach((node) => {
             const key = `vi${attribute[0].toUpperCase()}${attribute.slice(1)}`;
-            if (!node.dataset[key]) node.dataset[key] = node.getAttribute(attribute) || "";
-            node.setAttribute(attribute, english ? translation : node.dataset[key]);
+            if (!node.dataset[key])
+              node.dataset[key] = node.getAttribute(attribute) || "";
+            node.setAttribute(
+              attribute,
+              english ? translation : node.dataset[key],
+            );
           });
         });
-        document.querySelectorAll("[data-photobooth-wall] button").forEach((button) => {
-          const time = button.dataset.full.match(/-(\d{6})\.png$/)?.[1] || "";
-          button.setAttribute("aria-label", english ? `Open photobooth image ${time}` : `Mở ảnh photobooth ${time}`);
-          const image = button.querySelector("img");
-          if (image) image.alt = english ? `FPT University photobooth image ${time}` : `Ảnh photobooth FPT University ${time}`;
-        });
+        document
+          .querySelectorAll("[data-photobooth-wall] button")
+          .forEach((button) => {
+            const time = button.dataset.full.match(/-(\d{6})\.png$/)?.[1] || "";
+            button.setAttribute(
+              "aria-label",
+              english
+                ? `Open photobooth image ${time}`
+                : `Mở ảnh photobooth ${time}`,
+            );
+            const image = button.querySelector("img");
+            if (image)
+              image.alt = english
+                ? `FPT University photobooth image ${time}`
+                : `Ảnh photobooth FPT University ${time}`;
+          });
         document.title = english ? "Dấu Người · SSG105" : "Dấu Người · SSG105";
-        languageToggle.textContent = english ? "VI" : "EN";
-        languageToggle.setAttribute("aria-pressed", String(english));
-        languageToggle.setAttribute("aria-label", english ? "Switch to Vietnamese" : "Switch to English");
+        languageToggle?.replaceChildren(
+          document.createTextNode(english ? "VI" : "EN"),
+        );
+        languageToggle?.setAttribute("aria-pressed", String(english));
+        languageToggle?.setAttribute(
+          "aria-label",
+          english ? "Switch to Vietnamese" : "Switch to English",
+        );
         localStorage.setItem("dau-nguoi-language", english ? "en" : "vi");
         renderJourneyGallery();
+        selectJourneyIndex(selectedJourneyIndex);
       };
-      const initialLanguage = localStorage.getItem("dau-nguoi-language") === "en";
+      const initialLanguage =
+        localStorage.getItem("dau-nguoi-language") === "en";
+      languageToggle?.addEventListener("click", () =>
+        setLanguage(document.documentElement.lang !== "en"),
+      );
       setLanguage(initialLanguage);
-      languageToggle?.addEventListener("click", () => setLanguage(document.documentElement.lang !== "en"));
 
       const box = document.querySelector(".lightbox");
       const full = box.querySelector("img");
       let index = 0;
+      let activeLightboxGroup = null;
+      let lightboxScale = 1;
+      let lightboxX = 0;
+      let lightboxY = 0;
+      let lightboxPointers = new Map();
+      let lightboxDragStart = null;
+      let lightboxPinchStart = null;
+      let lightboxDidDrag = false;
+      const isContentImage = (image) =>
+        image &&
+        !image.closest(
+          ".lightbox, .brand-lockup, .closing-collage, [aria-hidden='true']",
+        ) &&
+        image.getAttribute("src");
+      const ensureImageSource = (image) => {
+        if (isContentImage(image) && !image.dataset.full)
+          image.dataset.full = image.currentSrc || image.getAttribute("src");
+        return image?.dataset.full || "";
+      };
+      document.querySelectorAll("img").forEach(ensureImageSource);
+      function lightboxGroup(trigger) {
+        return trigger?.closest(
+          ".gallery, .journey-gallery-grid, [data-photobooth-wall], .finance-evidence, .main-day-feature, .main-day-activity, .activity, .story, .team-lead, .fieldtrip-cluster, .fieldtrip-intro-layout",
+        );
+      }
       function lightboxItems() {
-        return [...document.querySelectorAll("[data-full]")];
+        const root = activeLightboxGroup;
+        const candidates = root
+          ? [...root.querySelectorAll("[data-full]")]
+          : [...document.querySelectorAll("[data-full]")];
+        return candidates.filter(
+          (item) => !item.parentElement?.closest("[data-full]"),
+        );
+      }
+      function imageSource(trigger) {
+        return (
+          trigger?.dataset.full ||
+          trigger?.querySelector("img")?.dataset.full ||
+          trigger?.querySelector("img")?.currentSrc ||
+          trigger?.querySelector("img")?.getAttribute("src") ||
+          ""
+        );
+      }
+      function applyLightboxTransform() {
+        full.style.transform = `translate3d(${lightboxX}px, ${lightboxY}px, 0) scale(${lightboxScale})`;
+        box.classList.toggle("is-zoomed", lightboxScale > 1);
+      }
+      function resetLightboxZoom() {
+        lightboxScale = 1;
+        lightboxX = 0;
+        lightboxY = 0;
+        lightboxDragStart = null;
+        lightboxPinchStart = null;
+        lightboxDidDrag = false;
+        box.classList.remove("is-dragging");
+        applyLightboxTransform();
+      }
+      function setLightboxScale(nextScale, centerX = 0, centerY = 0) {
+        const previousScale = lightboxScale;
+        lightboxScale = Math.max(1, Math.min(4, nextScale));
+        if (lightboxScale === 1) {
+          lightboxX = 0;
+          lightboxY = 0;
+        } else if (previousScale !== lightboxScale) {
+          const ratio = (lightboxScale - previousScale) / lightboxScale;
+          lightboxX -= centerX * ratio;
+          lightboxY -= centerY * ratio;
+        }
+        applyLightboxTransform();
       }
       function open(i) {
         const items = lightboxItems();
         if (!items.length) return;
         index = (i + items.length) % items.length;
         const trigger = items[index];
-        full.src = trigger.dataset.full;
-        full.alt = trigger.querySelector("img")?.alt || "Enlarged image";
-        box.showModal();
+        const source = imageSource(trigger);
+        if (!source) return;
+        resetLightboxZoom();
+        full.src = source;
+        full.alt =
+          trigger.querySelector("img")?.alt ||
+          trigger.alt ||
+          "Enlarged image";
+        full.removeAttribute("width");
+        full.removeAttribute("height");
+        if (!box.open) box.showModal();
       }
       document.addEventListener("click", (event) => {
-        const trigger = event.target.closest("[data-full]");
-        if (!trigger) return;
-        const targetIndex = lightboxItems().indexOf(trigger);
+        if (event.target.closest(".lightbox")) return;
+        const image = event.target.closest("img");
+        if (!isContentImage(image)) return;
+        ensureImageSource(image);
+        activeLightboxGroup = lightboxGroup(image);
+        const items = lightboxItems();
+        const trigger = items.find(
+          (item) => item === image || item.contains(image),
+        );
+        const targetIndex = trigger ? items.indexOf(trigger) : -1;
         if (targetIndex >= 0) open(targetIndex);
       });
       function close() {
-        box.close();
+        if (box.open) box.close();
+        resetLightboxZoom();
+        activeLightboxGroup = null;
       }
       box.querySelector(".close").onclick = close;
       box.querySelector(".prev").onclick = () => open(index - 1);
@@ -1938,6 +2900,78 @@
       box.addEventListener("click", (e) => {
         if (e.target === box) close();
       });
+      full.addEventListener("click", (event) => {
+        event.stopPropagation();
+        if (lightboxDidDrag) {
+          lightboxDidDrag = false;
+          return;
+        }
+        setLightboxScale(lightboxScale === 1 ? 2 : 1);
+      });
+      full.addEventListener(
+        "wheel",
+        (event) => {
+          event.preventDefault();
+          const rect = full.getBoundingClientRect();
+          setLightboxScale(
+            lightboxScale * (event.deltaY < 0 ? 1.15 : 0.87),
+            event.clientX - (rect.left + rect.width / 2),
+            event.clientY - (rect.top + rect.height / 2),
+          );
+        },
+        { passive: false },
+      );
+      full.addEventListener("pointerdown", (event) => {
+        full.setPointerCapture?.(event.pointerId);
+        lightboxPointers.set(event.pointerId, event);
+        if (lightboxPointers.size === 2) {
+          const [first, second] = [...lightboxPointers.values()];
+          lightboxPinchStart = {
+            distance: Math.hypot(
+              first.clientX - second.clientX,
+              first.clientY - second.clientY,
+            ),
+            scale: lightboxScale,
+          };
+          lightboxDragStart = null;
+        } else if (lightboxScale > 1) {
+          lightboxDragStart = {
+            x: event.clientX - lightboxX,
+            y: event.clientY - lightboxY,
+          };
+          box.classList.add("is-dragging");
+        }
+      });
+      full.addEventListener("pointermove", (event) => {
+        if (!lightboxPointers.has(event.pointerId)) return;
+        lightboxPointers.set(event.pointerId, event);
+        if (lightboxPointers.size === 2 && lightboxPinchStart) {
+          const [first, second] = [...lightboxPointers.values()];
+          const distance = Math.hypot(
+            first.clientX - second.clientX,
+            first.clientY - second.clientY,
+          );
+          setLightboxScale(
+            lightboxPinchStart.scale * (distance / lightboxPinchStart.distance),
+          );
+          lightboxDidDrag = true;
+        } else if (lightboxDragStart) {
+          lightboxX = event.clientX - lightboxDragStart.x;
+          lightboxY = event.clientY - lightboxDragStart.y;
+          applyLightboxTransform();
+          lightboxDidDrag = true;
+        }
+      });
+      const releaseLightboxPointer = (event) => {
+        lightboxPointers.delete(event.pointerId);
+        if (lightboxPointers.size < 2) lightboxPinchStart = null;
+        if (!lightboxPointers.size) {
+          lightboxDragStart = null;
+          box.classList.remove("is-dragging");
+        }
+      };
+      full.addEventListener("pointerup", releaseLightboxPointer);
+      full.addEventListener("pointercancel", releaseLightboxPointer);
       addEventListener("keydown", (e) => {
         if (!box.open) return;
         if (e.key === "Escape") close();
