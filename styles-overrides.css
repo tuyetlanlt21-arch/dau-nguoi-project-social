@@ -59,7 +59,10 @@
   display: block;
 }
 .beyond-story > .title {
-  max-width: 820px;
+  max-width: 1040px;
+  font-size: clamp(38px, 4.7vw, 68px);
+  line-height: 1.02;
+  text-wrap: balance;
   margin-bottom: 16px;
 }
 .beyond-story > .copy {
@@ -442,6 +445,136 @@ body.motion-ready .tour-image:hover img.image-motion.image-revealed {
   }
 }
 
+/* Final timeline-gallery reset: retain every source image at its natural ratio. */
+.journey-gallery-copy {
+  display: none;
+}
+.journey-gallery-grid button {
+  background: transparent;
+}
+.journey-gallery-grid img,
+.journey-gallery-grid[data-count="2"] img,
+.journey-gallery-grid[data-count="3"] img,
+.journey-gallery-grid[data-count="4"] img {
+  height: auto;
+  min-height: 0;
+  aspect-ratio: auto;
+  object-fit: initial;
+}
+
+/* Large vertical document sequence, alternating sides without shrinking the archive. */
+.journey-gallery-grid[data-count="3"],
+.journey-gallery-grid[data-count="4"] {
+  display: block;
+}
+.journey-gallery-grid[data-count="3"] button,
+.journey-gallery-grid[data-count="4"] button {
+  display: block;
+  width: 82%;
+  margin: 0 0 34px;
+}
+.journey-gallery-grid[data-count="3"] button:nth-child(even),
+.journey-gallery-grid[data-count="4"] button:nth-child(even) {
+  margin-left: auto;
+  margin-top: 0;
+}
+.journey-gallery-grid[data-count="3"] button:nth-child(odd),
+.journey-gallery-grid[data-count="4"] button:nth-child(odd) {
+  margin-right: auto;
+}
+
+/* Thirteen prints form a centred 4 / 5 / 4 composition. */
+.main-day-photobooths {
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+  gap: clamp(12px, 1.25vw, 20px);
+}
+.main-day-photobooths button {
+  grid-column: span 2;
+  height: clamp(245px, 18vw, 330px);
+}
+.main-day-photobooths button:nth-child(1) { grid-column: 2 / span 2; }
+.main-day-photobooths button:nth-child(2) { grid-column: 4 / span 2; }
+.main-day-photobooths button:nth-child(3) { grid-column: 6 / span 2; }
+.main-day-photobooths button:nth-child(4) { grid-column: 8 / span 2; }
+.main-day-photobooths button:nth-child(5) { grid-column: 1 / span 2; }
+.main-day-photobooths button:nth-child(6) { grid-column: 3 / span 2; }
+.main-day-photobooths button:nth-child(7) { grid-column: 5 / span 2; }
+.main-day-photobooths button:nth-child(8) { grid-column: 7 / span 2; }
+.main-day-photobooths button:nth-child(9) { grid-column: 9 / span 2; }
+.main-day-photobooths button:nth-child(10) { grid-column: 2 / span 2; }
+.main-day-photobooths button:nth-child(11) { grid-column: 4 / span 2; }
+.main-day-photobooths button:nth-child(12) { grid-column: 6 / span 2; }
+.main-day-photobooths button:nth-child(13) { grid-column: 8 / span 2; }
+.main-day-photobooths button:nth-child(-n + 4) { grid-row: 1; }
+.main-day-photobooths button:nth-child(n + 5):nth-child(-n + 9) { grid-row: 2; }
+.main-day-photobooths button:nth-child(n + 10) { grid-row: 3; }
+@media (max-width: 600px) {
+  .journey-gallery-grid[data-count="3"] button,
+  .journey-gallery-grid[data-count="4"] button { width: 100%; }
+  .main-day-photobooths {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-rows: none;
+  }
+  .main-day-photobooths button,
+  .main-day-photobooths button:nth-child(n) { grid-column: span 1; grid-row: auto; }
+}
+
+/* Compact, staggered archive layout: enough asymmetry for a sense of movement,
+   but no empty voids between related documents. */
+.journey-gallery-grid[data-count="3"],
+.journey-gallery-grid[data-count="4"] {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px 32px;
+  align-items: start;
+}
+.journey-gallery-grid[data-count="3"] button,
+.journey-gallery-grid[data-count="4"] button {
+  width: 100%;
+  margin: 0;
+}
+.journey-gallery-grid[data-count="3"] button:nth-child(even),
+.journey-gallery-grid[data-count="4"] button:nth-child(even) {
+  margin-top: 38px;
+}
+
+/* Keep the photobooth wall as a calm contact sheet even when source strips have
+   different native proportions. */
+.main-day-photobooths {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  align-items: start;
+  gap: clamp(12px, 1.35vw, 20px);
+}
+.main-day-photobooths button {
+  display: grid;
+  place-items: center;
+  height: clamp(250px, 19vw, 340px);
+}
+.main-day-photobooths img {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  aspect-ratio: auto;
+  object-fit: contain;
+  box-shadow: 0 12px 24px rgb(55 42 35 / 0.1);
+}
+@media (max-width: 600px) {
+  .journey-gallery-grid[data-count="3"],
+  .journey-gallery-grid[data-count="4"] {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .journey-gallery-grid[data-count="3"] button,
+  .journey-gallery-grid[data-count="4"] button,
+  .journey-gallery-grid[data-count="3"] button:nth-child(even),
+  .journey-gallery-grid[data-count="4"] button:nth-child(even) {
+    width: 100%;
+    margin-top: 0;
+  }
+  .main-day-photobooths button {
+    height: 220px;
+  }
+}
+
 @media (max-width: 1000px) {
   .fieldtrip-gallery {
     height: clamp(340px, 48vw, 460px);
@@ -620,8 +753,11 @@ body.motion-ready .main-day .motion-support {
 }
 .brand-lockup .brand {
   color: #692c39;
-  font: 600 18px/1 var(--display);
-  letter-spacing: 0.01em;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.025em;
   text-align: left;
 }
 
@@ -681,7 +817,7 @@ body.motion-ready .main-day .motion-support {
     margin: 0 10px;
   }
   .brand-lockup .brand {
-    font-size: 15px;
+    font-size: 18px;
   }
 }
 .nav {
@@ -694,3 +830,788 @@ body.motion-ready .main-day .motion-support {
 .nav.nav-hidden {
   transform: translateY(-100%);
 }
+
+/* Bilingual control is intentionally quiet so the existing navigation remains primary. */
+.language-toggle {
+  flex: 0 0 auto;
+  margin-left: 32px;
+  padding: 7px 9px;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  background: transparent;
+  color: #692c39;
+  cursor: pointer;
+  font: 800 10px/1 var(--display);
+  letter-spacing: 0.11em;
+  transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease;
+}
+.nav .links {
+  margin-left: auto;
+}
+.language-toggle:hover,
+.language-toggle:focus-visible {
+  border-color: #692c39;
+  background: #692c39;
+  color: #fffdf8;
+}
+
+/* Timeline gallery: the selection stays in the story flow, while its images get a calm
+   dedicated surface on the right at desktop widths. */
+.journey-stage {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(330px, 0.8fr);
+  align-items: start;
+  gap: clamp(36px, 5vw, 80px);
+  max-width: 1220px;
+}
+.journey-stage .timeline {
+  max-width: none;
+}
+.journey .milestone[data-gallery] {
+  cursor: pointer;
+  outline: none;
+}
+.journey .milestone[data-gallery] .milestone-copy {
+  transition: transform 180ms ease;
+}
+.journey .milestone[data-gallery]:hover .milestone-copy,
+.journey .milestone[data-gallery]:focus-visible .milestone-copy,
+.journey .milestone[data-gallery].gallery-selected .milestone-copy {
+  transform: translateX(6px);
+}
+.journey .milestone.gallery-selected h3 {
+  color: #d28d70;
+}
+.journey-gallery {
+  position: sticky;
+  top: 96px;
+  display: grid;
+  gap: 15px;
+  padding-top: 5px;
+}
+.journey-gallery-copy {
+  max-width: 420px;
+}
+.journey-gallery-count,
+.journey-gallery-kicker {
+  display: block;
+  margin: 0 0 7px;
+  color: #d7d8bd;
+  font: 800 10px/1.4 var(--display);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.journey-gallery-kicker {
+  color: #c7c4bb;
+  font-weight: 600;
+}
+.journey-gallery h3 {
+  margin: 0 0 7px;
+  color: #fffdf8;
+  font: 700 clamp(21px, 2vw, 28px)/1.2 var(--display);
+  letter-spacing: -0.05em;
+}
+.journey-gallery-copy > p:last-child {
+  margin: 0;
+  color: #c7c4bb;
+  font-size: 13px;
+  line-height: 1.65;
+}
+.journey-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  opacity: 1;
+  transition: opacity 160ms ease;
+}
+.journey-gallery-grid.is-changing {
+  opacity: 0.25;
+}
+.journey-gallery-grid button {
+  display: block;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  background: #3a3931;
+  cursor: zoom-in;
+}
+.journey-gallery-grid img {
+  display: block;
+  width: 100%;
+  height: clamp(118px, 13vw, 164px);
+  object-fit: contain;
+  object-position: center;
+  transition: transform 180ms ease;
+}
+.journey-gallery-grid button:hover img,
+.journey-gallery-grid button:focus-visible img {
+  transform: scale(1.025);
+}
+
+/* The active milestone already supplies the date and title. Keep the companion area
+   focused on the archive images themselves. */
+.journey-gallery-copy {
+  display: none;
+}
+.journey-gallery-grid button {
+  background: transparent;
+}
+.journey-gallery-grid img,
+.journey-gallery-grid[data-count="2"] img,
+.journey-gallery-grid[data-count="3"] img,
+.journey-gallery-grid[data-count="4"] img {
+  height: auto;
+  min-height: 0;
+  aspect-ratio: auto;
+  object-fit: initial;
+}
+
+/* Each milestone has a different number of documents, so it needs its own editorial
+   composition rather than a generic equal-tile grid. All images stay uncropped. */
+@media (min-width: 901px) {
+  .journey-gallery-grid[data-count="2"] {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+  .journey-gallery-grid[data-count="2"] img {
+    height: 270px;
+  }
+  .journey-gallery-grid[data-count="3"] {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 22px;
+  }
+  .journey-gallery-grid[data-count="3"] button,
+  .journey-gallery-grid[data-count="4"] button {
+    width: 78%;
+  }
+  .journey-gallery-grid[data-count="3"] button:nth-child(odd),
+  .journey-gallery-grid[data-count="4"] button:nth-child(odd) {
+    justify-self: start;
+  }
+  .journey-gallery-grid[data-count="3"] button:nth-child(even),
+  .journey-gallery-grid[data-count="4"] button:nth-child(even) {
+    justify-self: end;
+    margin-top: 34px;
+  }
+  .journey-gallery-grid[data-count="3"] img,
+  .journey-gallery-grid[data-count="4"] img {
+    height: 220px;
+  }
+}
+.journey-gallery-image-wrap {
+  position: relative;
+  overflow: hidden;
+  min-height: 330px;
+  background: #3a3931;
+}
+.journey-gallery-image {
+  width: 100%;
+  height: clamp(330px, 34vw, 440px);
+  object-fit: cover;
+  object-position: center;
+  transition: opacity 240ms ease, transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.journey-gallery-image.is-changing {
+  opacity: 0.08;
+  transform: scale(1.025);
+}
+.journey-gallery-next {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 12px 14px;
+  border: 0;
+  background: #f7f4ed;
+  color: #692c39;
+  cursor: pointer;
+  font: 800 10px/1 var(--display);
+  letter-spacing: 0.08em;
+}
+.journey-gallery-next span {
+  color: #a96d56;
+  padding: 0 3px;
+}
+.journey-gallery-dots {
+  display: flex;
+  gap: 6px;
+}
+.journey-gallery-dots span {
+  display: block;
+  width: 18px;
+  height: 1px;
+  background: #6e7063;
+  transition: background-color 180ms ease, transform 180ms ease;
+}
+.journey-gallery-dots span.is-current {
+  background: #d28d70;
+  transform: scaleX(1.25);
+  transform-origin: left;
+}
+
+/* A compact contact sheet lets every supplied FPTU print stay visible without turning
+   the section into a horizontal strip. */
+.main-day-photobooths {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  align-items: start;
+  gap: clamp(9px, 1.1vw, 16px);
+  margin-top: clamp(28px, 3vw, 42px);
+}
+.main-day-photobooths button {
+  display: block;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: zoom-in;
+}
+.main-day-photobooths img {
+  width: 100%;
+  height: auto;
+  max-width: none;
+  aspect-ratio: 1 / 3;
+  object-fit: cover;
+  object-position: center;
+  box-shadow: 0 10px 22px rgb(55 42 35 / 0.11);
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+.main-day-photobooths button:hover img,
+.main-day-photobooths button:focus-visible img {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 28px rgb(55 42 35 / 0.18);
+}
+@media (min-width: 900px) {
+  .main-day-photobooths button:nth-child(13) {
+    grid-column: 3;
+  }
+  .main-day-photobooths button:nth-child(14) {
+    grid-column: 4;
+  }
+}
+
+@media (max-width: 900px) {
+  .journey-stage {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .journey-gallery {
+    position: static;
+    width: 100%;
+    max-width: none;
+    padding-left: 0;
+  }
+  .journey-gallery-image {
+    height: min(72vw, 440px);
+  }
+  .journey-gallery-grid img {
+    height: min(33vw, 250px);
+  }
+  .journey-gallery-grid[data-count="2"],
+  .journey-gallery-grid[data-count="3"],
+  .journey-gallery-grid[data-count="4"] {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+  .journey-gallery-grid[data-count="2"] img {
+    height: min(44vw, 300px);
+  }
+  .journey-gallery-grid[data-count="3"] button,
+  .journey-gallery-grid[data-count="4"] button {
+    width: 78%;
+  }
+  .journey-gallery-grid[data-count="3"] button:nth-child(odd),
+  .journey-gallery-grid[data-count="4"] button:nth-child(odd) {
+    justify-self: start;
+  }
+  .journey-gallery-grid[data-count="3"] button:nth-child(even),
+  .journey-gallery-grid[data-count="4"] button:nth-child(even) {
+    justify-self: end;
+    margin-top: 28px;
+  }
+  .main-day-photobooths {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+  .main-day-photobooths button:nth-child(13) {
+    grid-column: 3;
+  }
+  .main-day-photobooths button:nth-child(14) {
+    grid-column: 4;
+  }
+}
+@media (max-width: 600px) {
+  .language-toggle {
+    margin-left: 16px;
+    margin-right: 0;
+  }
+  .journey-gallery {
+    padding-left: 0;
+  }
+  .journey-gallery-image-wrap {
+    min-height: 260px;
+  }
+  .journey-gallery-image {
+    height: 62vw;
+    min-height: 260px;
+  }
+  .journey-gallery-grid img {
+    height: 34vw;
+    min-height: 108px;
+  }
+  .main-day-photobooths {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+  }
+  .main-day-photobooths button:nth-child(13) {
+    grid-column: 2;
+  }
+  .main-day-photobooths button:nth-child(14) {
+    grid-column: 3;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .journey .milestone[data-gallery] .milestone-copy,
+  .journey-gallery-image,
+  .journey-gallery-grid,
+  .journey-gallery-grid img,
+  .journey-gallery-dots span,
+  .main-day-photobooths img,
+  .language-toggle {
+    transition: none;
+  }
+}
+
+/* Final gallery composition overrides. */
+.journey-gallery-copy { display: none; }
+.journey-gallery-grid button { background: transparent; }
+.journey-gallery-grid img,
+.journey-gallery-grid[data-count="2"] img,
+.journey-gallery-grid[data-count="3"] img,
+.journey-gallery-grid[data-count="4"] img {
+  height: auto;
+  min-height: 0;
+  aspect-ratio: auto;
+  object-fit: initial;
+}
+.journey-gallery-grid[data-count="3"],
+.journey-gallery-grid[data-count="4"] {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px 32px;
+}
+.journey-gallery-grid[data-count="3"] button,
+.journey-gallery-grid[data-count="4"] button { width: 100%; margin: 0; }
+.journey-gallery-grid[data-count="3"] button:nth-child(even),
+.journey-gallery-grid[data-count="4"] button:nth-child(even) { margin-top: 38px; }
+.main-day-photobooths {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: clamp(12px, 1.35vw, 20px);
+}
+.main-day-photobooths button {
+  display: grid;
+  place-items: center;
+  height: clamp(250px, 19vw, 340px);
+}
+.main-day-photobooths img {
+  width: 100%; height: 100%; max-width: 100%; aspect-ratio: auto;
+  object-fit: contain;
+}
+@media (max-width: 600px) {
+  .journey-gallery-grid[data-count="3"],
+  .journey-gallery-grid[data-count="4"] { grid-template-columns: 1fr; gap: 18px; }
+  .journey-gallery-grid[data-count="3"] button,
+  .journey-gallery-grid[data-count="4"] button,
+  .journey-gallery-grid[data-count="3"] button:nth-child(even),
+  .journey-gallery-grid[data-count="4"] button:nth-child(even) { width: 100%; margin-top: 0; }
+  .main-day-photobooths button { height: 220px; }
+}
+
+/* Timeline images are documents. Preserve their exact source proportions. */
+.journey-gallery-copy {
+  display: none;
+}
+.journey-gallery-grid button {
+  background: transparent;
+}
+.journey-gallery-grid img,
+.journey-gallery-grid[data-count="2"] img,
+.journey-gallery-grid[data-count="3"] img,
+.journey-gallery-grid[data-count="4"] img {
+  height: auto;
+  min-height: 0;
+  aspect-ratio: auto;
+  object-fit: initial;
+}
+
+/* Large vertical sequence for the archive evidence. */
+.journey-gallery-grid[data-count="3"],
+.journey-gallery-grid[data-count="4"] { display: block; }
+.journey-gallery-grid[data-count="3"] button,
+.journey-gallery-grid[data-count="4"] button {
+  display: block;
+  width: 82%;
+  margin: 0 0 34px;
+}
+.journey-gallery-grid[data-count="3"] button:nth-child(even),
+.journey-gallery-grid[data-count="4"] button:nth-child(even) { margin-left: auto; }
+.journey-gallery-grid[data-count="3"] button:nth-child(odd),
+.journey-gallery-grid[data-count="4"] button:nth-child(odd) { margin-right: auto; }
+
+/* Final photobooth contact sheet: a centered 4 / 5 / 4 arrangement. */
+.main-day-photobooths {
+  display: grid;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+  grid-template-rows: none;
+  grid-auto-flow: row;
+  align-items: start;
+  gap: clamp(14px, 1.6vw, 24px);
+  overflow: visible;
+}
+.main-day-photobooths button,
+.main-day-photobooths button:nth-child(n) {
+  display: block;
+  grid-column: span 2 !important;
+  grid-row: auto !important;
+  width: 100%;
+  height: auto !important;
+  min-height: 0;
+  margin: 0;
+}
+/* First and third rows are centered; the middle row uses the full width. */
+.main-day-photobooths button:nth-child(1)  { grid-column: 2 / span 2 !important; grid-row: 1 !important; }
+.main-day-photobooths button:nth-child(2)  { grid-column: 4 / span 2 !important; grid-row: 1 !important; }
+.main-day-photobooths button:nth-child(3)  { grid-column: 6 / span 2 !important; grid-row: 1 !important; }
+.main-day-photobooths button:nth-child(4)  { grid-column: 8 / span 2 !important; grid-row: 1 !important; }
+.main-day-photobooths button:nth-child(5)  { grid-column: 1 / span 2 !important; grid-row: 2 !important; }
+.main-day-photobooths button:nth-child(6)  { grid-column: 3 / span 2 !important; grid-row: 2 !important; }
+.main-day-photobooths button:nth-child(7)  { grid-column: 5 / span 2 !important; grid-row: 2 !important; }
+.main-day-photobooths button:nth-child(8)  { grid-column: 7 / span 2 !important; grid-row: 2 !important; }
+.main-day-photobooths button:nth-child(9)  { grid-column: 9 / span 2 !important; grid-row: 2 !important; }
+.main-day-photobooths button:nth-child(10) { grid-column: 2 / span 2 !important; grid-row: 3 !important; }
+.main-day-photobooths button:nth-child(11) { grid-column: 4 / span 2 !important; grid-row: 3 !important; }
+.main-day-photobooths button:nth-child(12) { grid-column: 6 / span 2 !important; grid-row: 3 !important; }
+.main-day-photobooths button:nth-child(13) { grid-column: 8 / span 2 !important; grid-row: 3 !important; }
+.main-day-photobooths img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  aspect-ratio: auto;
+  object-fit: contain;
+}
+@media (max-width: 800px) {
+  .main-day-photobooths { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .main-day-photobooths button,
+  .main-day-photobooths button:nth-child(n) {
+    grid-column: auto !important;
+    grid-row: auto !important;
+  }
+}
+@media (max-width: 440px) {
+  .main-day-photobooths { grid-template-columns: 1fr; }
+}
+
+/* Financial evidence and chart: source documents remain readable, while the
+   summary presents the reconciled totals without hiding the 2,222đ adjustment. */
+.finance-evidence {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 22px;
+}
+.finance-evidence button {
+  padding: 0;
+  border: 1px solid var(--line);
+  background: #fffdf8;
+  cursor: zoom-in;
+}
+.finance-evidence img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: top;
+}
+.finance-chart {
+  margin: clamp(52px, 7vw, 88px) 0 0;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+}
+.finance-chart figcaption {
+  max-width: 570px;
+}
+.finance-chart h3 {
+  margin: 10px 0;
+  font: 700 clamp(28px, 3.5vw, 46px) / 1 var(--display);
+  letter-spacing: -0.06em;
+}
+.finance-chart figcaption > p:last-child,
+.chart-note {
+  margin: 0;
+  color: #5e5a54;
+  font-size: 14px;
+}
+.chart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin: 26px 0 8px;
+  font: 700 11px/1 var(--display);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.chart-legend span::before {
+  content: "";
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  margin-right: 7px;
+  background: var(--terra);
+}
+.chart-legend .legend-cost::before { background: var(--olive); }
+.chart-legend .legend-profit::before {
+  width: 17px;
+  height: 2px;
+  vertical-align: middle;
+  background: #692c39;
+}
+.finance-chart-graphic {
+  display: block;
+  width: 100%;
+  max-width: 920px;
+  height: auto;
+  overflow: visible;
+}
+.chart-grid path {
+  stroke: var(--line);
+  stroke-width: 1;
+}
+.chart-income { fill: var(--terra); }
+.chart-cost { fill: var(--olive); }
+.chart-profit-line {
+  fill: none;
+  stroke: #692c39;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.chart-profit-points circle { fill: #692c39; }
+.chart-labels text {
+  fill: #4e4b45;
+  font: 600 12px var(--sans);
+  text-anchor: middle;
+}
+.chart-note { margin-top: 6px; }
+@media (max-width: 600px) {
+  .finance-evidence { grid-template-columns: 1fr; }
+  .finance-evidence img { aspect-ratio: 16 / 9; }
+  .finance-chart { margin-top: 46px; }
+  .chart-labels text { font-size: 14px; }
+}
+
+/* The combined chart replaces the old progress bars in the finance column. */
+.finance .finance-chart {
+  margin: 0;
+  padding-top: 0;
+  border-top: 0;
+}
+.finance-evidence {
+  width: 100vw;
+  margin: clamp(46px, 6vw, 80px) calc(50% - 50vw) 0;
+  padding: 0;
+  gap: 0;
+}
+.finance-evidence button { border: 0; }
+.finance-evidence img {
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: contain;
+}
+@media (max-width: 800px) {
+  .finance .finance-chart { margin-top: 42px; }
+  .finance-evidence {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0;
+  }
+}
+
+/* A direct paired-bar comparison keeps the finance visual compact and readable. */
+.finance .chart-legend {
+  margin: 0 0 22px;
+}
+.chart-comparison {
+  display: grid;
+  gap: 20px;
+}
+.comparison-row {
+  display: grid;
+  grid-template-columns: 104px minmax(0, 1fr);
+  gap: 14px;
+  align-items: center;
+  color: #37342f;
+  font-size: 13px;
+}
+.comparison-bars {
+  display: grid;
+  gap: 8px;
+}
+.comparison-bar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 9px;
+  align-items: center;
+  min-width: 0;
+}
+.comparison-bar i {
+  display: block;
+  width: var(--value);
+  height: 11px;
+  min-width: 1px;
+  background: var(--terra);
+}
+.comparison-bar.cost i { background: var(--olive); }
+.comparison-bar b {
+  white-space: nowrap;
+  font: 700 11px/1 var(--display);
+}
+@media (max-width: 460px) {
+  .comparison-row { grid-template-columns: 1fr; gap: 7px; }
+}
+
+/* Lock the thirteen FPTU prints to the intended centred 4 / 5 / 4 layout. */
+.main-day-photobooths {
+  display: grid !important;
+  grid-template-columns: repeat(10, minmax(0, 1fr)) !important;
+  grid-template-rows: none !important;
+  grid-auto-flow: row !important;
+  align-items: start !important;
+  gap: clamp(14px, 1.6vw, 24px) !important;
+  height: auto !important;
+  overflow: visible !important;
+}
+.main-day-photobooths button,
+.main-day-photobooths button:nth-child(n) {
+  display: block !important;
+  grid-column: span 2 !important;
+  grid-row: auto !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.main-day-photobooths button:nth-child(1)  { grid-column: 2 / span 2 !important; grid-row: 1 !important; }
+.main-day-photobooths button:nth-child(2)  { grid-column: 4 / span 2 !important; grid-row: 1 !important; }
+.main-day-photobooths button:nth-child(3)  { grid-column: 6 / span 2 !important; grid-row: 1 !important; }
+.main-day-photobooths button:nth-child(4)  { grid-column: 8 / span 2 !important; grid-row: 1 !important; }
+.main-day-photobooths button:nth-child(5)  { grid-column: 1 / span 2 !important; grid-row: 2 !important; }
+.main-day-photobooths button:nth-child(6)  { grid-column: 3 / span 2 !important; grid-row: 2 !important; }
+.main-day-photobooths button:nth-child(7)  { grid-column: 5 / span 2 !important; grid-row: 2 !important; }
+.main-day-photobooths button:nth-child(8)  { grid-column: 7 / span 2 !important; grid-row: 2 !important; }
+.main-day-photobooths button:nth-child(9)  { grid-column: 9 / span 2 !important; grid-row: 2 !important; }
+.main-day-photobooths button:nth-child(10) { grid-column: 2 / span 2 !important; grid-row: 3 !important; }
+.main-day-photobooths button:nth-child(11) { grid-column: 4 / span 2 !important; grid-row: 3 !important; }
+.main-day-photobooths button:nth-child(12) { grid-column: 6 / span 2 !important; grid-row: 3 !important; }
+.main-day-photobooths button:nth-child(13) { grid-column: 8 / span 2 !important; grid-row: 3 !important; }
+.main-day-photobooths img {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  aspect-ratio: auto !important;
+  object-fit: contain !important;
+}
+@media (max-width: 800px) {
+  .main-day-photobooths { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  .main-day-photobooths button,
+  .main-day-photobooths button:nth-child(n) { grid-column: auto !important; grid-row: auto !important; }
+}
+@media (max-width: 440px) {
+  .main-day-photobooths { grid-template-columns: 1fr !important; }
+}
+
+/* Six Kindness Fieldtrip photos: the three supplied code-6 images lead the
+   existing archive images in a straightforward 3 × 2 contact sheet. */
+.fieldtrip-gallery {
+  height: auto;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: repeat(2, auto);
+  gap: clamp(10px, 1.2vw, 18px);
+}
+.fieldtrip-gallery .tour-image,
+.fieldtrip-gallery .fieldtrip-hall,
+.fieldtrip-gallery .fieldtrip-activity,
+.fieldtrip-gallery .fieldtrip-visit {
+  grid-column: auto;
+  grid-row: auto;
+  height: auto;
+}
+.fieldtrip-gallery .tour-image img {
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+@media (max-width: 700px) {
+  .fieldtrip-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: none;
+  }
+}
+@media (max-width: 440px) {
+  .fieldtrip-gallery { grid-template-columns: 1fr; }
+}
+
+/* Team records retain their individual task lines and show the supplied code
+   and assessment consistently for each member. */
+.member-meta {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  margin: 0 0 14px;
+  padding: 9px 0;
+  border-top: 1px solid #6e7063;
+  border-bottom: 1px solid #6e7063;
+  color: #f7f4ed;
+  font: 700 12px/1.2 var(--display);
+}
+.member-meta span:last-child { text-align: right; }
+.member-meta small {
+  display: block;
+  margin-bottom: 3px;
+  color: #c6c9ae;
+  font: 800 9px/1 var(--display);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.member p { line-height: 1.65; }
+
+/* Closing section: a flush 6 × 2 photobooth collage replaces the single image. */
+.closing-collage {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 2px;
+  overflow: hidden;
+  background: #141411;
+}
+.closing-collage img {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  object-position: center;
+}
+.closing::after {
+  background: linear-gradient(0deg, rgb(12 12 10 / 0.94), rgb(12 12 10 / 0.62));
+}
+@media (max-width: 800px) {
+  .closing-collage { grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: repeat(4, minmax(0, 1fr)); }
+}
+
+/* With the project summary removed, the opening quote stands on its own. */
+.hero-text { display: block; }
+.hero-text .quote { max-width: 630px; }
+
