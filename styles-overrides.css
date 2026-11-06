@@ -4095,3 +4095,48 @@ body.motion-ready .main-day .motion-support {
 .lightbox.is-dragging img {
   cursor: grabbing;
 }
+
+/* Final Section 06 evidence row: three natural-height documents. */
+#impact .finance-evidence {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: none;
+  align-items: start;
+  gap: 18px;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  min-height: 0;
+  margin: 0;
+}
+#impact .finance-evidence button,
+#impact .finance-evidence button:first-child,
+#impact .finance-evidence button:nth-child(2),
+#impact .finance-evidence button:nth-child(3) {
+  display: block;
+  grid-column: auto;
+  grid-row: auto;
+  align-self: start;
+  width: 100%;
+  height: auto;
+  min-width: 0;
+  min-height: 0;
+  padding: 0;
+  overflow: visible;
+}
+#impact .finance-evidence img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  object-fit: contain;
+  object-position: top center;
+}
+@media (max-width: 700px) {
+  #impact .finance-evidence {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
